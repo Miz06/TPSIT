@@ -1,23 +1,19 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(int agrc, char *argv[])
+void Palindroma(char string[])
 {
-    char stringa[100]; 
-    char *q; 
     int palindroma = 1; 
+    char *q; 
 
-    printf("Inserire una stringa:");
-    scanf("%s", stringa);  
-
-    for(int i = 0; i<strlen(stringa); i++)
+    for(int i = 0; i<strlen(string); i++)
     {
-        q = &stringa[i]; 
+        q = &string[i]; 
 
-        if(*q != stringa[strlen(stringa)-1-i])
+        if(*q != string[strlen(string)-1-i])
         {
             palindroma = 0; 
-            i=strlen(stringa); 
+            i=strlen(string); 
         }
     }
 
@@ -29,5 +25,16 @@ int main(int agrc, char *argv[])
     {
         printf("La parola è palindroma\n"); 
     }
+}
 
+int main(int agrc, char *argv[])
+{
+    char stringa[100]; 
+
+    printf("Inserire una stringa:");
+    scanf("%s", stringa);  
+
+    Palindroma(stringa); 
+
+    return 0; 
 }
