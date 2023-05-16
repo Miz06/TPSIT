@@ -2,7 +2,7 @@
 #include <string.h>
 
 int main(int agrc, char *argv[])
-{//Alessandro Mizzon 
+{
     char stringa[100]; 
     char *q; 
     int palindroma = 1; 
