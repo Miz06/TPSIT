@@ -1,0 +1,8 @@
+C:\Users\aless\OneDrive\Desktop\scuola\S.T.A\Visual_studio\TargaSistemi\TargaSistemi\bin\Debug\TargaSistemi.exe.config
+C:\Users\aless\OneDrive\Desktop\scuola\S.T.A\Visual_studio\TargaSistemi\TargaSistemi\bin\Debug\TargaSistemi.exe
+C:\Users\aless\OneDrive\Desktop\scuola\S.T.A\Visual_studio\TargaSistemi\TargaSistemi\bin\Debug\TargaSistemi.pdb
+C:\Users\aless\OneDrive\Desktop\scuola\S.T.A\Visual_studio\TargaSistemi\TargaSistemi\obj\Debug\TargaSistemi.csproj.AssemblyReference.cache
+C:\Users\aless\OneDrive\Desktop\scuola\S.T.A\Visual_studio\TargaSistemi\TargaSistemi\obj\Debug\TargaSistemi.csproj.SuggestedBindingRedirects.cache
+C:\Users\aless\OneDrive\Desktop\scuola\S.T.A\Visual_studio\TargaSistemi\TargaSistemi\obj\Debug\TargaSistemi.csproj.CoreCompileInputs.cache
+C:\Users\aless\OneDrive\Desktop\scuola\S.T.A\Visual_studio\TargaSistemi\TargaSistemi\obj\Debug\TargaSistemi.exe
+C:\Users\aless\OneDrive\Desktop\scuola\S.T.A\Visual_studio\TargaSistemi\TargaSistemi\obj\Debug\TargaSistemi.pdb
