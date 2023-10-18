@@ -23,38 +23,60 @@ NELL'IMPLEMENTAZIONE E' OBBLIGATORIO L'UTILIZZO DEI PUNTATORI*/
         
     void Inserimento(libro *array[], int i)
     {
-            printf("Inserire il titolo del %d° libro: ", i+1); 
-            scanf("%s\n", array[i]->titolo); 
-            printf("Inserire l'autore del %d° libro: ", i+1);
-            scanf("%s\n", array[i]->autore); 
-            printf("Inserire il prezzo %d° libro: ", i+1);
-            scanf("%f\n", &array[i]->prezzo);
+            printf("Inserire il titolo del %d° libro: \n", i+1); 
+            scanf("%s", array[i]->titolo); 
+            printf("Inserire l'autore del %d° libro: \n", i+1);
+            scanf("%s", array[i]->autore); 
+            printf("Inserire il prezzo %d° libro: \n", i+1);
+            scanf("%f", &array[i]->prezzo);
     }
 
     void Visualizzazione(libro *array[], int lung)
     {
         for(int i = 0; i<lung; i++)
         {
-            printf("Libro %d", i+1);
-            printf("Ttitolo: %s\n", array[i]->titolo);
+            printf("--------------------\n"); 
+            printf("Libro %d\n", i+1);
+            printf("Titolo: %s\n", array[i]->titolo);
             printf("Autore: %s\n", array[i]->autore);
             printf("Prezzo: %.2f\n", array[i]->prezzo);
+            printf("--------------------\n"); 
+        }
+    }
+
+    void Sconto(libro *array[], int lunghezza)
+    {
+        float sconto;
+        printf("Inserire lo sconto da applicare ai libri:\n");
+        scanf("%f", &sconto); 
+
+        for(int i = 0; i<lunghezza; i++)
+        {
+            array[i]->prezzo = array[i]->prezzo-((array[i]->prezzo)/100)*sconto; 
         }
     }
 
     int main()
-    {
+    { //Alessandro Mizzon 4E
         const int lung = 3;
-        
+        float sconto;
         libro *biblioteca[lung]; 
         
         for(int i = 0; i<lung; i++)
         {
-            biblioteca[i] = (libro *)malloc(lung * sizeof(libro));
+            biblioteca[i] = ((libro *)malloc(sizeof(libro)));
             Inserimento(biblioteca, i);
         }
 
         Visualizzazione(biblioteca, lung); 
 
+        Sconto(biblioteca, lung);
+
+        Visualizzazione(biblioteca, lung); 
+
+        for(int i = 0; i<lung; i++)
+        {
+            free(biblioteca[i]);
+        }
     return 0; 
-}
+    }
