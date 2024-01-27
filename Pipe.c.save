@@ -1,0 +1,116 @@
+Google ClassroomClassroom
+TPSIT 4E a.s. 2023/244E
+Home page
+Calendario
+I tuoi corsi
+Da fare
+T
+Tutor Orientamento Scorzoni
+4
+4E 23 24 Prof. Malengo
+sabato 9,30 (1F M) coordinatore Spiller
+4
+4E Telecomunicazioni
+2023-2024
+S
+Sistemi e Reti 4E 2023/24
+I
+Informatica 4E a.s. 2023/24
+4E
+4
+4E mate a.s. 2023_24
+T
+TPSIT 4E a.s. 2023/24
+4E
+L
+LINGUA INGLESE 4E
+ITC
+4
+4E lingua e letteratura italiana
+3
+3E Telecomunicazioni
+2022-2023
+Corsi archiviati
+Impostazioni
+pipe_1.c
+Dettagli del materiale
+pipe_1.c
+Valeria Paiola
+•
+25 gen
+Vi allego il file del primo esercizio pratico sulle pipe che abbiamo visto in laboratorio nella mattinata odierna.
+pipe_1.c
+C
+Commenti sul corso
+Aggiungi commento sul corso…
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<string.h>
+#include<sys/wait.h>
+
+#define BUFFER_SIZE 1024
+/*OBIETTIVO: far comunicare padre e figlio attraverso una pipe ossia
+             il padre scive un messaggio nella pipe e
+			 il figlio lo legge dalla pipe*/
+
+int main()
+{
+	//dichiarazione var
+	int p;
+	int fd[2];
+	//char buffer[BUFFER_SIZE];
+	int n;
+	int status;
+	if(pipe(fd) == -1) //N.B. La pipe e' SINCRONA !!!
+	{
+		printf("\nErrore creazione pipe");
+		exit(-1); //esco dal prg
+	}
+
+	p=fork(); //padre genera figlio
+	if (p<0)
+	{
+		printf("\nErrore generazione figlio");
+	}
+
+	if(p>0) //padre
+	{
+		printf("\nSono il padre: il mio PID=%d, mio figlio ha PID=%d\n", getpid(), p);
+		close(fd[0]); //padre chiude pipe in lettura (output pipe)
+		
+		const char* messaggio="Buona fortuna\n";
+		if( write(fd[1], messaggio,  strlen(messaggio)) == -1)
+		{
+			printf("\nErrore di scrittura nella pipe");
+			close(fd[1]); //bisogna sempre chiudere il fd
+			exit(-1);
+		}
+		close(fd[1]);
+		wait(&status); /*padre attende la terminazione figlio 
+		                 altrimenti rimarrebbe un figlio zombie*/
+	}
+	else //figlio
+	{
+		char buffer[BUFFER_SIZE];
+
+		printf("\nSono il figlio: il mio PID=%d, mio padre ha PID=%d\n", getpid(), getppid());
+		close(fd[1]);
+		n=read(fd[0], buffer, BUFFER_SIZE);
+		if(n==-1)
+		{
+			printf("\nErrore nella lettura della pipe");
+			close(fd[0]); //bisogna sempre chiudere il fd
+			exit(-1);
+		}
+		else 
+		{
+			buffer[n]='\0';	
+			printf("\nMessaggio letto: %s", buffer);
+			close(fd[0]);
+		}
+	}
+
+	return 0;
+}
