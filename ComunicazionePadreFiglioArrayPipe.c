@@ -36,6 +36,7 @@ int main(int argc, char* argv[])
 
             int arr2[l];
             read(fd[0], arr2, sizeof(arr2));
+            close(fd[0]);
 
             int n;
             printf("Per quanto moltiplicare gli elementi dell'array? ");
