@@ -41,6 +41,8 @@ int main(int argc, char* argv[])
             {
                 printf("[%d] >> %d\n", i, arr2[i]);
             }
+
+            wait(&status);
         }
         else if(p == 0)
         {
@@ -63,6 +65,4 @@ int main(int argc, char* argv[])
             close(fd[1]);
         }
     }
-    
-
 }
