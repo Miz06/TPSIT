@@ -37,11 +37,16 @@ int main(int argc, char* argv[])
             int arr2[l];
             read(fd[0], arr2, sizeof(arr2));
 
+            int n;
+            printf("Per quanto moltiplicare gli elementi dell'array? ");
+            scanf("%d", &n);
+
             for (int i = 0; i<l; i++)
             {
+                arr2[i] = arr2[i]*n;
                 printf("[%d] >> %d\n", i, arr2[i]);
             }
-
+            
             wait(&status);
         }
         else if(p == 0)
