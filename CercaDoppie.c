@@ -4,7 +4,7 @@ int main() //Alessandro Mizzon
 {
     char parola[100]; 
     int i = 1; 
-    bool doppia = false;
+    bool doppia = false; 
 
     printf("Inserire una parola: ");
     scanf("%s", parola);
