@@ -38,3 +38,4 @@ A stack pointer register tracks the top of the stack (i.e., how much of the stac
 
 – Heap: Heap is the segment where dynamic memory allocation usually takes place, i.e., to allocate memory requested by the programmer for variables whose size can be only known at run-time and cannot be statically determined by the compiler before program execution. The heap area begins at the end of the BSS segment and grows upwards to higher memory addresses. It is managed by malloc/new, free/delete, which may use the brk and sbrk system calls to adjust its size.
 This area is shared by all shared libraries and dynamically loaded modules in a process.
+
