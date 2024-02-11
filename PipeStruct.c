@@ -39,9 +39,9 @@ int main(int argc, char *argv[])
 
         for(int i = 0; i<2; i++) 
         {
-        write(fd[1], l[i].autore, sizeof(l[i].autore));      
-        write(fd[1], l[i].autore, sizeof(l[i].autore));
-        write(fd[1], &l[i].prezzo, sizeof(l[i].prezzo));
+            write(fd[1], l[i].autore, sizeof(l[i].autore));      
+            write(fd[1], l[i].autore, sizeof(l[i].autore));
+            write(fd[1], &l[i].prezzo, sizeof(l[i].prezzo));
         } 
 
         close(fd[1]);
@@ -56,18 +56,18 @@ int main(int argc, char *argv[])
 
         for(int i = 0; i<2; i++) 
         {
-        read(fd[0], l[i].autore, sizeof(l[i].autore));      
-        read(fd[0], l[i].autore, sizeof(l[i].autore));
-        read(fd[0], &l[i].prezzo, sizeof(l[i].prezzo));
+            read(fd[0], l[i].autore, sizeof(l[i].autore));      
+            read(fd[0], l[i].autore, sizeof(l[i].autore));
+            read(fd[0], &l[i].prezzo, sizeof(l[i].prezzo));
         }
 
         close(fd[0]);
 
         for(int i = 0; i<2; i++) 
         {
-        printf("Titolo: %s\n", l[i].titolo);
-        printf("Autore: %s\n", l[i].autore);
-        printf("Prezzo: %f\n", l[i].prezzo);
+            printf("Titolo: %s\n", l[i].titolo);
+            printf("Autore: %s\n", l[i].autore);
+            printf("Prezzo: %f\n", l[i].prezzo);
         } 
 
     }
