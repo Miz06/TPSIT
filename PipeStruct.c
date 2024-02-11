@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
     int p, status;
     int fd[2];
-    libro l, l2;
+    libro l[2];
 
     if(pipe(fd) < 0)
     {
@@ -27,13 +27,13 @@ int main(int argc, char *argv[])
 
     if(p > 0)
     {
-        strcpy(l.titolo, "Libro1");
-        strcpy(l.autore, "Autore1");
-        l.prezzo = 4.99;
+        strcpy(l[0].titolo, "Libro1");
+        strcpy(l[0].autore, "Autore1");
+        l[0].prezzo = 4.99;
 
-        strcpy(l2.titolo, "Libro2");
-        strcpy(l2.autore, "Autore2");
-        l2.prezzo = 8.99;
+        strcpy(l[1].titolo, "Libro2");
+        strcpy(l[1].autore, "Autore2");
+        l[1].prezzo = 8.99;
 
         close(fd[0]);
 
