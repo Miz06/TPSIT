@@ -4,11 +4,9 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX 30
-
 typedef struct{
-    char titolo[MAX];
-    char autore[MAX];
+    char titolo[30];
+    char autore[30];
     float prezzo;
 }libro;
 
@@ -17,7 +15,7 @@ int main(int argc, char *argv[])
 {
     int p, status;
     int fd[2];
-    libro l;
+    libro l, l2;
 
     if(pipe(fd) < 0)
     {
@@ -33,10 +31,19 @@ int main(int argc, char *argv[])
         strcpy(l.autore, "Autore1");
         l.prezzo = 4.99;
 
+        strcpy(l2.titolo, "Libro2");
+        strcpy(l2.autore, "Autore2");
+        l2.prezzo = 8.99;
+
         close(fd[0]);
-        write(fd[1], l.titolo, sizeof(l.titolo));
-        write(fd[1], l.autore, sizeof(l.autore));
-        write(fd[1], &l.prezzo, sizeof(l.prezzo));
+
+        for(int i = 0; i<2; i++) 
+        {
+        write(fd[1], l[i].autore, sizeof(l[i].autore));      
+        write(fd[1], l[i].autore, sizeof(l[i].autore));
+        write(fd[1], &l[i].prezzo, sizeof(l[i].prezzo));
+        } 
+
         close(fd[1]);
 
         wait(&status);
@@ -46,14 +53,22 @@ int main(int argc, char *argv[])
         libro l;
 
         close(fd[1]);
-        read(fd[0], l.titolo, sizeof(l.titolo));
-        read(fd[0], l.autore, sizeof(l.autore));
-        read(fd[0], &l.prezzo, sizeof(l.prezzo));
+
+        for(int i = 0; i<2; i++) 
+        {
+        read(fd[0], l[i].autore, sizeof(l[i].autore));      
+        read(fd[0], l[i].autore, sizeof(l[i].autore));
+        read(fd[0], &l[i].prezzo, sizeof(l[i].prezzo));
+        }
+
         close(fd[0]);
 
-        printf("Titolo: %s\n", l.titolo);
-        printf("Autore: %s\n", l.autore);
-        printf("Prezzo: %f\n", l.prezzo);
+        for(int i = 0; i<2; i++) 
+        {
+        printf("Titolo: %s\n", l[i].titolo);
+        printf("Autore: %s\n", l[i].autore);
+        printf("Prezzo: %f\n", l[i].prezzo);
+        } 
 
     }
     else
