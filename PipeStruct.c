@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 
         for(int i = 0; i<2; i++) 
         {
-            write(fd[1], l[i].autore, sizeof(l[i].autore));      
+            write(fd[1], l[i].titolo, sizeof(l[i].titolo));      
             write(fd[1], l[i].autore, sizeof(l[i].autore));
             write(fd[1], &l[i].prezzo, sizeof(l[i].prezzo));
         } 
@@ -50,13 +50,12 @@ int main(int argc, char *argv[])
     }
     else if(p == 0)
     {
-        libro l;
 
         close(fd[1]);
 
         for(int i = 0; i<2; i++) 
         {
-            read(fd[0], l[i].autore, sizeof(l[i].autore));      
+            read(fd[0], l[i].titolo, sizeof(l[i].titolo));      
             read(fd[0], l[i].autore, sizeof(l[i].autore));
             read(fd[0], &l[i].prezzo, sizeof(l[i].prezzo));
         }
@@ -65,6 +64,7 @@ int main(int argc, char *argv[])
 
         for(int i = 0; i<2; i++) 
         {
+            printf("\n^^^^^^^^^^^^^^^\n");
             printf("Titolo: %s\n", l[i].titolo);
             printf("Autore: %s\n", l[i].autore);
             printf("Prezzo: %f\n", l[i].prezzo);
@@ -75,5 +75,6 @@ int main(int argc, char *argv[])
     {
         perror("Errore nel corso della creazione della fork.");
     }
+    
     return 0;
 }
