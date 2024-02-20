@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
     int fd;
 
-    if (mkfifo("Fifo", 0777) == -1)
+    if (mkfifo("sum", 0777) == -1)
     {
         if(errno != EEXIST)
         {
@@ -21,32 +21,18 @@ int main(int argc, char *argv[])
             exit(1);
         }
     }
-
+    
     srand(time(NULL));
     int numbers[5];
 
-//////////////////////////
-
-    fd = open("Fifo", O_WRONLY);
+    fd = open("sum", O_WRONLY);
 
     for (int i = 0; i<5; i++)
     {
-        numbers[i] = rand() % 99 +1;
+        numbers[i] = rand() % 99 +0;
     }
     
     write(fd, &numbers, sizeof(numbers));
-    close(fd);
-
-//////////////////////
-    fd = open("Fifo", O_RDONLY);
-
-    read(fd, &numbers, sizeof(numbers));
-
-    for(int i = 0; i<5; i++)
-    {
-        printf("numero %d: %d\n", i, numbers[i]);
-    }
-
     close(fd);
 
 }
