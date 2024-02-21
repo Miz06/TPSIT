@@ -12,7 +12,8 @@
 int main(int argc, char *argv[])
 {
     int fd;
-
+    
+        /*
     if (mkfifo("sum", 0777) == -1)
     {
         if(errno != EEXIST)
@@ -21,7 +22,8 @@ int main(int argc, char *argv[])
             exit(1);
         }
     }
-    
+    */
+   
     int numbers[5];
     int somma = 0;
 
