@@ -19,7 +19,7 @@ NELL'IMPLEMENTAZIONE E' OBBLIGATORIO L'UTILIZZO DEI PUNTATORI*/
         char titolo[50];
         char autore[50]; 
         float prezzo;
-    }libro; 
+    }libro;
         
     void Inserimento(libro *array[], int i)
     {
