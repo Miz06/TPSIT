@@ -11,7 +11,7 @@
 
 int main(int argc, char *argv[])
 {
-    int fd;
+    int fd;//fd è il file descriptor (handle)
 
     /* 
     if (mkfifo("sum", 0777) == -1)
@@ -23,18 +23,24 @@ int main(int argc, char *argv[])
         }
     }
     */
-    
-    srand(time(NULL));
+
     int numbers[5];
 
     fd = open("sum", O_WRONLY);
 
+    if(fd == -1)
+    {
+        perror("Errore nell'apertura della fifo.");
+        close(fd);
+        exit(1);
+    }
+
     for (int i = 0; i<5; i++)
     {
-        numbers[i] = rand() % 99 +0;
+        numbers[i] = rand() % 100;
     }
     
-    write(fd, &numbers, sizeof(numbers));
+    write(fd, numbers, sizeof(numbers));
     close(fd);
 
 }
