@@ -16,17 +16,6 @@ int main(int argc, char *argv[])
     //la fifo come la pipe è sincrona, di conseguenza una volta che il consumatore tenta di leggere la fifo e non trova niente
     //attende la scrittura del produttore
     
-    /*
-    if (mkfifo("sum", 0777) == -1)
-    {
-        if(errno != EEXIST)
-        {
-            perror("Errore nella creazione della fifo.");
-            exit(1);
-        }
-    }
-    */
-   
     int numbers[5];
     int somma = 0;
 
