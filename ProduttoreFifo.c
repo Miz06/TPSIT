@@ -11,30 +11,28 @@
 
 int main(int argc, char *argv[])
 {
-    int fd;
+    int fd;//fd è il file descriptor (handle)
 
-    /* 
-    if (mkfifo("sum", 0777) == -1)
-    {
-        if(errno != EEXIST)
-        {
-            perror("Errore nella creazione della fifo.");
-            exit(1);
-        }
-    }
-    */
-    
-    srand(time(NULL));
+    //la fifo una volta creata da terminale (mkfifo nome_fifo) non va più creata
+    //=> risulta un errore crearla ad ogni utilizzo del codice
+
     int numbers[5];
 
     fd = open("sum", O_WRONLY);
 
+    if(fd == -1)
+    {
+        perror("Errore nell'apertura della fifo.");
+        close(fd);
+        exit(1);
+    }
+
     for (int i = 0; i<5; i++)
     {
-        numbers[i] = rand() % 99 +0;
+        numbers[i] = rand() % 100;
     }
     
-    write(fd, &numbers, sizeof(numbers));
+    write(fd, numbers, sizeof(numbers));
     close(fd);
 
 }

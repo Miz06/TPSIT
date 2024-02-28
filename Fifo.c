@@ -29,7 +29,6 @@ int main(int argc, char *argv[])
     int x = 90;
     fd = open("MyFifo1", O_WRONLY); //fd == 1 in quanto la FIFO è aperta in scrittura
     printf("FIFO aperta");
-    close(fd);
 
     if(write(fd, &x, sizeof(x)) == -1)
     {
