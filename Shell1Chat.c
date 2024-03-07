@@ -12,6 +12,11 @@
 #include <fcntl.h>
 
 #define MESSAGE_MAX_LEN 1024
+
+#define RED     "\x1b[31m"
+#define GREEN   "\x1b[32m"
+#define RESET   "\x1b[0m"
+
 int main(int argc, char *argv[])
 {//nome fifo = Chat
     int fd, p, status;
@@ -29,8 +34,17 @@ int main(int argc, char *argv[])
 
         while(1)
         {
+            printf(RED);
             scanf("%s", buffer);
+            printf(RESET);
             write(fd, buffer, sizeof(buffer));
+            
+            if(strcmp(buffer, "HALT") == 0)
+            {
+                printf("Fine programma");
+                close(fd);
+                exit(3);
+            }
         }
     }else if(p == 0)
     {
@@ -44,15 +58,15 @@ int main(int argc, char *argv[])
         {
             read(fd, buffer, sizeof(buffer));
 
-            if(strcmp(buffer, "HALT"))
+            if(strcmp(buffer, "HALT") == 0)
             {
                 printf("Fine programma");
                 close(fd);
-                exit(3);
+                exit(4);
             }
             else
             {
-                printf("%s\n", buffer);
+                printf(GREEN "%s\n" RESET, buffer);
             }
         }
     }
