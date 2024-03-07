@@ -21,31 +21,40 @@ int main(int argc, char *argv[])
 
     if(p>0)
     {
-        wait(&status);
-
-        if((fd = open("Chat", O_WRONLY)) == -1)
+        if((fd = open("FifoChat1", O_WRONLY)) == -1)
         {
             perror("Errore nell'apertura della fifo in scrittura");
             exit(1);
         }
 
-        scanf("\n%s", buffer);
-        write(fd, buffer, sizeof(buffer));
-
-        close(fd);
-
+        while(1)
+        {
+            scanf("%s", buffer);
+            write(fd, buffer, sizeof(buffer));
+        }
     }else if(p == 0)
     {
-        if((fd = open("Chat", O_RDONLY)) == -1)
+        if((fd = open("FifoChat2", O_RDONLY)) == -1)
         {
             perror("Errore nell'apertura della fifo in lettura");
             exit(-1);
         }
 
-        read(fd, buffer, sizeof(buffer));
-        printf("%s", buffer);
+        while(1)
+        {
+            read(fd, buffer, sizeof(buffer));
 
-        close(fd);
+            if(strcmp(buffer, "HALT"))
+            {
+                printf("Fine programma");
+                close(fd);
+                exit(3);
+            }
+            else
+            {
+                printf("%s\n", buffer);
+            }
+        }
     }
     else
     {
