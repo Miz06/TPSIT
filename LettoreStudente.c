@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <time.h>
 
+#include <sys/wait.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <errno.h>
@@ -33,8 +34,8 @@ int main(int argc, char *argv[])
     else if(p==0)
     {
         fd[0] = open("FifoStudente", O_RDONLY);
-        read(fd, &stud1, sizeof(stud1));
-        close(fd);
+        read(fd[0], &stud1, sizeof(stud1));
+        close(fd[0]);
     }
     else
     {
