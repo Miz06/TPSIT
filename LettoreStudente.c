@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
     }
     else if(p==0)
     {
+        close(fd[1]);
         fd[0] = open("FifoStudente", O_RDONLY);
         read(fd[0], &stud1, sizeof(stud1));
         close(fd[0]);

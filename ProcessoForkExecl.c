@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
     if(p>0)
     {
         wait(&status);
+        close(fd[0]);
         fd[1] = open("FifoStudente", O_WRONLY);
         read(fd[1], &stud1, sizeof(stud1));
         close(fd[1]);
@@ -35,14 +36,13 @@ int main(int argc, char *argv[])
     }
     else if(p==0)
     {
-        strcpy(stud1.nome, "Alessandro");
+        strcpy("Alessandro", stud1.nome);
         strcpy(stud1.cognome, "Mizzon");
         stud1.anni = 17;
     }
     else
     {
         perror("Errore nella fork.");
-
     }
 
 
