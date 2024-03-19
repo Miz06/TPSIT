@@ -19,17 +19,16 @@ typedef struct{
 
 int main(int argc, char *argv[])
 {   
-    int p, fd, status;
+    int p, fd;
     studente stud1;
-    strcpy(stud1.nome, "Alessandro");
-    strcpy(stud1.cognome, "Mizzon");
-    stud1.anni = 17;
+    strcpy(stud1.nome, "Beppe");
+    strcpy(stud1.cognome, "Sangiorgio");
+    stud1.anni = 67;
 
     p=fork();
     
     if(p>0)
     {
-        wait(&status);
         execl("./LettoreStudente.exe", "file", NULL);
     }
     else if(p==0)
