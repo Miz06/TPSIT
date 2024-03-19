@@ -18,30 +18,15 @@ typedef struct{
 
 int main(int argc, char *argv[])
 {   
-    int p, fd[2], status;
+    int fd;
     studente stud1;
-    pipe(fd);
-    p=fork();
     
-    if(p>0)
-    {
-        wait(&status);
-        printf("%s\n", stud1.nome);
-        printf("%s\n", stud1.cognome);
-        printf("%d\n", stud1.anni);
-    }
-    else if(p==0)
-    {
-        close(fd[1]);
-        fd[0] = open("FifoStudente", O_RDONLY);
-        read(fd[0], &stud1, sizeof(stud1));
-        close(fd[0]);
-    }
-    else
-    {
-        perror("Errore nella fork.");
+    fd = open("chiamate", O_RDONLY);
+    read(fd, &stud1, sizeof(stud1));
 
-    }
+    printf("%s\n", stud1.nome);
+    printf("%s\n", stud1.cognome);
+    printf("%d\n", stud1.anni);
 
     return 0;
 }

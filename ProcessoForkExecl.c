@@ -19,31 +19,28 @@ typedef struct{
 
 int main(int argc, char *argv[])
 {   
-    int p, fd[2], status;
-
-    pipe(fd);
-    p=fork();
+    int p, fd, status;
     studente stud1;
+    strcpy(stud1.nome, "Alessandro");
+    strcpy(stud1.cognome, "Mizzon");
+    stud1.anni = 17;
+
+    p=fork();
     
     if(p>0)
     {
         wait(&status);
-        close(fd[0]);
-        fd[1] = open("FifoStudente", O_WRONLY);
-        read(fd[1], &stud1, sizeof(stud1));
-        close(fd[1]);
-
-        execl("./LettoreStudente.exe", NULL);
+        execl("./LettoreStudente.exe", "io",  NULL);
     }
     else if(p==0)
     {
-        strcpy(stud1.nome, "Alessandro");
-        strcpy(stud1.cognome, "Mizzon");
-        stud1.anni = 17;
+        fd = open("chiamate", O_WRONLY);
+        write(fd, &stud1, sizeof(stud1));
     }
     else
     {
         perror("Errore nella fork.");
+        exit(1);
     }
 
     return 0;
