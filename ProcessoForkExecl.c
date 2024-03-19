@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <unistd.h>
 #include <time.h>
 
@@ -32,7 +33,7 @@ int main(int argc, char *argv[])
         read(fd[1], &stud1, sizeof(stud1));
         close(fd[1]);
 
-        execl("\LettoreStudente.exe", NULL);
+        execl("./LettoreStudente.exe", NULL);
     }
     else if(p==0)
     {

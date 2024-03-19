@@ -19,10 +19,9 @@ typedef struct{
 int main(int argc, char *argv[])
 {   
     int p, fd[2], status;
-
+    studente stud1;
     pipe(fd);
     p=fork();
-    studente stud1;
     
     if(p>0)
     {
