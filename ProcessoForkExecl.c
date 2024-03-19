@@ -32,11 +32,11 @@ int main(int argc, char *argv[])
         read(fd[1], &stud1, sizeof(stud1));
         close(fd[1]);
 
-        execl("LettoreStudente.exe", NULL);
+        execl("\LettoreStudente.exe", NULL);
     }
     else if(p==0)
     {
-        strcpy("Alessandro", stud1.nome);
+        strcpy(stud1.nome, "Alessandro");
         strcpy(stud1.cognome, "Mizzon");
         stud1.anni = 17;
     }
@@ -44,9 +44,6 @@ int main(int argc, char *argv[])
     {
         perror("Errore nella fork.");
     }
-
-
-
 
     return 0;
 }
