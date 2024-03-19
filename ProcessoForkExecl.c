@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     if(p>0)
     {
         wait(&status);
-        execl("./LettoreStudente.exe", "io",  NULL);
+        execl("./LettoreStudente.exe", "file", NULL);
     }
     else if(p==0)
     {
