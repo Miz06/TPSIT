@@ -4,7 +4,7 @@ int main() //Alessandro Mizzon
 {
     char parola[100]; 
     int i = 1; 
-    bool doppia = false; 
+    int doppia = 1; 
 
     printf("Inserire una parola: ");
     scanf("%s", parola);
@@ -13,12 +13,12 @@ int main() //Alessandro Mizzon
     {
         if (parola[i] == parola[i - 1])
         {
-            doppia = false;
+            doppia = 0;
         }
         i++;
-    } while (i < 100 && doppia == false);
+    } while (i < 100 && doppia == 0);
 
-    if (doppia == false)
+    if (doppia == 0)
     {
         printf("La parola non contiene doppie");
     }

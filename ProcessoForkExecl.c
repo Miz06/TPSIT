@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     studente stud1;
     strcpy(stud1.nome, "Beppe");
     strcpy(stud1.cognome, "Sangiorgio");
-    stud1.anni = 67;
+    stud1.anni = 17;
 
     p=fork();
     
