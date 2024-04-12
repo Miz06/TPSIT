@@ -3,37 +3,53 @@
 #include <string.h>
 #include <pthread.h>
 
-//NULL = (void*)0
-void* stampa1 (void* par){
-    printf("%s\n", (char*)par); 
-
-    return NULL;
-}
-
 typedef struct{
    int numero;
    char sezione;
-}class
+}class;
 
 typedef struct{
     char nome[20];
     char cognome[20];
     float media;
     class classe;
-}studente
+}studente;
 
+void* stampa (void* par){
+    printf("%s\n", ((studente *)par)->nome); 
+    printf("%s\n", ((studente *)par)->cognome); 
+    printf("%d %c\n", ((studente *)par)->classe.numero, ((studente *)par)->classe.sezione); 
+    printf("%f\n", ((studente *)par)->media); 
+
+    return NULL;
+}
 
 int main()
 {
     pthread_t t1, t2;
 
-    char* msg1 = "thread1";
+    studente stud1; 
+    class classeStud1;
 
     printf("Inserire nome studente: ");
-    scanf()
+    scanf("%s\n", stud1.nome);
 
-    pthread_create(&t1, NULL, &stampa1, msg1);
-    
+    printf("Inserire cognome studente: ");
+    scanf("%s\n", stud1.cognome);
+
+    printf("Inserire media studente: ");
+    scanf("%f\n", &stud1.media);
+
+    printf("Inserire numero della classe studente: ");
+    scanf("%d\n", &classeStud1.numero);
+
+    printf("Inserire sezione della classe studente: ");
+    scanf("%c\n", &classeStud1.sezione);
+
+    stud1.classe = classeStud1;
+
+    pthread_create(&t1, NULL, &stampa, (void*)&stud1);
+
     pthread_join(t1, NULL);
 
     return 0;
