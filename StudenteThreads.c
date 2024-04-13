@@ -26,25 +26,25 @@ void* stampa (void* par){
 
 int main()
 {
-    pthread_t t1, t2;
+    pthread_t t1;
 
     studente stud1; 
     class classeStud1;
 
     printf("Inserire nome studente: ");
-    scanf("%s\n", stud1.nome);
+    scanf("%s", stud1.nome);
 
     printf("Inserire cognome studente: ");
-    scanf("%s\n", stud1.cognome);
+    scanf("%s", stud1.cognome);
 
     printf("Inserire media studente: ");
-    scanf("%f\n", &stud1.media);
+    scanf("%f", &stud1.media);
 
     printf("Inserire numero della classe studente: ");
-    scanf("%d\n", &classeStud1.numero);
+    scanf("%d", &classeStud1.numero);
 
     printf("Inserire sezione della classe studente: ");
-    scanf("%c\n", &classeStud1.sezione);
+    scanf("%c", &classeStud1.sezione);
 
     stud1.classe = classeStud1;
 
