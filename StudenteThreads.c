@@ -3,11 +3,13 @@
 #include <string.h>
 #include <pthread.h>
 
+//struct classe (in quanto la classe è composta da numero e sezione)
 typedef struct{
    int numero;
    char sezione;
 }class;
 
+//struct studente
 typedef struct{
     char nome[20];
     char cognome[20];
@@ -15,11 +17,23 @@ typedef struct{
     class classe;
 }studente;
 
+//funzione che stampa i dati dello studente su file
+void* scriviSuFile (void* par){
+    //scrittura
+    
+    printf("\n^^^^^^^^^^^^^^^^^^^^\n");
+    printf("Scrittura su file terminata");
+ 
+    return NULL;
+}
+
+//funzione che stampa i dati di uno studente
 void* stampa (void* par){
-    printf("%s\n", ((studente *)par)->nome); 
-    printf("%s\n", ((studente *)par)->cognome); 
-    printf("%d %c\n", ((studente *)par)->classe.numero, ((studente *)par)->classe.sezione); 
-    printf("%f\n", ((studente *)par)->media); 
+    printf("\n^^^^^^^^^^^^^^^^^^^^\n");
+    printf("Nome: %s\n", ((studente *)par)->nome); 
+    printf("Cognome: %s\n", ((studente *)par)->cognome); 
+    printf("Classe: %d%c\n", ((studente *)par)->classe.numero, ((studente *)par)->classe.sezione); 
+    printf("Media: %f\n", ((studente *)par)->media); 
 
     return NULL;
 }
@@ -43,13 +57,13 @@ int main()
     printf("Inserire numero della classe studente: ");
     scanf("%d", &classeStud1.numero);
 
-    printf("Inserire sezione della classe studente: ");
-    scanf("%c", &classeStud1.sezione);
-
+    printf("Inserire sezione della classe studente:");
+    scanf(" %c", &classeStud1.sezione);
+    
+    //assegno allo studente la classe
     stud1.classe = classeStud1;
 
     pthread_create(&t1, NULL, &stampa, (void*)&stud1);
-
     pthread_join(t1, NULL);
 
     return 0;
