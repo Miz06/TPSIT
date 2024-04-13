@@ -18,29 +18,36 @@ typedef struct{
 }studente;
 
 //funzione che stampa i dati dello studente su file
-void* scriviSuFile (void* par){
-    //scrittura
-    
+void* scriviSuFile (void* stud){    
+    FILE *file = fopen("testoStudenteThreads.txt", "w");
+
+    fprintf(file, "%s", "^^^^^^^^^^^^^^^^^^^^\n");
+    fprintf(file, "Nome: %s\n", ((studente *)stud)->nome); 
+    fprintf(file, "Cognome: %s\n", ((studente *)stud)->cognome); 
+    fprintf(file, "Classe: %d%c\n", ((studente *)stud)->classe.numero, ((studente *)stud)->classe.sezione); 
+    fprintf(file, "Media: %f\n", ((studente *)stud)->media); 
+    fclose(file);
+
     printf("\n^^^^^^^^^^^^^^^^^^^^\n");
-    printf("Scrittura su file terminata");
+    printf("Scrittura su file terminata\n");
  
     return NULL;
 }
 
 //funzione che stampa i dati di uno studente
-void* stampa (void* par){
+void* stampa (void* stud){
     printf("\n^^^^^^^^^^^^^^^^^^^^\n");
-    printf("Nome: %s\n", ((studente *)par)->nome); 
-    printf("Cognome: %s\n", ((studente *)par)->cognome); 
-    printf("Classe: %d%c\n", ((studente *)par)->classe.numero, ((studente *)par)->classe.sezione); 
-    printf("Media: %f\n", ((studente *)par)->media); 
+    printf("Nome: %s\n", ((studente *)stud)->nome); 
+    printf("Cognome: %s\n", ((studente *)stud)->cognome); 
+    printf("Classe: %d%c\n", ((studente *)stud)->classe.numero, ((studente *)stud)->classe.sezione); 
+    printf("Media: %f\n", ((studente *)stud)->media); 
 
     return NULL;
 }
 
 int main()
 {
-    pthread_t t1;
+    pthread_t t1, t2;
 
     studente stud1; 
     class classeStud1;
@@ -64,7 +71,10 @@ int main()
     stud1.classe = classeStud1;
 
     pthread_create(&t1, NULL, &stampa, (void*)&stud1);
+    pthread_create(&t2, NULL, &scriviSuFile, (void*)&stud1);
+
     pthread_join(t1, NULL);
+    pthread_join(t2, NULL);
 
     return 0;
 }

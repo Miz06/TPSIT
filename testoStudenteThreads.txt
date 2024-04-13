@@ -1,0 +1,5 @@
+^^^^^^^^^^^^^^^^^^^^
+Nome: ale
+Cognome: miz
+Classe: 4E
+Media: 7.600000
