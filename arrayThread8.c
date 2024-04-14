@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
 {
     int arr[10];
     srand(time(NULL));//inizializza il random
+    pthread_t t1, t2;
 
     for(int i = 0; i<10; i++)
     {
@@ -37,8 +38,11 @@ int main(int argc, char *argv[])
 
     arr[6] = 8;
 
-    cerca1((void*)&arr);
-    cerca2((void*)&arr);
+    pthread_create(&t1, NULL, &cerca1, (void*)&arr);
+    pthread_create(&t2, NULL, &cerca2, (void*)&arr);
+
+    pthread_join(t1, NULL);
+    pthread_join(t2, NULL);
     
     return 0;
 }
