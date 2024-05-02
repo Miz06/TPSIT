@@ -16,7 +16,7 @@ void* cerca1 (void* array)
 
 void* cerca2 (void* array)
 {
-    for(int i = 0; i<10; i++)
+    for(int i = 5; i<10; i++)
     {
         if(((int*)array)[i] == 8)
             printf("Il numero 8 si trova nella posizione %d\n", i);
