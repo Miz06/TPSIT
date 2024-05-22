@@ -28,7 +28,7 @@ void* cerca2(void *arg){
     }
 }
 
-int main(int argc[], char *argv[])
+int main(int argc, char *argv[])
 {
     pthread_t t1, t2;
     par P;
