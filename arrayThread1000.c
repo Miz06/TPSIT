@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 {
     parametri p;
     srand(time(NULL));//inizializza il random
-    pthread_t t1, t2, t3, t4;
+    pad_t t1, t2, t3, t4;
 
     for(int i = 0; i<1000; i++)
     {
