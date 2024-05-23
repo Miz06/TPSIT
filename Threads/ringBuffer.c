@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdbool.h>
 
 #define BUFFER_DIM 2048 //grandezza di un singolo buffer (nonchè elemeno dell'array di buffer)
 #define SLICES 64 //numero di elementi dell'array di buffer
@@ -12,6 +13,8 @@ FILE *destination;
 int write_index = 0; 
 int read_index = 0; 
 int N_BLOCK = 0; 
+
+bool end = false;
 
 pthread_mutex_t mutex;
 pthread_cond_t not_full, not_empty;
@@ -50,6 +53,8 @@ void *readFile(void *arg)
 		}
 	}
 
+end = true;
+
 	pthread_mutex_unlock(&mutex); //rendo le risorse in uso dal thread nuovamente disponibili
 }
 
@@ -62,7 +67,7 @@ void *writeFile(void *arg)
 		pthread_cond_wait(&not_full, &mutex); //il thread viene "messu in pausa"
 	}
 
-	if(N_BLOCK > 0)
+	while(!end || N_BLOCK > 0)
 	{
 		fwrite(ring_buffer[read_index].buff, 1, BUFFER_DIM, destination); //scrittura su file
 		read_index = (read_index)%SLICES; //ragionamento analogo al precedente
