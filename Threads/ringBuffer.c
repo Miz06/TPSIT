@@ -49,11 +49,11 @@ void *readFile(void *arg)
 			write_index = (write_index)%SLICES; //nel momento in cui si arriva all'ultimo elemento si riparte da capo
 			N_BLOCK++;  //incremento il numero di elementi pieni
 
-			pthread_cond_signal(&not_empty); //faccio "ripartire" il thread
+			pthread_cond_signal(&not_full); //faccio "ripartire" il thread
 		}
 	}
 
-end = true;
+ end = true;
 
 	pthread_mutex_unlock(&mutex); //rendo le risorse in uso dal thread nuovamente disponibili
 }
@@ -73,7 +73,7 @@ void *writeFile(void *arg)
 		read_index = (read_index)%SLICES; //ragionamento analogo al precedente
 		N_BLOCK--; //diminuisco elementi occupati
 
-		pthread_cond_signal(&not_full); //"risvegliato" il thread
+		pthread_cond_signal(&not_empty); //"risvegliato" il thread
 	}
 
 	pthread_mutex_unlock(&mutex); //rendo le risorse in uso dal thread nuovamente disponibili
