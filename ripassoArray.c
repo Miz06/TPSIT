@@ -32,17 +32,17 @@ void stampaArrayInverso(int vett[])
 int somma(int vett[])
 {//3
     int somma = 0;
-    
+
     for(int i = 0; i<10; i++){
         somma += vett[i];
     }
-    
+
     return somma;
 }
 
 double media(int somma)
 {//3
-    return somma/10;
+    return     (double)somma/10;
 }
 
 void stampaPari(int vett[])
@@ -90,8 +90,13 @@ int main()
     do
     {
         printf("\n-----------------------------\n");
-        printf("[1] Visualizza'larray\n");
-        printf("[2] Visualizza'larray con ordinamento contrario\n");
+        printf("[1] Visualizza array\n");
+        printf("[2] Visualizza ordinamento opposto\n");
+        printf("[3] Somma e media\n");
+        printf("[4] Visualizza numeri pari\n");
+        printf("[5] Visualizza numeri dispari\n");
+        printf("[6] Ricerca numero\n");
+        
         printf("Scelta: ");
         scanf("%d", &choice);
 
