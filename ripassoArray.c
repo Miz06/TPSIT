@@ -121,6 +121,24 @@ void invertiCoppie(int vett[], int len)
         }
     }
 }
+
+void bubleSort(int vett[], int len)
+{
+    int sup;
+    
+    for(int i = 0; i<len; i++)
+    {
+        for(int j = 0; j<len; j++)
+        {
+            if(vett[i] > vett[j])
+            {
+                sup = vett[j];
+                vett[j] = vett[i];
+                vett[i] = sup;
+            }
+        }
+    }
+}
 int main()
 {
     int len = 9; 
@@ -141,6 +159,7 @@ int main()
         printf("[6] Ricerca numero\n");
         printf("[7] Elimina elemento\n");
         printf("[8] Inverti ordine a coppie\n");
+        printf("[9] Buble sort\n");
         printf("Scelta: ");
         scanf("%d", &choice);
 
@@ -203,6 +222,11 @@ int main()
             else if(choice == 8)
             {
                 invertiCoppie(arr, len);
+            }
+            else if(choice == 9)
+            {
+                bubleSort(arr, len);
+                stampaArray(arr, len);
             }
         }
     } while (choice != 0);
