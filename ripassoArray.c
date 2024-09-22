@@ -123,7 +123,7 @@ void invertiCoppie(int vett[], int len)
 }
 
 void bubleSort(int vett[], int len)
-{//9
+{
     int sup;
     
     for(int i = 0; i<len; i++)
