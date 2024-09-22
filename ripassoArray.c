@@ -3,25 +3,6 @@
 #include <string.h>
 #include <time.h>
 
-void popolaArray(int vett[], int len)
-{
-    int sup;
-    int elementiPopolati =1;
-
-    vett[0] = rand()%30;
-
-    for (int i = 1; i < len; i++)
-    {
-        do
-        {
-            sup = rand() % 30;
-        } while (cercaNum(vett, sup, elementiPopolati) != -1);
-
-        vett[i] == sup;
-        elementiPopolati++;
-    }
-}
-
 void stampaArray(int vett[], int len)
 { // 1
     printf("\n");
@@ -81,18 +62,15 @@ void stampaDispari(int vett[], int len)
 
 int cercaNum(int vett[], int num, int len)
 { // 6
-    int found = -1;
-
     for (int i = 0; i < len; i++)
     {
         if (num == vett[i])
         {
-            found = i;
-            i = len;
+            return i;
         }
     }
 
-    return found;
+    return -1;
 }
 
 int rimuoviElemento(int vett[], int num, int len)
@@ -138,8 +116,8 @@ void invertiCoppie(int vett[], int len)
     }
 }
 
-void bubleSort(int vett[], int len)
-{
+void bubbleSort(int vett[], int len)
+{//9
     int sup;
 
     for (int i = 0; i < len; i++)
@@ -155,6 +133,26 @@ void bubleSort(int vett[], int len)
         }
     }
 }
+
+void popolaArray(int vett[], int len)
+{
+    int sup;
+    int elementiPopolati =1;
+
+    vett[0] = rand()%30;
+
+    for (int i = 1; i < len; i++)
+    {
+        do
+        {
+            sup = rand() % 30;
+        } while (cercaNum(vett, sup, elementiPopolati) != -1);
+
+        vett[i] = sup;
+        elementiPopolati++;
+    }
+}
+
 int main()
 {
     int len;
@@ -179,7 +177,7 @@ int main()
         printf("[6] Ricerca numero\n");
         printf("[7] Elimina elemento\n");
         printf("[8] Inverti ordine a coppie\n");
-        printf("[9] Buble sort\n");
+        printf("[9] Bubble sort\n");
         printf("[0] Esci\n");
         printf("Scelta: ");
         scanf("%d", &choice);
@@ -254,7 +252,7 @@ int main()
             }
             else if (choice == 9)
             {
-                bubleSort(arr, len);
+                bubbleSort(arr, len);
                 stampaArray(arr, len);
             }
         }
