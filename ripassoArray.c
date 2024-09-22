@@ -69,7 +69,7 @@ int cercaNum(int vett[], int num)
 {//6
     int found = -1; 
 
-    for(int i = 0; i<10; i++){
+    for(int i = 0; i<sizeof(vett); i++){
         if(num == vett[i]){
             found = i;
             i = 10;
@@ -79,12 +79,36 @@ int cercaNum(int vett[], int num)
     return found;
 }
 
+void ordinaDispariPari(int vett[]){
+    int lenght = sizeof(vett)/sizeof(vett[0]);
+    int var;
+
+    if(lenght % 2 == 0)
+    {
+        for(int i = 0; i<lenght; i+=2){
+            var = vett[i];
+            vett[i] == vett[i+1];
+        }
+    }
+    else
+    {
+        for(int i = 0; i<lenght; i+=2){
+            var = vett[i];
+            vett[i] == vett[i+1];
+        }
+    }
+}
+
 int main()
 {
-    int arr[10];
-    srand(time(0));
+    int grandezzaArr;
     int choice;
+    srand(time(0));
 
+    printf("Grandezza array: ");
+    scanf("%d", &grandezzaArr);
+
+    int arr[grandezzaArr];
     popolaArray(arr);
 
     do
@@ -134,7 +158,7 @@ int main()
                 }
                 else{
                     printf("Il numero si trova in posizione %d\n", position);
-                }
+                }  
             }
         }
     } while (choice != 0);
