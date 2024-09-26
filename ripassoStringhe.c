@@ -73,12 +73,12 @@ int findDoubles(char arr[], char arrDoubles[])
     return doubles;
 }
 
-int lenCompare(char arr1[], char arr2[])
+int lenCompare(char arr1[], char arr2[]){
     if(strlen(arr1)<strlen(arr2))
     {
         return 2;
     }
-    else if(strlen(arr1)>strlen(arr2)
+    else if(strlen(arr1)>strlen(arr2))
     {
         return 1;
     }
@@ -87,6 +87,18 @@ int lenCompare(char arr1[], char arr2[])
         return 0;
     }
 }
+
+void charsArray(char arr[], char lettere[]){
+    int l = 0;
+
+    for(int i = 0; i<strlen(arr); i++){
+        if(findChar(lettere, arr[i]) == 0){
+            lettere[l] = arr[i];
+            l++;
+        }
+    }
+}
+
 int main()
 {
     char string[20];
@@ -95,7 +107,7 @@ int main()
     char arrDispari[10];
     int notValid = 0;
    
-    printf("----------------------------------\n");
+    printf("-------------------------------------------\n\n");
 
     //1
 
@@ -113,8 +125,7 @@ int main()
         }
 
     } while (notValid == 1);
-    
-    printf("%d", strlen(string));
+        
     // 2
     printf("\n2)\nCarattere da ricercare:");
     scanf(" %c", &Char);
@@ -150,17 +161,47 @@ int main()
             printf("Il carattere %c è presente due o più volte nell'array\n", arrDoubles[i]);
         }
     }
-    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
     char string2[20];
-    printf("Inserire seconda stringa: ");
+    printf("\nInserire seconda stringa: ");
     scanf("%s", string2);
     
+    //1
     int sup = lenCompare(string, string2);
     
-    if()
+    printf("\n1)\n");
     
-    printf("----------------------------------\n");
+    if(sup == 2)
+    {
+        printf("L'array più lungo è il secondo inserito\n");
+    }
+    else if(sup == 1){
+        printf("L'array più lungo è il primo inserito\n");
+    }
+    else
+    {
+        printf("Gli array hanno la stessa lunghezza\n");
+    }
+    
+    //2
+    char lettere1[20];
+    char lettere2[20];
+
+    charsArray(string, lettere1);
+    charsArray(string2, lettere2);
+
+    printf("\n2)\nLettere in comune: ");
+    for(int i = 0; i<strlen(lettere1); i++){
+        for(int j = 0; j<strlen(lettere2); j++){
+            if(lettere1[i] == lettere2[j]){
+                printf("%c ", lettere1[i]);
+                break;
+            }
+        }
+    }
+
+    printf("\n\n-------------------------------------------\n");
 
     return 0;
 }
