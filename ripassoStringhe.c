@@ -1,4 +1,3 @@
-// Online C compiler to run C program online
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -74,6 +73,20 @@ int findDoubles(char arr[], char arrDoubles[])
     return doubles;
 }
 
+int lenCompare(char arr1[], char arr2[])
+    if(strlen(arr1)<strlen(arr2))
+    {
+        return 2;
+    }
+    else if(strlen(arr1)>strlen(arr2)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
 int main()
 {
     char string[20];
@@ -91,7 +104,7 @@ int main()
     {
         printf("Inserimento stringa: ");
         scanf("%s", string);
-
+        
         notValid = elementiArray(string);
 
         if (notValid == 1)
@@ -100,7 +113,8 @@ int main()
         }
 
     } while (notValid == 1);
-
+    
+    printf("%d", strlen(string));
     // 2
     printf("\n2)\nCarattere da ricercare:");
     scanf(" %c", &Char);
@@ -136,6 +150,16 @@ int main()
             printf("Il carattere %c è presente due o più volte nell'array\n", arrDoubles[i]);
         }
     }
+    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+
+    char string2[20];
+    printf("Inserire seconda stringa: ");
+    scanf("%s", string2);
+    
+    int sup = lenCompare(string, string2);
+    
+    if()
+    
     printf("----------------------------------\n");
 
     return 0;
