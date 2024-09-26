@@ -55,25 +55,23 @@ void createArray(char arr[], char arrPari[], char arrDispari[])
     arrDispari[dispariIndex] = '\0';
 }
 
-int findDoubles(char arr[])
+int findDoubles(char arr[], char arrDoubles[])
 {
-    char arrDoubles[strlen(arr)/2];
-    int noDoubles = 0;
+    int doubles = 0;
 
     for (int i = 0; i<strlen(arr); i++)
     {
         for(int j = i+1; j <strlen(arr); j++){
             if(i != 0)
-            if(arr[i] == arr[j]){
-                printf("Il carattere %c è presente due o più volte nell'array\n", arr[i]);
-                noDoubles = 1;
+            if(arr[i] == arr[j] && findChar(arrDoubles, arr[i]) == 0){
+                arrDoubles[doubles] = arr[i];
+                doubles++;
                 break;
             }
         }
     }
 
-    return noDoubles;
-
+    return doubles;
 }
 
 int main()
@@ -83,7 +81,7 @@ int main()
     char arrPari[10];
     char arrDispari[10];
     int notValid = 0;
-
+   
     printf("----------------------------------\n");
 
     //1
@@ -125,11 +123,19 @@ int main()
     printf("Caratteri in posizione dispari: %s\n", arrDispari);
 
     //4
+    char arrDoubles[strlen(string)/2];
+    int doubles = findDoubles(string, arrDoubles);
+    arrDoubles[doubles] ='\0';
+    
     printf("\n4)\n");
-    if(findDoubles(string) == 0){
-        printf("Non sono presenti doppi elementi all'interno dell'array");
+    
+    if(doubles != 0)
+    {
+        for(int i=0; i<strlen(arrDoubles); i++)
+        {
+            printf("Il carattere %c è presente due o più volte nell'array\n", arrDoubles[i]);
+        }
     }
-
     printf("----------------------------------\n");
 
     return 0;
