@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+//1
 int findChar(char arr[], char Char)
 {
     int counter = 0;
@@ -18,6 +19,7 @@ int findChar(char arr[], char Char)
     return counter;
 }
 
+//2
 int elementiArray(char arr[])
 {
     for (int i = 0; i < strlen(arr); i++)
@@ -31,6 +33,7 @@ int elementiArray(char arr[])
     return 0;
 }
 
+//3
 void createArray(char arr[], char arrPari[], char arrDispari[])
 {
     int pariIndex = 0;
@@ -54,14 +57,14 @@ void createArray(char arr[], char arrPari[], char arrDispari[])
     arrDispari[dispariIndex] = '\0';
 }
 
+//4
 int findDoubles(char arr[], char arrDoubles[])
 {
     int doubles = 0;
 
     for (int i = 0; i<strlen(arr); i++)
     {
-        for(int j = i+1; j <strlen(arr); j++){
-            if(i != 0)
+        for(int j = 0; j <strlen(arr); j++){
             if(arr[i] == arr[j] && findChar(arrDoubles, arr[i]) == 0){
                 arrDoubles[doubles] = arr[i];
                 doubles++;
@@ -73,6 +76,7 @@ int findDoubles(char arr[], char arrDoubles[])
     return doubles;
 }
 
+//1
 int lenCompare(char arr1[], char arr2[]){
     if(strlen(arr1)<strlen(arr2))
     {
@@ -88,6 +92,7 @@ int lenCompare(char arr1[], char arr2[]){
     }
 }
 
+//2
 void charsArray(char arr[], char lettere[]){
     int l = 0;
 
@@ -97,6 +102,20 @@ void charsArray(char arr[], char lettere[]){
             l++;
         }
     }
+}
+
+//3
+int countVowels(char arr[]){
+    int counter = 0; 
+    char vowels[] = {95, 65, 101, 69, 105, 73, 111, 79, 117, 85};
+
+    for(int i = 0; i<strlen(arr); i++){
+        if(findChar(vowels, arr[i]) != 0){
+            counter++;
+        }
+    }
+
+    return counter;
 }
 
 int main()
@@ -152,13 +171,13 @@ int main()
     int doubles = findDoubles(string, arrDoubles);
     arrDoubles[doubles] ='\0';
     
-    printf("\n4)\n");
+    printf("\n4)\nCaratteri presenti due o più volte nell'array: ");
     
     if(doubles != 0)
     {
         for(int i=0; i<strlen(arrDoubles); i++)
         {
-            printf("Il carattere %c è presente due o più volte nell'array\n", arrDoubles[i]);
+            printf("%c ", arrDoubles[i]);
         }
     }
     printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -199,6 +218,43 @@ int main()
                 break;
             }
         }
+    }
+
+    //3
+    int vowels1, vowels2;
+    vowels1 = countVowels(string);
+    vowels2 = countVowels(string2);
+
+    printf("\n\n3)");
+    printf("\nVocali del primo array: %d", vowels1);
+    printf("\nVocali del secondo array: %d", vowels2);
+
+    if(vowels1>vowels2){
+        printf("\nIl primo array contiene più vocali\n");
+    }
+    else if(vowels1<vowels2){
+        printf("\nIl secondo array contiene più vocali\n");
+    }
+    else{
+        printf("\nGli array contengono lo stesso numero di vocali\n");
+    }
+
+    int consonants1 = strlen(string)-vowels1;
+    int consonants2 = strlen(string2)-vowels2;
+
+    //4
+    printf("\n4)");
+    printf("\nConsonanti del primo array: %d", consonants1);
+    printf("\nConsonanti del secondo array: %d", consonants2);
+
+    if(consonants1>consonants2){
+        printf("\nIl primo array contiene più consonanti\n");
+    }
+    else if(consonants1<consonants2){
+        printf("\nIl secondo array contiene più consonanti\n");
+    }
+    else{
+        printf("\nGli array contengono lo stesso numero di consonanti\n");
     }
 
     printf("\n\n-------------------------------------------\n");
