@@ -4,6 +4,7 @@
 
 #define NUM_BOOKS 20
 #define NUM_CATEGORIES 4
+#define BUFFER 2048
 
 typedef struct{
     char title[30];
@@ -15,6 +16,7 @@ typedef struct{
 typedef struct{
     char name[30];
     book books[NUM_BOOKS];
+    int numLibriCategory;
 }category;
 
 int printCategory(category arr[], char categoryName[30]){
@@ -36,27 +38,47 @@ int printCategory(category arr[], char categoryName[30]){
     return 0;
 }
 
-int main(){
-    category categories[NUM_CATEGORIES];
+void readCSV(category library[]){
     FILE *sourceFile = fopen("libreria_libri.csv", "r");
+    int lenLibrary = sizeof(library)/sizeof(library[0]); //numero di categorie
 
-    if(sourceFile == NULL){
+    char riga[BUFFER]; //buffer per leggere una riga del file
+    char searchCategory[30]; //categoria da ricercare nella libreria
+
+    if(sourceFile == NULL){ //controllo apertura file
         printf("Error opening the file\n");
         return 1;
     }
 
-    char line[1024];
+    fgets(riga, BUFFER, sourceFile); //prima riga del file scartata
 
-    while(fgets(line, sizeof(line), sourceFile)){ //reading of the file's line
-        char *token = strtok(line, ","); //al token viene assegnato il valore della stringa fino al raggiungimento della virgola
-        while (token != NULL) {
-            token = strtok(NULL, ","); 
+    while(fgets(riga, BUFFER, sourceFile) != NULL){ //lettura dall seconda riga in poi
+        sscanf(riga, "%[^,],%[^,],%d,%f,%[^\r\n]", library[indexCategory]book.titolo, book.autore, &book.anno, &book.prezzo, categoria);
+
+        int found = -1;
+
+        for(int i = 0; i<sizeof(library)/sizeof(library[0]); i++){
+            if(strrcasecmp(library[i].name, searchCategory) == 0){
+                found = i;
+                break;
+            }
         }
-        printf("\n");
+
+        if(found == -1){
+            found = library[]
+
+        }
     }
 
     fclose(sourceFile);
+}
 
-    printCategory(categories, "arte");
+int main(){
+    category library[NUM_CATEGORIES]; //array di categorie: libreria
+
+
+
+    printCategory(library, "arte");
+
     return 0;
 }
