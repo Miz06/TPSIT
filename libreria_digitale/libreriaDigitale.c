@@ -2,27 +2,27 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define NUM_BOOKS 20
+#define NUM_BOOKS 40
 #define NUM_CATEGORIES 4
-#define BUFFER 2048
+#define BUFFER 4096
 
 typedef struct{
-    char title[30];
-    char author[30];
+    char title[100];
+    char author[100];
     int year;
     float price;
 }book;
 
 typedef struct{
-    char name[30];
+    char name[100];
     book books[NUM_BOOKS];
-    int numBooks;
+    int numBooksCategory;
 }category;
 
-void printCategory(category arr[], int lenArr, char categoryName[30]){
+void printCategory(category arr[], int lenArr, char categoryName[]){
     for(int i = 0; i<lenArr; i++){
         if(strcmp(arr[i].name, categoryName) == 0){
-            for(int j = 0; j<arr[i].numBooks; j++){
+            for(int j = 0; j<arr[i].numBooksCategory; j++){
                 printf("\nCATEGORY: %s\n", arr[i].name);
 
                 printf("Title: %s\n", arr[i].books[j].title);
@@ -42,7 +42,7 @@ int main(){
     int lenLibrary = 0;
 
     category library[NUM_CATEGORIES]; //array di categorie: libreria    
-    char categorySup[20];
+    char categorySup[100];
     book bookSup;
 
     if(sourceFile == NULL){ //controllo apertura file
@@ -52,40 +52,34 @@ int main(){
 
     fgets(riga, BUFFER, sourceFile); //prima riga del file scartata
 
-    fgets(riga, BUFFER, sourceFile); //seconda riga del file scartata
-    sscanf(riga, "%[^,],%[^,],%d,%f,%[^\r\n]", bookSup.title, bookSup.author, &bookSup.year, &bookSup.price, categorySup);//butta dentro bookSup i rispettivi campi della riga
-
-    library[0].books[0] = bookSup;
-    library[0].numBooks=0;
-    library[0].numBooks++;
-    strcpy(library[0].name, categorySup);
-    lenLibrary++;
-
     while(fgets(riga, BUFFER, sourceFile) != NULL){ //lettura dalla seconda riga in poi
-        sscanf(riga, "%[^,],%[^,],%d,%f,%[^\r\n]", bookSup.title, bookSup.author, &bookSup.year, &bookSup.price, categorySup);//butta dentro bookSup i rispettivi campi della riga
+        if (sscanf(riga, "%99[^,], %99[^,], %d, %f, %99[^\r\n]", bookSup.title, bookSup.author, &bookSup.year, &bookSup.price, categorySup) != 5) {
+            printf("Error parsing the file\n");
+            return 1;
+        }
 
         int found = -1;
 
         for(int i = 0; i<lenLibrary; i++){
             if(!strcmp(library[i].name, categorySup)){
-                printf("Ciao");
                 found = i;
-                library[i].books[library[i].numBooks] = bookSup;
-                library[i].numBooks++;
                 break;
             }
         }
 
         if(found == -1){
             strcpy(library[lenLibrary].name, categorySup);
-            library[lenLibrary].books[0] = bookSup;
-            library[lenLibrary].numBooks++;
+            library[lenLibrary].numBooksCategory = 0; // inizializza numBooksCategory a 0
             lenLibrary++;
+        }
+
+        if(library[found].numBooksCategory < NUM_BOOKS) {
+            library[found].books[library[found].numBooksCategory] = bookSup;
+            library[found].numBooksCategory++;
         }
     }
 
     fclose(sourceFile);
-    
     printCategory(library, lenLibrary, "narrativa");
     
     return 0;
