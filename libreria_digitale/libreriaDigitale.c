@@ -19,31 +19,12 @@ typedef struct{
     int numBooksCategory;
 }category;
 
-void printCategory(category arr[], int lenArr, char categoryName[]){
-    for(int i = 0; i<lenArr; i++){
-        if(strcmp(arr[i].name, categoryName) == 0){
-            for(int j = 0; j<arr[i].numBooksCategory; j++){
-                printf("\nCATEGORY: %s\n", arr[i].name);
-
-                printf("Title: %s\n", arr[i].books[j].title);
-                printf("Author: %s\n", arr[i].books[j].author);
-                printf("Year: %d\n", arr[i].books[j].year);
-                printf("Price: %f\n-----------------------------\n", arr[i].books[j].price);
-            }
-
-            break;
-        }
-    }
-}
-
-int main(){
+int insertBooks(category library[], int lenLibrary){
     FILE *sourceFile = fopen("libreria_libri.csv", "r");
     char riga[BUFFER]; //buffer per leggere una riga del file
-    int lenLibrary = 0;
-
-    category library[NUM_CATEGORIES]; //array di categorie: libreria    
     char categorySup[100];
     book bookSup;
+    int found;
 
     if(sourceFile == NULL){ //controllo apertura file
         printf("Error opening the file\n");
@@ -52,13 +33,14 @@ int main(){
 
     fgets(riga, BUFFER, sourceFile); //prima riga del file scartata
 
+
     while(fgets(riga, BUFFER, sourceFile) != NULL){ //lettura dalla seconda riga in poi
         if (sscanf(riga, "%99[^,], %99[^,], %d, %f, %99[^\r\n]", bookSup.title, bookSup.author, &bookSup.year, &bookSup.price, categorySup) != 5) {
             printf("Error parsing the file\n");
             return 1;
         }
 
-        int found = -1;
+        found = -1;
 
         for(int i = 0; i<lenLibrary; i++){
             if(!strcmp(library[i].name, categorySup)){
@@ -79,7 +61,58 @@ int main(){
     }
 
     fclose(sourceFile);
-    printCategory(library, lenLibrary, "narrativa");
-    
+
+    return lenLibrary;
+}
+
+void printCategory(category arr[], int lenArr, char categoryName[]){
+    for(int i = 0; i<lenArr; i++){
+        if(strcmp(arr[i].name, categoryName) == 0){
+            for(int j = 0; j<arr[i].numBooksCategory; j++){
+                printf("\nCATEGORY: %s\n", arr[i].name);
+
+                printf("Title: %s\n", arr[i].books[j].title);
+                printf("Author: %s\n", arr[i].books[j].author);
+                printf("Year: %d\n", arr[i].books[j].year);
+                printf("Price: %f\n-----------------------------\n", arr[i].books[j].price);
+            }
+
+            break;
+        }
+    }
+}
+
+int main(){
+    category library[NUM_CATEGORIES]; //array di categorie: libreria    
+    int lenLibrary = 0;
+    int choice;
+
+    lenLibrary = insertBooks(library, lenLibrary);
+
+    do{
+        printf("\n[CATEGORIE]\n[1] narrativa\n[2] saggistica\n[3] arte\n[4] scienza\n");
+        printf("\nCategoria di libri da cercare:");
+        scanf("%d", &choice);
+
+        if(choice<1||choice>4){
+            printf("Inserire un valore valido!\n");
+        }
+    }while(choice<1||choice>4);
+
+    switch(choice){
+        case(1):
+            printCategory(library, lenLibrary, "narrativa");
+            break;
+        case(2):
+            printCategory(library, lenLibrary, "saggistica");
+            break;
+        case(3):
+            printCategory(library, lenLibrary, "arte");
+            break;
+        case(4):
+            printCategory(library, lenLibrary, "scienza");
+            break;
+    }
+
     return 0;
 }

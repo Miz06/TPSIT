@@ -1,25 +1,25 @@
-title, author, year, price, category,
-Il nome della rosa, Umberto Eco, 1980, 12.22, narrativa,
-Divina Commedia, Dante Alighieri, 1320, 23.01, arte,
+title, author, year, price, category
+Il nome della rosa, Umberto Eco, 1980, 12.22, narrativa
+Divina Commedia, Dante Alighieri, 1320, 23.01, arte
 I Promessi Sposi, Alessandro Manzoni, 1827, 22.19, narrativa
 La coscienza di Zeno, Italo Svevo, 1923, 5.99, narrativa
-Il Gattopardo, Giuseppe Tomasi di Lampedusa, 1958, 26.69, narrativa
+Il Gattopardo, Giuseppe Tomasi di Lampedusa, 1958, 26.69, scienza
 Se questo è un uomo, Primo Levi, 1947, 18.48, saggistica
 Il deserto dei tartari, Dino Buzzati, 1940, 10.81, narrativa
 La luna e i falò, Cesare Pavese, 1950, 13.44, narrativa
-Siddharta, Hermann Hesse, 1922, 28.2, narrativa
+Siddharta, Hermann Hesse, 1922, 28.2, scienza
 Il piccolo principe, Antoine de Saint-Exupéry, 1943, 29.28, narrativa
 La metamorfosi, Franz Kafka, 1915, 14.49, narrativa
-Fahrenheit 451, Ray Bradbury, 1953, 24.18, narrativa
+Fahrenheit 451, Ray Bradbury, 1953, 24.18, scienza
 1984, George Orwell, 1949, 9.57, narrativa
 Il grande Gatsby, F. Scott Fitzgerald, 1925, 28.96, narrativa
 Moby Dick, Herman Melville, 1851, 14.36, narrativa
-Orgoglio e pregiudizio, Jane Austen, 1813, 14.6, narrativa
+Orgoglio e pregiudizio, Jane Austen, 1813, 14.6, saggistica
 Il ritratto di Dorian Gray, Oscar Wilde, 1890, 13.75, narrativa
 Guerra e pace, Lev Tolstoj, 1869, 20.24, narrativa
-Anna Karenina, Lev Tolstoj, 1877, 13.05, narrativa
+Anna Karenina, Lev Tolstoj, 1877, 13.05, arte
 Il conte di Montecristo, Alexandre Dumas, 1844, 5.93, narrativa
-Don Chisciotte della Mancia, Miguel de Cervantes, 1605, 29.27, narrativa
+Don Chisciotte della Mancia, Miguel de Cervantes, 1605, 29.27, arte
 Le avventure di Sherlock Holmes, Arthur Conan Doyle, 1892, 27.61, narrativa
 Il processo, Franz Kafka, 1925, 24.12, narrativa
 La nausea, Jean-Paul Sartre, 1938, 13.14, narrativa
@@ -27,13 +27,13 @@ La peste, Albert Camus, 1947, 27.82, narrativa
 Il lupo della steppa, Hermann Hesse, 1927, 28.63, narrativa
 Il maestro e Margherita, Michail Bulgakov, 1966, 23.23, narrativa
 Lolita, Vladimir Nabokov, 1955, 15.25, narrativa
-L'amore ai tempi del colera, Gabriel Garcia Marquez, 1985, 16.86, narrativa
+L'amore ai tempi del colera, Gabriel Garcia Marquez, 1985, 16.86, saggistica
 Cent'anni di solitudine, Gabriel Garcia Marquez, 1967, 28.7, narrativa
-Cime tempestose, Emily Brontë, 1847, 6.88, narrativa
-Jane Eyre, Charlotte Brontë, 1847, 20.48, narrativa
+Cime tempestose, Emily Brontë, 1847, 6.88, arte
+Jane Eyre, Charlotte Brontë, 1847, 20.48, saggistica
 Il richiamo della foresta, Jack London, 1903, 8.31, narrativa
 Viaggio al centro della Terra, Jules Verne, 1864, 25.68, scienza
-Dracula, Bram Stoker, 1897, 26.9, narrativa
+Dracula, Bram Stoker, 1897, 26.9, saggistica
 Frankenstein, Mary Shelley, 1818, 10.81, narrativa
 Robinson Crusoe, Daniel Defoe, 1719, 23.98, narrativa
 La tempesta, William Shakespeare, 1611, 24.56, arte
