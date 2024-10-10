@@ -15,8 +15,8 @@ typedef struct{
 
 typedef struct{
     char name[100];
-    book books[NUM_BOOKS];
-    int numBooksCategory; //numero di libri contenuti in oggni categoria
+    book books[NUM_BOOKS]; //array di libri contenuti in ogni categoria
+    int numBooksCategory; //numero di libri contenuti in ogni categoria
 }category;
 
 int insertBooks(category library[], int lenLibrary){
