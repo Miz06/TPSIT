@@ -63,6 +63,8 @@ int main(){
         for(int i = 0; i<lenLibrary; i++){
             if(!strcmp(library[i].name, categorySup)){
                 found = i;
+                library[found].books[library[found].numBooksCategory] = bookSup;
+                library[found].numBooksCategory++;
                 break;
             }
         }
@@ -70,12 +72,9 @@ int main(){
         if(found == -1){
             strcpy(library[lenLibrary].name, categorySup);
             library[lenLibrary].numBooksCategory = 0; // inizializza numBooksCategory a 0
+            library[lenLibrary].books[0] = bookSup;
+            library[lenLibrary].numBooksCategory++;
             lenLibrary++;
-        }
-
-        if(library[found].numBooksCategory < NUM_BOOKS) {
-            library[found].books[library[found].numBooksCategory] = bookSup;
-            library[found].numBooksCategory++;
         }
     }
 
