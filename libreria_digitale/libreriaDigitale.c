@@ -71,6 +71,20 @@ int insertBooks(category library[], int lenLibrary){
     return lenLibrary;
 }
 
+int searchBook(category library[], int lenLibrary, char bookTitle[]){//metodo di ricerca di un libro specifico
+    for(int i = 0; i<lenLibrary; i++){
+        for(int j = 0; j<library[i].numBooksCategory; j++){
+            if(strcmp(library[i].books[j].title, bookTitle) == 0){
+                printf("Libro trovato!\n");
+                return 1;
+            }
+        }
+    }
+
+    printf("Libro non trovato!\n");
+    return 0;
+}
+
 void printCategory(category arr[], int lenArr, char categoryName[]){//metodo di stampa dela categoria 
     for(int i = 0; i<lenArr; i++){
         if(strcmp(arr[i].name, categoryName) == 0){
@@ -118,7 +132,21 @@ int main(){
         case(4):
             printCategory(library, lenLibrary, "scienza");
             break;
-    }
+    };
+
+    char title[100];
+
+    //Ricerca dei libri in base al titolo
+    strcpy(title, "La peste"); 
+    printf("Titolo libro: %s\n", title);
+    searchBook(library, lenLibrary, title);
+    printf("-------------------------\n");
+
+    strcpy(title, "Cappuccetto rosso");
+    printf("Titolo libro: %s\n", title);
+    searchBook(library, lenLibrary, title);
+    printf("-------------------------\n");
+
 
     return 0;
 }
