@@ -23,7 +23,7 @@ int insertBooks(category library[], int lenLibrary){
     FILE *sourceFile = fopen("libreria_libri.csv", "r");
     char riga[BUFFER]; //buffer per leggere una riga del file
     char categorySup[100]; //categoria di supporto utilizzata per memorizzare la categoria del libro che verrà inserito
-    book bookSup; //libro di support utilizzato per l'interimento
+    book bookSup; //libro di supporto utilizzato per l'inserimento
     int found;
 
     if(sourceFile == NULL){
@@ -84,7 +84,7 @@ void printCategory(category arr[], int lenArr, char categoryName[]){
 
 int main(){
     category library[NUM_CATEGORIES]; //array di categorie: libreria    
-    int lenLibrary = 0; //numero di categoria inserite
+    int lenLibrary = 0; //numero di categorie inserite
     int choice;
 
     lenLibrary = insertBooks(library, lenLibrary);
