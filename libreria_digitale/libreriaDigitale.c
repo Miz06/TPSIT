@@ -16,13 +16,13 @@ typedef struct{
 typedef struct{
     char name[30];
     book books[NUM_BOOKS];
-    int numLibriCategory;
+    int numBooks;
 }category;
 
 int printCategory(category arr[], char categoryName[30]){
-    for(int i = 0; i<NUM_CATEGORIES; i++){
-        if(strcmp(arr[i].name, categoryName)){
-            for(int j = 0; j<NUM_BOOKS; j++){
+    for(int i = 0; i<sizeof(arr)/sizeof(arr[0]); i++){
+        if(strcmp(arr[i].name, categoryName) == 0){
+            for(int j = 0; j<arr[i].numBooks; j++){
                 printf("\nCATEGORY: %s\n", arr[i].name);
 
                 printf("Title: %s\n", arr[i].books[j].title);
@@ -38,12 +38,15 @@ int printCategory(category arr[], char categoryName[30]){
     return 0;
 }
 
-void readCSV(category library[]){
+int main(){
     FILE *sourceFile = fopen("libreria_libri.csv", "r");
-    int lenLibrary = sizeof(library)/sizeof(library[0]); //numero di categorie
-
     char riga[BUFFER]; //buffer per leggere una riga del file
-    char searchCategory[30]; //categoria da ricercare nella libreria
+
+    category library[NUM_CATEGORIES]; //array di categorie: libreria
+    int lenLibrary = sizeof(library)/sizeof(library[0]); //numero di categorie contenute attualmente (bytes arr/bytes elemento = elementi dell'array)
+    
+    char categorySup[20];
+    book bookSup;
 
     if(sourceFile == NULL){ //controllo apertura file
         printf("Error opening the file\n");
@@ -52,33 +55,28 @@ void readCSV(category library[]){
 
     fgets(riga, BUFFER, sourceFile); //prima riga del file scartata
 
-    while(fgets(riga, BUFFER, sourceFile) != NULL){ //lettura dall seconda riga in poi
-        sscanf(riga, "%[^,],%[^,],%d,%f,%[^\r\n]", library[indexCategory]book.titolo, book.autore, &book.anno, &book.prezzo, categoria);
-
+    while(fgets(riga, BUFFER, sourceFile) != NULL){ //lettura dalla seconda riga in poi
+        sscanf(riga, "%[^,],%[^,],%d,%f,%[^\r\n]", bookSup.titolo, bookSup.autore, &bookSup.anno, &bookSup.prezzo, categorySup);//butta dentro bookSup i rispettivi campi della riga
+        
         int found = -1;
 
-        for(int i = 0; i<sizeof(library)/sizeof(library[0]); i++){
-            if(strrcasecmp(library[i].name, searchCategory) == 0){
+        for(int i = 0; i<lenLibrary; i++){
+            if(strcmp(library[i].name, categorySup) == 0){
                 found = i;
+                library[i].books[library[i].numBooks] = bookSup;
+                library[i].numBooks++;
                 break;
             }
         }
 
         if(found == -1){
-            found = library[]
-
+            strcpy(library[lenLibrary].name, categorySup);
+            library[lenLibrary].books[0] = bookSup;
+            library[lenLibrary].numBooks++;
         }
     }
 
     fclose(sourceFile);
-}
-
-int main(){
-    category library[NUM_CATEGORIES]; //array di categorie: libreria
-
-
-
-    printCategory(library, "arte");
-
+    printCategory(library, "narrativa");
     return 0;
 }
