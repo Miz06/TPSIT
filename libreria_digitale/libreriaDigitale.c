@@ -16,22 +16,22 @@ typedef struct{
 typedef struct{
     char name[100];
     book books[NUM_BOOKS];
-    int numBooksCategory;
+    int numBooksCategory; //numero di libri contenuti in oggni categoria
 }category;
 
 int insertBooks(category library[], int lenLibrary){
     FILE *sourceFile = fopen("libreria_libri.csv", "r");
     char riga[BUFFER]; //buffer per leggere una riga del file
-    char categorySup[100];
-    book bookSup;
+    char categorySup[100]; //categoria di supporto utilizzata per memorizzare la categoria del libro che verrà inserito
+    book bookSup; //libro di support utilizzato per l'interimento
     int found;
 
-    if(sourceFile == NULL){ //controllo apertura file
+    if(sourceFile == NULL){
         printf("Error opening the file\n");
         return 1;
     }
 
-    fgets(riga, BUFFER, sourceFile); //prima riga del file scartata
+    fgets(riga, BUFFER, sourceFile); 
 
 
     while(fgets(riga, BUFFER, sourceFile) != NULL){ //lettura dalla seconda riga in poi
@@ -84,7 +84,7 @@ void printCategory(category arr[], int lenArr, char categoryName[]){
 
 int main(){
     category library[NUM_CATEGORIES]; //array di categorie: libreria    
-    int lenLibrary = 0;
+    int lenLibrary = 0; //numero di categoria inserite
     int choice;
 
     lenLibrary = insertBooks(library, lenLibrary);
