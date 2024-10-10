@@ -22,7 +22,7 @@ typedef struct{
 int insertBooks(category library[], int lenLibrary){
     FILE *sourceFile = fopen("libreria_libri.csv", "r");
     char riga[BUFFER]; //buffer per leggere una riga del file
-    char categorySup[100]; //categoria di supporto utilizzata per memorizzare la categoria del libro che verrà inserito
+    char categorySup[100]; //stringa di supporto utilizzata per memorizzare la categoria del libro che verrà inserito
     book bookSup; //libro di supporto utilizzato per l'inserimento
     int found;
 
