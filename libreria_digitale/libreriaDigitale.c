@@ -2,9 +2,9 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define NUM_BOOKS 40
-#define NUM_CATEGORIES 4
-#define BUFFER 4096
+#define NUM_BOOKS 40 //numero di libri di una categoria
+#define NUM_CATEGORIES 4 //numero categorie della libreria
+#define BUFFER 4096 //lunghezza del buffer utilizzato per leggere le singole righe
 
 typedef struct{
     char title[100];
@@ -26,21 +26,22 @@ int insertBooks(category library[], int lenLibrary){
     book bookSup; //libro di supporto utilizzato per l'inserimento
     int found;
 
-    if(sourceFile == NULL){
+    if(sourceFile == NULL){ //controllo errore nell'apertura del file
         printf("Error opening the file\n");
         return 1;
     }
 
-    fgets(riga, BUFFER, sourceFile); 
-
+    fgets(riga, BUFFER, sourceFile); // scarto la prima riga del file in quanto contenente i campi dei libri
 
     while(fgets(riga, BUFFER, sourceFile) != NULL){ //lettura dalla seconda riga in poi
         if (sscanf(riga, "%99[^,], %99[^,], %d, %f, %99[^\r\n]", bookSup.title, bookSup.author, &bookSup.year, &bookSup.price, categorySup) != 5) {
             printf("Error parsing the file\n");
             return 1;
         }
+        //una volta letta la riga del file i campi del libro di supporto assumono il valore degli attributi estratti
+        //se sscaf non legge esattamente 5 valori dalla riga del file si ha un errore di parsing 
 
-        found = -1;
+        found = -1; //variabile utilizzata per verificare la presenza o meno di una categoria all'interno della libreria
 
         for(int i = 0; i<lenLibrary; i++){
             if(!strcmp(library[i].name, categorySup)){
@@ -50,7 +51,10 @@ int insertBooks(category library[], int lenLibrary){
                 break;
             }
         }
-
+        
+        //nel ciclo viene controllato che la categoria del libro appena letto dal file che si vuole inserire nella libreria sia già presente nell’array o meno
+        //n caso affermativo il libro viene inserito nell’array della categoria corrispondente.
+        
         if(found == -1){
             strcpy(library[lenLibrary].name, categorySup);
             library[lenLibrary].numBooksCategory = 0; // inizializza numBooksCategory a 0
@@ -58,6 +62,8 @@ int insertBooks(category library[], int lenLibrary){
             library[lenLibrary].numBooksCategory++;
             lenLibrary++;
         }
+
+        //in caso contrario invece viene creata una nuova categoria e aggiunto il libro alla posizione 0 dell'array di libri della categoria appena creato
     }
 
     fclose(sourceFile);
@@ -65,7 +71,7 @@ int insertBooks(category library[], int lenLibrary){
     return lenLibrary;
 }
 
-void printCategory(category arr[], int lenArr, char categoryName[]){
+void printCategory(category arr[], int lenArr, char categoryName[]){//metodo di stampa dela categoria 
     for(int i = 0; i<lenArr; i++){
         if(strcmp(arr[i].name, categoryName) == 0){
             for(int j = 0; j<arr[i].numBooksCategory; j++){
@@ -85,11 +91,11 @@ void printCategory(category arr[], int lenArr, char categoryName[]){
 int main(){
     category library[NUM_CATEGORIES]; //array di categorie: libreria    
     int lenLibrary = 0; //numero di categorie inserite
-    int choice;
+    int choice; 
 
     lenLibrary = insertBooks(library, lenLibrary);
 
-    do{
+    do{//menù di inserimento per gestire la visualizzazione dei libri di una categoria
         printf("\n[CATEGORIE]\n[1] narrativa\n[2] saggistica\n[3] arte\n[4] scienza\n");
         printf("\nCategoria di libri da cercare:");
         scanf("%d", &choice);
