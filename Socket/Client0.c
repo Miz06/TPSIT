@@ -23,7 +23,7 @@ int main(int argc,char** argv)
     servizio.sin_port=htons(SERVERPORT); //La funzione htons accetta un numero a 16 bit nell'ordine dei byte host e restituisce un numero a 16 bit nell'ordine dei byte di rete usato nelle reti TCP/IP (la famiglia di indirizzi AF_INET o AF_INET6).
     char str1[DIM]; //stringa da inviare
     int socketfd; //identificatore della socket
-    
+
     //creazione e definizione del Socket di tipo stream tcp pg 163
     socketfd=socket(AF_INET,SOCK_STREAM,0); 
     //successo creazione socket: 1>
@@ -35,5 +35,6 @@ int main(int argc,char** argv)
     scanf("%s",str1);
     write(socketfd,str1,sizeof(str1));
     close(socketfd);
+    
     return 0;
 }
