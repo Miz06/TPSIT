@@ -15,18 +15,23 @@
 int main()
 {
     struct sockaddr_in servizio, addr_remoto;// record con i dati del server e del client
+
     // definizione dei dati del socket p.161
     servizio.sin_family=AF_INET;
     servizio.sin_addr.s_addr=htonl(INADDR_ANY);
     servizio.sin_port=htons(SERVERPORT);
     int socketfd, soa, fromlen=sizeof(servizio);
     char str[DIM];
+
     // impostazione del transport endpoint del server p.163-164
     socketfd=socket(AF_INET,SOCK_STREAM,0);
+
     // leghiamo l'indirizzo al transport endpoint p. 164
     bind(socketfd,(struct sockaddr*)&servizio,sizeof(servizio));
+
     // poniamo il server in ascolto delle richieste dei client 
-    listen(socketfd,10);// pu� attendere fino a 10 client
+    listen(socketfd,10);// può attendere fino a 10 client
+
     // ciclo infinito
     for (; ;)
     {
@@ -39,5 +44,6 @@ int main()
         printf("Stringa ricevuta: %s\n",str);
         close(soa);
     }
-   return 0;   
+
+    return 0;   
 }

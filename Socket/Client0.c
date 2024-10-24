@@ -13,18 +13,24 @@
 #define SERVERPORT 1313
 
 int main(int argc,char** argv)
-{   //creazione di un elemento di tipo sockaddr vedi pagina 162
-    struct sockaddr_in servizio;
-     //inizializzazione dell'elemento di tipo sockaddr
-    servizio.sin_family=AF_INET; //va sempre dato valore AF_INET
-    servizio.sin_addr.s_addr=htonl(INADDR_ANY); //  La funzione htonl accetta un numero a 32 bit in ordine di byte host e restituisce un numero a 32 bit nell'ordine dei byte di rete usato nelle reti TCP/IP (la famiglia di indirizzi AF_INET o AF_INET6).
-    servizio.sin_port=htons(SERVERPORT);       //La funzione htons accetta un numero a 16 bit nell'ordine dei byte host e restituisce un numero a 16 bit nell'ordine dei byte di rete usato nelle reti TCP/IP (la famiglia di indirizzi AF_INET o AF_INET6).
-    char str1[DIM];     //Stringa da inviare
-    int socketfd;// identificatore della socket
+{   
+    //creazione di un elemento di tipo sockaddr vedi pagina 162
+    struct sockaddr_in servizio; //INDIRIZZO IP - PORTA - DOMINIO 
+
+    //inizializzazione dell'elemento di tipo sockaddr
+    servizio.sin_family=AF_INET; //va sempre dato valore AF_INET (AF -> Address Family = formato di indirizzamento)
+    servizio.sin_addr.s_addr=htonl(INADDR_ANY); //La funzione htonl accetta un numero a 32 bit in ordine di byte host e restituisce un numero a 32 bit nell'ordine dei byte di rete usato nelle reti TCP/IP (la famiglia di indirizzi AF_INET o AF_INET6).
+    servizio.sin_port=htons(SERVERPORT); //La funzione htons accetta un numero a 16 bit nell'ordine dei byte host e restituisce un numero a 16 bit nell'ordine dei byte di rete usato nelle reti TCP/IP (la famiglia di indirizzi AF_INET o AF_INET6).
+    char str1[DIM]; //stringa da inviare
+    int socketfd; //identificatore della socket
+    
     //creazione e definizione del Socket di tipo stream tcp pg 163
-    socketfd=socket(AF_INET,SOCK_STREAM,0); //successo creazione socket: 0 - fllimento creazione socket: -1
+    socketfd=socket(AF_INET,SOCK_STREAM,0); 
+    //successo creazione socket: 1>
+    //fllimento creazione socket: <0
+
     //connessione al server pag.173
-    connect(socketfd,(struct sockaddr*)&servizio,sizeof(servizio));    
+    connect(socketfd,(struct sockaddr*)&servizio,sizeof(servizio));
     printf("Inserisci la stringa\n");
     scanf("%s",str1);
     write(socketfd,str1,sizeof(str1));
