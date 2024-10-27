@@ -70,7 +70,6 @@ int main()
         //legge dal client
         read(soa,str,sizeof(str));
         printf("\nStringa ricevuta: %s\n",str);
-        close(soa);
 
         int v = vowels(str);
         send(soa, &v, sizeof(int), 0);
