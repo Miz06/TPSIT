@@ -47,12 +47,12 @@ int main()
 
         read(soa, str,sizeof(str));
         printf("\nValore letto: %s\n", str);
-        close(soa);
 
         upper(str);
-
         write(soa, str, sizeof(str));
+        close(soa);
     }
 
+    close(socketfd);
     return 0;   
 }
