@@ -24,10 +24,19 @@ int main(int argc,char** argv)
     char str[DIM];
     int socketfd, soa, fromlen=sizeof(servizio), value;
 
-    socketfd=socket(AF_INET,SOCK_STREAM,0); 
+    socketfd = socket(AF_INET, SOCK_STREAM, 0);
 
-    //connessione al server pag.173
-    connect(socketfd,(struct sockaddr*)&servizio,fromlen);
+    if (socketfd < 0) {
+        perror("Errore nella creazione del socket");
+        exit(EXIT_FAILURE);
+    }
+
+    if (connect(socketfd, (struct sockaddr*)&servizio, sizeof(servizio)) < 0) {
+        perror("Errore nella connessione al server");
+        close(socketfd);
+        exit(EXIT_FAILURE);
+    }
+
     printf("Inserisci la stringa\n");
     scanf("%s",str);
     write(socketfd,str,sizeof(str));

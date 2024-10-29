@@ -41,12 +41,24 @@ int main()
     int socketfd, soa, fromlen=sizeof(servizio), p;
     char str[DIM];
 
-    socketfd=socket(AF_INET,SOCK_STREAM,0);
+    socketfd = socket(AF_INET, SOCK_STREAM, 0);
 
-    bind(socketfd,(struct sockaddr*)&servizio,sizeof(servizio));
+    if (socketfd < 0) {
+        perror("Errore nella creazione del socket");
+        exit(EXIT_FAILURE);
+    }
 
-    // poniamo il server in ascolto delle richieste dei client
-    listen(socketfd,10);// può attendere fino a 10 client
+    if (bind(socketfd, (struct sockaddr*)&servizio, sizeof(servizio)) < 0) {
+        perror("Errore nel bind");
+        close(socketfd);
+        exit(EXIT_FAILURE);
+    }
+
+    if (listen(socketfd, 10) < 0) {
+        perror("Errore nel listen");
+        close(socketfd);
+        exit(EXIT_FAILURE);
+    }
 
     // ciclo infinito
     for (; ;)
