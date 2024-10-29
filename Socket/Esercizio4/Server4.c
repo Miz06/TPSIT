@@ -62,14 +62,31 @@ int main() {
 
         soa=accept(socketfd,(struct sockaddr*)&addr_remoto,&fromlen);
         
-        read(soa,str,sizeof(str));
+        if(read(soa,str,sizeof(str))<0)
+        {
+            printf("Errore nella read della stringa");
+            close(soa);
+            continue;
+        }
+
         printf("\nStringa ricevuta: %s\n", str);
 
-        read(soa, &c, sizeof(c));
+        if(read(soa, &c, sizeof(c))<0)
+        {
+            printf("Errore nella read del carattere");
+            close(soa);
+            continue;
+        }
+
         printf("Carattere ricevuto: %c", c);
 
         num = carattereInStr(str, c);
-        send(soa, &num, sizeof(int), 0);
+
+        if(send(soa, &num, sizeof(int), 0)<0){
+            printf("Errore nella send di num");
+            close(socketfd);
+            exit(EXIT_FAILURE);
+        }
 
         close(soa);
     }

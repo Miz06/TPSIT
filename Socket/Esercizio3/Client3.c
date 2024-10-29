@@ -39,13 +39,22 @@ int main(int argc,char** argv)
 
     printf("Inserisci la stringa\n");
     scanf("%s",str);
-    write(socketfd,str,sizeof(str));
+    if(write(socketfd,str,sizeof(str))){
+        printf("Errore nella write di str");
+        close(socketfd);
+        exit(EXIT_FAILURE);
+    }
 
     printf("\nIn attesa di risposta dal server...\n");
     fflush(stdout);
         
     //legge dal server
-    recv(socketfd, &value, sizeof(int), 0);
+    if(recv(socketfd, &value, sizeof(int), 0)<0)
+    {
+        printf("Errore nella recv di value");
+        close(socketfd);
+        exit(EXIT_FAILURE);
+    }
 
     if(value == 0){
         printf("\nLa parola %s è palindroma\n", str);
