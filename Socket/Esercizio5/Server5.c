@@ -32,8 +32,8 @@ int main() {
     struct sockaddr_in servizio, addr_remoto;
 
     servizio.sin_family = AF_INET;
+    servizio.sin_addr.s_addr = htonl(INADDR_ANY);
     servizio.sin_port = htons(SERVERPORT);
-    servizio.sin_addr.s_addr = htonl(INADDR_ANY); // Ascolta su tutte le interfacce
 
     int socketfd, soa, fromlen = sizeof(servizio);
     char str[DIM];
@@ -79,7 +79,7 @@ int main() {
         if(write(soa, &str, sizeof(str))<0){
             printf("Errore nella write di str");
             close(soa);
-            exit(EXIT_FAILURE);
+            continue;
         }
 
         close(soa);

@@ -14,7 +14,7 @@
 
 int main(int argc,char** argv)
 {   
-    struct sockaddr_in servizio, addr_remoto; //INDIRIZZO IP - PORTA - DOMINIO 
+    struct sockaddr_in servizio, addr_remoto;  
 
     //inizializzazione dell'elemento di tipo sockaddr
     servizio.sin_family=AF_INET; 
@@ -43,13 +43,26 @@ int main(int argc,char** argv)
     printf("Inserisci il carattere: ");
     scanf(" %c", &c);
 
-    write(socketfd, str, sizeof(str));
-    write(socketfd, &c, sizeof(c));
+    if(write(socketfd, str, sizeof(str))<0){
+        printf("Errore nella write di str");
+        close(socketfd);
+        exit(EXIT_FAILURE);
+    }
+
+    if(write(socketfd, &c, sizeof(c))<0){
+        printf("Errore nella write del carattere c");
+        close(socketfd);
+        exit(EXIT_FAILURE);
+    }
 
     printf("\nIn attesa di risposta dal server...\n");
     fflush(stdout);
         
-    recv(socketfd, &value, sizeof(int), 0);
+    if(recv(socketfd, &value, sizeof(int), 0)<0){
+        printf("Errore nella recv di value");
+        close(socketfd);
+        exit(EXIT_FAILURE);
+    }
 
     printf("Il carattere %c si ripete %d volte nella stringa %s\n", c, value, str);
 

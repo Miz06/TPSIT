@@ -14,7 +14,7 @@
 
 int main(int argc,char** argv)
 {   
-    struct sockaddr_in servizio, addr_remoto; //INDIRIZZO IP - PORTA - DOMINIO 
+    struct sockaddr_in servizio, addr_remoto;
 
     //inizializzazione dell'elemento di tipo sockaddr
     servizio.sin_family=AF_INET; 
@@ -39,6 +39,7 @@ int main(int argc,char** argv)
 
     printf("Inserisci la stringa\n");
     scanf("%s",str);
+    
     if(write(socketfd,str,sizeof(str))){
         printf("Errore nella write di str");
         close(socketfd);
@@ -48,9 +49,7 @@ int main(int argc,char** argv)
     printf("\nIn attesa di risposta dal server...\n");
     fflush(stdout);
         
-    //legge dal server
-    if(recv(socketfd, &value, sizeof(int), 0)<0)
-    {
+    if(recv(socketfd, &value, sizeof(int), 0)<0){
         printf("Errore nella recv di value");
         close(socketfd);
         exit(EXIT_FAILURE);

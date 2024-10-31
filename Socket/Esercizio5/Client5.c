@@ -19,8 +19,8 @@ int main(int argc,char** argv)
 
     //inizializzazione dell'elemento di tipo sockaddr
     servizio.sin_family=AF_INET; 
+    servizio.sin_addr.s_addr = htonl(INADDR_ANY);
     servizio.sin_port=htons(SERVERPORT); 
-    servizio.sin_addr.s_addr = htonl(INADDR_ANY); // Ascolta su tutte le interfacce
 
     char str[DIM];
     int socketfd, soa, fromlen=sizeof(servizio), value;

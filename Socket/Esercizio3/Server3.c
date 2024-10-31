@@ -32,7 +32,7 @@ int palindroma(char str[]){
 
 int main()
 {
-    struct sockaddr_in servizio, addr_remoto;// record con i dati del server e del client
+    struct sockaddr_in servizio, addr_remoto; // record con i dati del server e del client
 
     servizio.sin_family=AF_INET;
     servizio.sin_addr.s_addr=htonl(INADDR_ANY);
@@ -68,12 +68,21 @@ int main()
 
         soa=accept(socketfd,(struct sockaddr*)&addr_remoto,&fromlen);
         
-        read(soa,str,sizeof(str));
+        if(read(soa,str,sizeof(str))<0){
+            printf("Errore nella read di str");
+            close(soa);
+            continue;
+        }
+
         printf("\nStringa ricevuta: %s\n",str);
 
         p = palindroma(str);
 
-        send(soa, &p, sizeof(int), 0);
+        if(send(soa, &p, sizeof(int), 0)<0){
+            printf("Errore nella send di p");
+            close(soa);
+            continue;
+        }
 
         close(soa);
     }
