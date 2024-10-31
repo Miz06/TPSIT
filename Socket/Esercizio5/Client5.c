@@ -8,7 +8,7 @@
 #include <errno.h>       //gestioni errori connessione
 #include <ctype.h>       //bind
 #include <unistd.h>     // file header che consente l'accesso alle API dello standard POSIX
-#include <arpa/inet.h>
+#include <arpa/inet.h>  //per conversione degli indirizzi di rete
 
 #define DIM 50
 #define SERVERPORT 1313
@@ -23,7 +23,7 @@ int main(int argc,char** argv)
     servizio.sin_port=htons(SERVERPORT); 
 
     char str[DIM];
-    int socketfd, soa, fromlen=sizeof(servizio), value;
+    int socketfd, fromlen=sizeof(servizio), value;
 
     socketfd = socket(AF_INET, SOCK_STREAM, 0); 
 

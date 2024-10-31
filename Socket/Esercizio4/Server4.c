@@ -26,7 +26,7 @@ int carattereInStr(char str[], char c){
 }
 
 int main() {
-    struct sockaddr_in servizio, addr_remoto;
+    struct sockaddr_in servizio, addr_remoto; 
 
     servizio.sin_family = AF_INET;
     servizio.sin_addr.s_addr = htonl(INADDR_ANY);

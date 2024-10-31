@@ -22,7 +22,7 @@ int main(int argc,char** argv)
     servizio.sin_port=htons(SERVERPORT); 
 
     char str[DIM], c;
-    int socketfd, soa, fromlen=sizeof(servizio), value;
+    int socketfd, fromlen=sizeof(servizio), value;
 
     socketfd = socket(AF_INET, SOCK_STREAM, 0); 
 
