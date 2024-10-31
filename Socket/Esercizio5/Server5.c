@@ -13,16 +13,19 @@
 #define DIM 50
 #define SERVERPORT 1313
 
-int carattereInStr(char str[], char c){
-    int count = 0;
-
+void ordinaStringa(char str[DIM]){
+    char sup;
+    
     for(int i = 0; i<strlen(str); i++){
-        if(str[i] == c){
-            count++;
+        for(int j = i+1; j<strlen(str); j++){
+            if((int)tolower(str[i])>(int)tolower(str[j])){
+                sup = str[i];
+                str[i] = str[j];
+                str[j] = sup;
+            }
         }
-    }
 
-    return count;
+    }
 }
 
 int main() {
@@ -32,8 +35,8 @@ int main() {
     servizio.sin_addr.s_addr = htonl(INADDR_ANY);
     servizio.sin_port = htons(SERVERPORT);
 
-    int socketfd, soa, fromlen = sizeof(servizio), num;
-    char str[DIM], c;
+    int socketfd, soa, fromlen = sizeof(servizio);
+    char str[DIM];
 
     socketfd = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -62,7 +65,7 @@ int main() {
 
         soa=accept(socketfd,(struct sockaddr*)&addr_remoto,&fromlen);
         
-        if(read(soa,str,sizeof(str))<0)
+        if(read(soa, str, sizeof(str))<0)
         {
             printf("Errore nella read della stringa");
             close(soa);
@@ -71,19 +74,10 @@ int main() {
 
         printf("\nStringa ricevuta: %s\n", str);
 
-        if(read(soa, &c, sizeof(c))<0)
-        {
-            printf("Errore nella read del carattere");
-            close(soa);
-            continue;
-        }
+        ordinaStringa(str);
 
-        printf("Carattere ricevuto: %c", c);
-
-        num = carattereInStr(str, c);
-
-        if(send(soa, &num, sizeof(int), 0)<0){
-            printf("Errore nella send di num");
+        if(write(soa, &str, sizeof(str))<0){
+            printf("Errore nella write di str");
             close(soa);
             exit(EXIT_FAILURE);
         }
