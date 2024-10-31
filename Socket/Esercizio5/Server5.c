@@ -9,6 +9,7 @@
 #include <ctype.h>       //bind
 #include <unistd.h>     // file header che consente l'accesso alle API dello standard POSIX
 #include <ctype.h>
+#include <arpa/inet.h>
 
 #define DIM 50
 #define SERVERPORT 1313
@@ -32,8 +33,14 @@ int main() {
     struct sockaddr_in servizio, addr_remoto;
 
     servizio.sin_family = AF_INET;
-    servizio.sin_addr.s_addr = htonl(INADDR_ANY);
     servizio.sin_port = htons(SERVERPORT);
+
+    const char* ip_server = "192.168.2.205"; // Indirizzo IP del client
+
+    if (inet_pton(AF_INET, ip_server, &servizio.sin_addr) <= 0) {
+        perror("Errore nella conversione dell'indirizzo IP");
+        exit(EXIT_FAILURE);
+    }
 
     int socketfd, soa, fromlen = sizeof(servizio);
     char str[DIM];

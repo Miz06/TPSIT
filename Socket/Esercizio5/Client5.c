@@ -8,6 +8,7 @@
 #include <errno.h>       //gestioni errori connessione
 #include <ctype.h>       //bind
 #include <unistd.h>     // file header che consente l'accesso alle API dello standard POSIX
+#include <arpa/inet.h>
 
 #define DIM 50
 #define SERVERPORT 1313
@@ -18,8 +19,14 @@ int main(int argc,char** argv)
 
     //inizializzazione dell'elemento di tipo sockaddr
     servizio.sin_family=AF_INET; 
-    servizio.sin_addr.s_addr=htonl(INADDR_ANY); 
     servizio.sin_port=htons(SERVERPORT); 
+
+    const char* ip_server = "192.168.2.204"; // Indirizzo IP del server
+
+    if (inet_pton(AF_INET, ip_server, &servizio.sin_addr) <= 0) {
+        perror("Errore nella conversione dell'indirizzo IP");
+        exit(EXIT_FAILURE);
+    }
 
     char str[DIM];
     int socketfd, soa, fromlen=sizeof(servizio), value;
