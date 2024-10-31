@@ -25,7 +25,6 @@ void ordinaStringa(char str[DIM]){
                 str[j] = sup;
             }
         }
-
     }
 }
 
@@ -34,6 +33,12 @@ int main() {
 
     servizio.sin_family = AF_INET;
     servizio.sin_port = htons(SERVERPORT);
+    servizio.sin_addr.s_addr = htonl(INADDR_ANY); // Ascolta su tutte le interfacce
+
+    int socketfd, soa, fromlen = sizeof(servizio);
+    char str[DIM];
+
+    socketfd = socket(AF_INET, SOCK_STREAM, 0);
 
     const char* ip_server = "192.168.2.205"; // Indirizzo IP del client
 
@@ -41,12 +46,7 @@ int main() {
         perror("Errore nella conversione dell'indirizzo IP");
         exit(EXIT_FAILURE);
     }
-
-    int socketfd, soa, fromlen = sizeof(servizio);
-    char str[DIM];
-
-    socketfd = socket(AF_INET, SOCK_STREAM, 0);
-
+    
     if (socketfd < 0) {
         perror("Errore nella creazione del socket");
         exit(EXIT_FAILURE);

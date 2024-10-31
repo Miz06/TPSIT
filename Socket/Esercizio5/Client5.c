@@ -20,6 +20,12 @@ int main(int argc,char** argv)
     //inizializzazione dell'elemento di tipo sockaddr
     servizio.sin_family=AF_INET; 
     servizio.sin_port=htons(SERVERPORT); 
+    servizio.sin_addr.s_addr = htonl(INADDR_ANY); // Ascolta su tutte le interfacce
+
+    char str[DIM];
+    int socketfd, soa, fromlen=sizeof(servizio), value;
+
+    socketfd = socket(AF_INET, SOCK_STREAM, 0); 
 
     const char* ip_server = "192.168.2.204"; // Indirizzo IP del server
 
@@ -27,11 +33,6 @@ int main(int argc,char** argv)
         perror("Errore nella conversione dell'indirizzo IP");
         exit(EXIT_FAILURE);
     }
-
-    char str[DIM];
-    int socketfd, soa, fromlen=sizeof(servizio), value;
-
-    socketfd = socket(AF_INET, SOCK_STREAM, 0); 
 
     if (socketfd < 0) {
         perror("Errore nella creazione del socket");
