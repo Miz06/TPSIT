@@ -14,53 +14,33 @@
 #define SERVERPORT 1313
 #define ARR_LEN 3
 
-//il parametro n serve a non dover utilizzare funzioni diverse per pari e dispari 
+//il parametro n serve a non dover utilizzare una funzione aggiuntiva per gestire numeri pari e dispari 
 
-int somma(int vett[], int n, int elementi){
-    int somma = 0, elementi = 0; 
+int somma(int vett[], int n, int *e){
+    int somma = 0;
+    *e = 0; //viene modificato il valore della variabile a cui punta e
 
-    if(n == 0){
-        for(int i = 0; i<ARR_LEN; i++){
-            if(vett[i]%2 == 0){
-                somma += vett[i];
-            }
+    for(int i = 0; i<ARR_LEN; i++){
+        if(n == 0 && vett[i]%2 == 0){
+            somma += vett[i];
+            (*e)++;
         }
-    }
-    else{
-        for(int i = 0; i<ARR_LEN; i++){
-            if(vett[i]%2 != 0){
-                somma += vett[i];
-            }
+        else if(n == 1 && vett[i]%2 != 0){
+            somma += vett[i];
+            (*e)++;
         }
     }
 
     return somma;
 }
 
-int elenmenti(int vett[], int n, int elementi){
-    int elementi = 0; 
-
-    if(n == 0){
-        for(int i = 0; i<ARR_LEN; i++){
-            if(vett[i]%2 == 0){
-                elementi++;
-            }
-        }
+float media(int somma, int elementi){
+    if(elementi == 0){
+        return 0;
     }
     else{
-        for(int i = 0; i<ARR_LEN; i++){
-            if(vett[i]%2 != 0){
-                elementi++;
-            }
-        }
+        return somma/elementi;
     }
-
-    return elementi;
-}
-
-float media(int vett[], int n, int elementi){
-    int s = somma(vett, n, elementi);
-
 }
 
 int main() {
@@ -70,7 +50,7 @@ int main() {
     servizio.sin_addr.s_addr = htonl(INADDR_ANY);
     servizio.sin_port = htons(SERVERPORT);
 
-    int socketfd, soa, fromlen = sizeof(servizio), vett[ARR_LEN], s;
+    int socketfd, soa, fromlen = sizeof(servizio), vett[ARR_LEN], s, elementi;
     float m;
 
     socketfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -113,7 +93,7 @@ int main() {
         }
 
         //PARI
-        s = somma(vett, 0);
+        s = somma(vett, 0, &elementi); //passiamo l'indirizzo di elementi
 
         if(send(soa, &s, sizeof(int), 0)<0){
             printf("Errore nella send di num");
@@ -121,7 +101,7 @@ int main() {
             continue;
         }
 
-        m = media(vett, 0);
+        m = media(s, elementi);
         
         if(send(soa, &m, sizeof(float), 0)<0){
             printf("Errore nella send di num");
@@ -130,7 +110,7 @@ int main() {
         }
 
         //DISPARI
-        s = somma(vett, 1);
+        s = somma(vett, 1, &elementi);
 
         if(send(soa, &s, sizeof(int), 0)<0){
             printf("Errore nella send di num");
@@ -138,7 +118,7 @@ int main() {
             continue;
         }
 
-        m = media(vett, 1);
+        m = media(s, elementi);
         
         if(send(soa, &m, sizeof(float), 0)<0){
             printf("Errore nella send di num");

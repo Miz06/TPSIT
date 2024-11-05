@@ -67,9 +67,14 @@ int main(int argc,char** argv)
         exit(EXIT_FAILURE);
     }
 
-    printf("\nMedia pari: %f\n", m);
+    if(m == 0){
+        printf("\nElementi per eseguire la media assenti\n");
+    }
+    else{
+        printf("\nMedia pari: %f\n", m);
+    }
 
-        if(recv(socketfd, &s, sizeof(int), 0)<0){
+    if(recv(socketfd, &s, sizeof(int), 0)<0){
         printf("Errore nella recv di num");
         close(socketfd);
         exit(EXIT_FAILURE);
@@ -83,8 +88,12 @@ int main(int argc,char** argv)
         exit(EXIT_FAILURE);
     }
 
-    printf("\nMedia dispari: %f\n", m);
-
+    if(m == 0){
+        printf("\nElementi per eseguire la media assenti\n");
+    }
+    else{
+        printf("\nMedia pari: %f\n", m);
+    }
     close(socketfd);
     return 0;
 }
