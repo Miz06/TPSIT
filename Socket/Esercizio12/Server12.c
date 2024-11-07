@@ -16,12 +16,11 @@
 void invertiStringa(char vett[]){
     char sup;
 
-    for(int i = 0; i<strlen(vett); i++){
+    for(int i = 0; i<strlen(vett)/2; i++){
         sup = vett[i];
-        vett[i] = vett[strlen(vett)-1];
-        vett[strlen(vett)-1] = sup;
+        vett[i] = vett[strlen(vett)-i-1];
+        vett[strlen(vett)-i-1] = sup;
     }
-
 }
 
 int main() {
