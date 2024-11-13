@@ -13,27 +13,27 @@
 #define SERVERPORT 1313
 #define ARR_LEN 4
 
-void somma(int vett[], int vett1[], int vett2[]){
+void somma(double vett[], double vett1[], double vett2[]){
     for(int i = 0; i<ARR_LEN; i++){
         vett[i]=vett1[i]+vett2[i];
     }
 }
 
-void diferenza(int vett[], int vett1[], int vett2[]){
+void diferenza(double vett[], double vett1[], double vett2[]){
     for(int i = 0; i<ARR_LEN; i++){
         vett[i]=vett1[i]-vett2[i];
     }
 }
 
-void prodotto(int vett[], int vett1[], int vett2[]){
+void prodotto(double vett[], double vett1[], double vett2[]){
     for(int i = 0; i<ARR_LEN; i++){
         vett[i]=vett1[i]*vett2[i];
     }
 }
 
-void quoziente(int vett[], int vett1[], int vett2[]){
+void quoziente(double vett[], double vett1[], double vett2[]){
     for(int i = 0; i<ARR_LEN; i++){
-        vett[i]=vett1[i]*vett2[i];
+        vett[i]=vett1[i]/vett2[i];
     }
 }
 
@@ -45,7 +45,7 @@ int main() {
     servizio.sin_port = htons(SERVERPORT);
 
     int socketfd, soa, fromlen = sizeof(servizio), value;
-    int vett1[ARR_LEN], vett2[ARR_LEN], vett[ARR_LEN];
+    double vett1[ARR_LEN], vett2[ARR_LEN], vett[ARR_LEN];
 
     socketfd = socket(AF_INET, SOCK_STREAM, 0);
 

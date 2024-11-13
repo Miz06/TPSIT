@@ -22,7 +22,7 @@ int main(int argc,char** argv)
     servizio.sin_port=htons(SERVERPORT); 
 
     int socketfd, fromlen=sizeof(servizio);
-    int vett1[ARR_LEN], vett2[ARR_LEN];
+    double vett1[ARR_LEN] = {2, 4, 7, 8}, vett2[ARR_LEN] = {1, 2, 9, 1};
 
     socketfd = socket(AF_INET, SOCK_STREAM, 0); 
 
@@ -49,6 +49,16 @@ int main(int argc,char** argv)
         exit(EXIT_FAILURE);
     }
 
+    printf("\nVETT1: ");
+    for(int i = 0; i<ARR_LEN; i++){
+        printf("[%d] %f ", i, vett1[i] );
+    }
+
+    printf("\nVETT2: ");
+    for(int i = 0; i<ARR_LEN; i++){
+        printf("[%d] %f", i, vett2[i] );
+    }
+
     printf("\nIn attesa di risposta dal server...\n");
     fflush(stdout);
 
@@ -58,8 +68,51 @@ int main(int argc,char** argv)
         exit(EXIT_FAILURE);
     }
 
-    printf("\nLettere comuni: %s\n", vett1);
+    printf("\nSomma:\n");
+    for(int i = 0; i<ARR_LEN; i++){
+        printf("[%d] %f\n", i, vett1[i] );
+    }
 
+    if(read(socketfd, vett1, sizeof(vett1))<0){
+        printf("Errore nella read di vett1");
+        close(socketfd);
+        exit(EXIT_FAILURE);
+    }
+
+    printf("\n-------------------\n");
+
+    printf("\nDifferenza:\n");
+    for(int i = 0; i<ARR_LEN; i++){
+        printf("[%d] %f\n", i, vett1[i] );
+    }
+
+    if(read(socketfd, vett1, sizeof(vett1))<0){
+        printf("Errore nella read di vett1");
+        close(socketfd);
+        exit(EXIT_FAILURE);
+    }
+
+    printf("\n-------------------\n");
+
+    printf("\nProdotto:\n");
+    for(int i = 0; i<ARR_LEN; i++){
+        printf("[%d] %f\n", i, vett1[i]);
+    }
+
+    if(read(socketfd, vett1, sizeof(vett1))<0){
+        printf("Errore nella read di vett1");
+        close(socketfd);
+        exit(EXIT_FAILURE);
+    }
+
+    printf("\n-------------------\n");
+
+    printf("\nQuoziente:\n");
+    for(int i = 0; i<ARR_LEN; i++){
+        printf("[%d] %f\n", i, vett1[i] );
+    }
+
+    printf("\n-------------------\n");
     close(socketfd);
     return 0;
 }
