@@ -33,6 +33,39 @@ int main(int argc,char** argv){
         exit(EXIT_FAILURE);
     }
     
+    /*----------------------------------------------
+    PER PASSARE NUMERI
+
+    if(send(socketfd, &num, sizeof(int), 0)<0){
+        printf("Errore nella send di num");
+        close(socketfd);
+        continue;
+    }
+
+    if(recv(socketfd, &num, sizeof(int), 0)<0){
+        printf("Errore nella recv di num");
+        close(socketfd);
+        exit(EXIT_FAILURE);
+    }
+    
+    ----------------------------------------------*/
+
+    /*----------------------------------------------
+    PER PASSARE vettori
+
+    if(send(socketfd, vett, sizeof(vett), 0)<0){
+        printf("Errore nella send di vett");
+        close(socketfd);
+        continue;
+    }
+
+    if(recv(socketfd, vett, sizeof(vett), 0)<0){
+        printf("Errore nella recv di vett");
+        close(socketfd);
+        exit(EXIT_FAILURE);
+    }
+    
+    ----------------------------------------------*/
 
     close(socketfd);
     return 0;

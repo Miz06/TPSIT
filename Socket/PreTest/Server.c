@@ -52,6 +52,40 @@ int main() {
             continue; 
         }
         
+        /*----------------------------------------------
+        PER PASSARE NUMERI
+
+        if(send(soa, &num, sizeof(int), 0)<0){
+            printf("Errore nella send di num");
+            close(soa);
+            continue;
+        }
+
+        if(recv(soa, &num, sizeof(int), 0)<0){
+            printf("Errore nella recv di num");
+            close(soa);
+            exit(EXIT_FAILURE);
+        }
+        
+        ----------------------------------------------*/
+
+        /*----------------------------------------------
+        PER PASSARE vettori
+
+        if(send(soa, vett, sizeof(vett), 0)<0){
+            printf("Errore nella send di vett");
+            close(soa);
+            continue;
+        }
+
+        if(recv(soa, vett, sizeof(vett), 0)<0){
+            printf("Errore nella recv di vett");
+            close(soa);
+            exit(EXIT_FAILURE);
+        }
+        
+        ----------------------------------------------*/
+
         close(soa);
     }
 
