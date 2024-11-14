@@ -11,13 +11,12 @@
 
 #define SERVERPORT 1313
 
-int main(int argc,char** argv)
-{   
+int main(int argc,char** argv){   
     struct sockaddr_in servizio, addr_remoto;  
 
-    servizio.sin_family=AF_INET; 
-    servizio.sin_addr.s_addr=htonl(INADDR_ANY); 
-    servizio.sin_port=htons(SERVERPORT); 
+    servizio.sin_family = AF_INET; 
+    servizio.sin_addr.s_addr = htonl(INADDR_ANY); 
+    servizio.sin_port = htons(SERVERPORT); 
 
     int socketfd, fromlen=sizeof(servizio);
 
