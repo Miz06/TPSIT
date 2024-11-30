@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Homepage</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
-    <title>Bootstrap Example</title>
     <style>
       html, body {
           height: 100%;
           margin: 0;
+          padding: 0;
       }
 
       body {
@@ -18,50 +17,89 @@
           flex-direction: column;
       }
 
+      .navbar {
+          margin: 0;
+          padding: 2%;
+      }
+
+      .navbar-brand {
+          color: white !important; /* HOMEPAGE in bianco */
+      }
+
+      .navbar-toggler {
+          border: none; /* Rimuove il bordo dell'icona */
+      }
+
+      .navbar-toggler-icon {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+      }
+
+      .btn-close {
+        background-color: white;
+        border: 2px solid black;
+        color: black;
+    }
+
       footer {
+          padding: 0;
+          width: 100%;
           margin-top: auto;
       }
-  </style>
+
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
-  <body class="p-3 m-0 border-0 bd-example">
+  <body class="p-0 m-0 border-0 bd-example">
 
-<!-- -->
-    <nav class="navbar bg-light fixed-top">
-      <div class="container-fluid p-4"  style="background-color:rgb(190, 187, 187)">
+    <nav class="navbar bg-black">
+      <div class="container-fluid">
         <a class="navbar-brand" href="#">HOMEPAGE</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">HOMEPAGE</h5>
+            <h5 class="offcanvas-title text-black" id="offcanvasNavbarLabel">HOMEPAGE</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Glossario</a>
+                <a class="nav-link text-dark" aria-current="page" href="#">Glossario</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link text-dark" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Socket</a>
+                <a class="nav-link text-dark" aria-current="page" href="#">Socket</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
     </nav>
-<!-- -->
+
+    <div class="container mt-5" >
+      <div class="card text-center align-center" style="width: 70%;">
+        <div class="card-header">
+          SOCKET
+        </div>
+        <img src="./ClientServer.png" class="card-img-top img-fluid mx-auto d-block" style="max-width: 90%;" alt="Client-Server">
+        <div class="card-body" style="background-color:rgb(255, 228, 139)">
+          <p class="card-text">Un socket è un endpoint per la comunicazione tra due macchine in rete; 
+            i socket possono utilizzare vari protocolli di rete ma i più comuni sono TCP (Transmission Control Protocol) e UDP (User Datagram Protocol). 
+            In un contesto di programmazione, un socket è tipicamente creato da un'applicazione client per stabilire 
+            la connessione ad un server il quale offrirà un servizio specifico.</p>
+        </div>
+      </div>
+    </div>
+    
     <footer>
       <div class="bg-black p-4 text-center">
           <p class="display-10 mb-2 text-white">Mizzon Alessandro 5E</p>
           <small class="text-white-50">All rights reserved.</small>
       </div>
     </footer>
-<!-- -->
 
   </body>
 </html>
