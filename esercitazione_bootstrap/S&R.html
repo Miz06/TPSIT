@@ -50,6 +50,28 @@
           margin-top: auto;
       }
 
+      .card-header{
+        color: white; 
+        background-color: green;
+      }
+
+      .accordion-body, .card-body{
+          background-color: rgb(248, 248, 248);
+      }
+
+      .accordion-button {
+        color: black; 
+      }
+
+      .accordion-button:not(.collapsed) {
+          background-color: green; 
+          color: white; 
+      }
+
+      .accordion-button.collapsed {
+          background-color: rgb(248, 248, 248);
+          color: black; 
+      }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
@@ -88,6 +110,157 @@
         </div>
       </div>
     </nav>
+
+    <div class="card text-center mt-5 me-5 ms-5 shadow">
+      <div class="card-header">
+        Il modello OSI
+      </div>
+    
+      <div class="d-flex align-items-center p-4" style="background-color: rgb(248, 248, 248)">
+        <img src="./images/OSI.png" class="img-fluid flex-shrink-0 me-4" alt="modello OSI" style="width: 40%;">
+        <div>
+          <p class="mt-4" style="font-size: 1.1rem; line-height: 1.5;">
+            Il modello <strong>OSI (Open Systems Interconnection)</strong> è uno schema standardizzato che descrive il funzionamento delle reti di comunicazione suddiviso in 7 livelli, ognuno con funzioni specifiche. 
+            È progettato per facilitare l'interoperabilità tra dispositivi e sistemi di produttori diversi.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion m-5 shadow" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="true" aria-controls="panelsStayOpen-collapseSeven">
+            Livello 7
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse show">
+          <div class="accordion-body">
+            <strong>Application Layer (Livello Applicazione):</strong> fornisce servizi di rete direttamente alle applicazioni utente.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
+            Livello 6
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <strong>Presentation Layer (Livello Presentazione):</strong> traduce i dati in formati comprensibili per l'applicazione.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+            Livello 5
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <strong>Session Layer (Livello Sessione):</strong> gestisce l'apertura, il mantenimento e la chiusura delle sessioni tra applicazioni.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+            Livello 4
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <strong>Transport Layer (Livello Trasporto):</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element...
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+            Livello 3
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <strong>Network Layer (Livello Rete):</strong> si occupa dell'indirizzamento e del routing dei pacchetti di dati.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+            Livello 2
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <strong>Data Link Layer (Livello Collegamento Dati):</strong> gestisce l'accesso al mezzo fisico e la correzione degli errori di trasmissione.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+            Livello 1
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <strong>Physical Layer (Livello Fisico):</strong> riguarda la trasmissione fisica dei dati tramite cavi, onde radio, fibre ottiche, ecc..
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-5 ms-5 me-5 shadow">
+      <div class="card-header">
+        Di cosa si occupa nello specifico il livello di trasporto?
+      </div>
+      <div class="card-body">
+        <p class="card-text">Il livello di trasporto è responsabile della gestione affidabile e ordinata dei dati tra due host in rete usufruendo dei protocolli TCP e UDP.
+          Oltre a fornire una comunicazione end-to-end indipendente dal tipo di rete utilizzata, consegna i dati secondo le necessità dell'applicazione, adattandosi ai requisiti di velocità, precisione e continuità.
+          Di seguito sono riportate le funzionalità principali di questo livello.</p>
+      </div>
+    </div>
+
+    <div class="container mb-3">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        <div class="col">
+          <div class="card border-dark mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Segmentazione e riassemblaggio</h5>
+              <p class="card-text">Divide i dati in segmenti più piccoli e li ricompone al destinatario.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card border-dark mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Affidabilità</h5>
+              <p class="card-text">Garantisce che tutti i segmenti arrivino a destinazione senza errori, duplicati o perdite.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card border-dark mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Controllo di flusso</h5>
+              <p class="card-text">Regola la velocità di trasmissione dei dati per evitare il sovraccarico del destinatario.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card border-dark mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Multiplexing</h5>
+              <p class="card-text">Consente a più applicazioni di utilizzare la rete simultaneamente sfruttando i numeri di porta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer>
       <div class="bg-black p-4 text-center">
