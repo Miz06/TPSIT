@@ -53,6 +53,16 @@
         flex-grow: 1; /* Rende il contenitore flessibile per occupare tutto lo spazio disponibile */
       }
 
+      .card-img-top {
+        height: 200px; /* Altezza uniforme */
+        object-fit: cover; /* Taglia l'immagine mantenendo proporzioni */
+      }    
+    
+      .nav-link {
+        padding: 3%; 
+      }
+    
+
     </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
@@ -60,7 +70,7 @@
 
     <nav class="navbar bg-black">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">HOMEPAGE</a>
+        <h1 class="navbar-brand">HOMEPAGE</h1>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -72,45 +82,91 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link text-dark" aria-current="page" href="#">Glossario</a>
+                <a class="nav-link text-dark" aria-current="page" href="./glossario.html">Glossario</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark" aria-current="page" href="#">Home</a>
+                <a class="nav-link text-dark" aria-current="page" href="./home.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark" aria-current="page" href="#">Socket</a>
+                <a class="nav-link text-dark" aria-current="page" href="./socket.html">Socket</a>
               </li>
               <li>
-                <a class="nav-link text-dark" aria-current="page" href="#">Informatica</a>
+                <a class="nav-link text-dark" aria-current="page" href="./informatica.html">Informatica</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark" aria-current="page" href="#">Sistemi e Reti</a>
+                <a class="nav-link text-dark" aria-current="page" href="./S&R.html">Sistemi e Reti</a>
               </li>
-          </div>
+            </ul>
+          </div>          
         </div>
       </div>
     </nav>
 
-    <div class="container-centered mt-1 mb-1">
-      <div class="card text-center align-center" style="width: 60%;">
-        <div class="card-header">
-          SOCKET
-        </div>
-        <img src="./ClientServerConnection.jpg" class="card-img-top img-fluid mx-auto d-block" alt="Client-Server">
+    <div class="card text-center mt-5 ms-5 me-5">
+      <div class="card-header" style="color: white; background-color: green">
+        Benvenuto!
       </div>
-    </div>
-
-    <div class="container-centered">
-      <div class="card text-center align-center" style="width: 90%;">
-        <div class="card-footer" > 
-          <p class="card-text">Un socket è un endpoint per la comunicazione tra due macchine in rete; 
-            i socket possono utilizzare vari protocolli di rete ma i più comuni sono TCP (Transmission Control Protocol) e UDP (User Datagram Protocol). 
-            In un contesto di programmazione, un socket è tipicamente creato da un'applicazione client per stabilire 
-            la connessione ad un server il quale offrirà un servizio specifico.</p>
-        </div>
+      <div class="card-body" style="background-color: rgb(248, 248, 248)">
+        <p class="card-text">Un socket è un endpoint per la comunicazione tra due macchine in rete; 
+          i socket possono utilizzare vari protocolli di rete ma i più comuni sono TCP e UDP. 
+          In un contesto di programmazione, un socket è tipicamente creato da un'applicazione client per stabilire 
+          la connessione ad un server il quale offrirà un servizio specifico. Vedi l'argomento più nello specifico continuando la visita del sito!</p>
       </div>
     </div>
     
+    <div class="container mt-5 mb-5">
+      <div class="row">
+        <div class="col-md-3 mb-1">
+          <div class="card" style="width: 100%; background-color: rgb(248, 248, 248)">
+            <img src="./images/Glossario.png" class="card-img-top" alt="glossario">
+            <div class="card-body">
+              <h5 class="card-title">Glossario</h5>
+              <p class="card-text">Definizioni sui termini tecnici utilizzati nel sito.</p>
+            </div>
+            <div class="card-body">
+              <a href="./glossario.html" class="btn btn-primary" style="background-color: green" >Vai alla pagina</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-1">
+          <div class="card" style="width: 100%; background-color: rgb(248, 248, 248)">
+            <img src="./images/Rete.jpg" class="card-img-top" alt="rete">
+            <div class="card-body">
+              <h5 class="card-title">Sistemi e reti</h5>
+              <p class="card-text">Approfondimenti su modello OSI e livello di traporto</p>
+            </div>
+            <div class="card-body">
+              <a href="./S&R.html" class="btn btn-primary" style="background-color: green" >Vai alla pagina</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-1">
+          <div class="card" style="width: 100%; background-color: rgb(248, 248, 248)">
+            <img src="./images/DB.jpg" class="card-img-top" alt="informatica">
+            <div class="card-body">
+              <h5 class="card-title">Informatica</h5>
+              <p class="card-text">Funzionamento dei protocolli TCP e UDP.</p>
+            </div>
+            <div class="card-body">
+              <a href=".informatica.html" class="btn btn-primary" style="background-color: green" >Vai alla pagina</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-1">
+          <div class="card" style="width: 100%; background-color: rgb(248, 248, 248)">
+            <img src="./images/ClientServerHome.jpg" class="card-img-top" alt="socket">
+            <div class="card-body">
+              <h5 class="card-title">Socket</h5>
+              <p class="card-text">Cos'è una socket? Come funziona il collegamento client-server?</p>
+            </div>
+            <div class="card-body">
+              <a href="./socket.html" class="btn btn-primary" style="background-color: green" >Vai alla pagina</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer>
       <div class="bg-black p-4 text-center">
           <p class="display-10 mb-2 text-white">Mizzon Alessandro 5E</p>
