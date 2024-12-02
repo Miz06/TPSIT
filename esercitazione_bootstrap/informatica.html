@@ -50,6 +50,23 @@
           margin-top: auto;
       }
 
+      .card-header{
+        color: white; 
+        background-color: green;
+      }
+
+      .card-body{
+        background-color: rgb(248, 248, 248);
+      }
+
+      .hover-effect {
+        transition: transform 0.3s ease; 
+      }
+
+      .hover-effect:hover {
+          transform: scale(1.05); 
+      }
+
     </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
@@ -89,6 +106,94 @@
       </div>
     </nav>
 
+    <div class="card text-center mt-5 me-5 ms-5 shadow">
+      <div class="card-header">
+        Il protocollo TCP
+      </div>
+      <div class="d-flex align-items-center p-4" style="background-color: rgb(248, 248, 248)">
+        <img src="./images/tcp-handshake-diagram.png" class="img-fluid flex-shrink-0 me-4" alt="modello OSI" style="width: 40%;">
+        <div>
+          <p class="mt-4" style="font-size: 1.1rem; line-height: 1.5;">
+            Il protocollo <strong>TCP (Transmission Control Protocol)</strong> è un protocollo del livello di trasporto del modello OSI e del modello TCP/IP.
+             Il suo obiettivo principale è garantire una comunicazione affidabile, ordinata e priva di errori tra due dispositivi in rete. 
+             <br>Di sotto sono riportate le fasi del <strong>Three-Way Handshake</strong> necessarie per lo stabilimento della connessione tra dispositivi.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5 mb-5">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
+          <div class="col">
+              <div class="card border-dark mb-3 hover-effect"> 
+                  <div class="card-body shadow">
+                      <h5 class="card-title">SYN (Synchronize)</h5>
+                      <p class="card-text">Il client invia un pacchetto SYN al server per iniziare la connessione. Questo pacchetto contiene un numero di sequenza iniziale.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+              <div class="card border-dark mb-3 hover-effect"> 
+                  <div class="card-body shadow">
+                      <h5 class="card-title">SYN-ACK (Synchronize-Acknowledge)</h5>
+                      <p class="card-text">Il server risponde con un pacchetto SYN-ACK, che conferma di aver ricevuto il SYN del client e invia un proprio numero di sequenza.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+              <div class="card border-dark mb-3 hover-effect"> 
+                  <div class="card-body shadow">
+                      <h5 class="card-title">ACK (Acknowledge)</h5>
+                      <p class="card-text">Il client risponde con un pacchetto ACK per confermare la ricezione del SYN-ACK del server. La connessione è ora stabilita.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="card text-center me-5 ms-5 shadow">
+      <div class="card-header">
+        Il protocollo UDP
+      </div>
+      <div class="d-flex align-items-center p-4" style="background-color: rgb(248, 248, 248)">
+        <div class="me-4">
+          <p class="mt-4" style="font-size: 1.1rem; line-height: 1.5;">
+            Il protocollo <strong>UDP (User  Datagram Protocol)</strong> è un protocollo del livello di trasporto del modello OSI e TCP/IP. 
+            Contrariamente al TCP, è orientato alla trasmissione di dati veloce e non affidabile, 
+            sacrificando caratteristiche come l’ordinamento e la verifica dell’integrità per ridurre la latenza.
+            <br>E' sotto riportato il suo funzionamento.
+          </p>
+        </div>
+        <img src="./images/UDP.png" class="img-fluid flex-shrink-0" alt="modello OSI" style="width: 40%;">
+      </div>
+    </div>
+    
+    <div class="container mt-5 mb-5">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
+        <div class="col">
+          <div class="card border-dark mb-3 hover-effect"> 
+            <div class="card-body shadow">
+              <p class="card-text">Il mittente invia i datagrammi UDP direttamente al destinatario specificando l’indirizzo IP e la porta di destinazione.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card border-dark mb-3 hover-effect"> 
+            <div class="card-body shadow">
+              <p class="card-text">Ogni datagramma è indipendente: non ci sono relazioni tra i pacchetti inviati.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card border-dark mb-3 hover-effect"> 
+            <div class="card-body shadow">
+              <p class="card-text">Il destinatario riceve i datagrammi e li passa direttamente all’applicazione, senza alcun controllo sull’ordine o sulla completezza.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <footer>
       <div class="bg-black p-4 text-center">
           <p class="display-10 mb-2 text-white">Mizzon Alessandro 5E</p>
