@@ -1,205 +1,220 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Informatica</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-      html, body {
-          height: 100%;
-          margin: 0;
-          padding: 0;
-      }
 
-      body {
-          display: flex;
-          flex-direction: column;
-      }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informatica</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
 
-      .navbar {
-          margin: 0;
-          padding: 2%;
-      }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
 
-      .navbar-brand {
-          color: white !important; /* HOMEPAGE in bianco */
-      }
+    .navbar {
+      margin: 0;
+      padding: 2%;
+    }
 
-      .navbar-toggler {
-          border: none; /* Rimuove il bordo dell'icona */
-      }
+    .navbar-brand {
+      color: white !important;
+      /* HOMEPAGE in bianco */
+    }
 
-      .navbar-toggler-icon {
-          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-      }
+    .navbar-toggler {
+      border: none;
+      /* Rimuove il bordo dell'icona */
+    }
 
-      .btn-close {
-        background-color: white;
-        border: 2px solid black;
-        color: black;
-      }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
 
-      .nav-link {
-        padding: 3%; 
-      }
-    
-      footer {
-          padding: 0;
-          width: 100%;
-          margin-top: auto;
-      }
+    .btn-close {
+      background-color: white;
+      border: 2px solid black;
+      color: black;
+    }
 
-      .card-header{
-        color: white; 
-        background-color: green;
-      }
+    .nav-link {
+      padding: 3%;
+    }
 
-      .card-body{
-        background-color: rgb(248, 248, 248);
-      }
+    footer {
+      padding: 0;
+      width: 100%;
+      margin-top: auto;
+    }
 
-      .hover-effect {
-        transition: transform 0.3s ease; 
-      }
+    .card-header {
+      color: white;
+      background-color: green;
+    }
 
-      .hover-effect:hover {
-          transform: scale(1.05); 
-      }
+    .card-body {
+      background-color: rgb(248, 248, 248);
+    }
 
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  </head>
-  <body class="p-0 m-0 border-0 bd-example">
+    .hover-effect {
+      transition: transform 0.3s ease;
+    }
 
-    <nav class="navbar bg-black">
-      <div class="container-fluid">
-        <h1 class="navbar-brand">INFORMATICA</h1>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title text-black" id="offcanvasNavbarLabel">INFORMATICA</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link text-dark" aria-current="page" href="./glossario.html">Glossario</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark" aria-current="page" href="./home.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark" aria-current="page" href="./socket.html">Socket</a>
-              </li>
-              <li>
-                <a class="nav-link text-dark" aria-current="page" href="./informatica.html">Informatica</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark" aria-current="page" href="./S&R.html">Sistemi e Reti</a>
-              </li>
-            </ul>
-          </div>          
+    .hover-effect:hover {
+      transform: scale(1.05);
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="p-0 m-0 border-0 bd-example">
+
+  <nav class="navbar bg-black">
+    <div class="container-fluid">
+      <h1 class="navbar-brand">INFORMATICA</h1>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title text-black" id="offcanvasNavbarLabel">INFORMATICA</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-      </div>
-    </nav>
-
-    <div class="card text-center mt-5 me-5 ms-5 shadow">
-      <div class="card-header">
-        Il protocollo TCP
-      </div>
-      <div class="d-flex align-items-center p-4" style="background-color: rgb(248, 248, 248)">
-        <img src="./images/tcp-handshake-diagram.png" class="img-fluid flex-shrink-0 me-4" alt="modello OSI" style="width: 40%;">
-        <div>
-          <p class="mt-4" style="font-size: 1.1rem; line-height: 1.5;">
-            Il protocollo <strong>TCP (Transmission Control Protocol)</strong> è un protocollo del livello di trasporto del modello OSI e del modello TCP/IP.
-             Il suo obiettivo principale è garantire una comunicazione affidabile, ordinata e priva di errori tra due dispositivi in rete. 
-             <br>Di sotto sono riportate le fasi del <strong>Three-Way Handshake</strong> necessarie per lo stabilimento della connessione tra dispositivi.
-          </p>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link text-dark" aria-current="page" href="./glossario.html">Glossario</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" aria-current="page" href="./home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" aria-current="page" href="./socket.html">Socket</a>
+            </li>
+            <li>
+              <a class="nav-link text-dark" aria-current="page" href="./informatica.html">Informatica</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" aria-current="page" href="./S&R.html">Sistemi e Reti</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="container mt-5 mb-5">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
-          <div class="col">
-              <div class="card border-dark mb-3 hover-effect"> 
-                  <div class="card-body shadow">
-                      <h5 class="card-title">SYN (Synchronize)</h5>
-                      <p class="card-text">Il client invia un pacchetto SYN al server per iniziare la connessione. Questo pacchetto contiene un numero di sequenza iniziale.</p>
-                  </div>
-              </div>
-          </div>
-          <div class="col">
-              <div class="card border-dark mb-3 hover-effect"> 
-                  <div class="card-body shadow">
-                      <h5 class="card-title">SYN-ACK (Synchronize-Acknowledge)</h5>
-                      <p class="card-text">Il server risponde con un pacchetto SYN-ACK, che conferma di aver ricevuto il SYN del client e invia un proprio numero di sequenza.</p>
-                  </div>
-              </div>
-          </div>
-          <div class="col">
-              <div class="card border-dark mb-3 hover-effect"> 
-                  <div class="card-body shadow">
-                      <h5 class="card-title">ACK (Acknowledge)</h5>
-                      <p class="card-text">Il client risponde con un pacchetto ACK per confermare la ricezione del SYN-ACK del server. La connessione è ora stabilita.</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
+  </nav>
 
-    <div class="card text-center me-5 ms-5 shadow">
-      <div class="card-header">
-        Il protocollo UDP
-      </div>
-      <div class="d-flex align-items-center p-4" style="background-color: rgb(248, 248, 248)">
-        <div class="me-4">
-          <p class="mt-4" style="font-size: 1.1rem; line-height: 1.5;">
-            Il protocollo <strong>UDP (User  Datagram Protocol)</strong> è un protocollo del livello di trasporto del modello OSI e TCP/IP. 
-            Contrariamente al TCP, è orientato alla trasmissione di dati veloce e non affidabile, 
-            sacrificando caratteristiche come l’ordinamento e la verifica dell’integrità per ridurre la latenza.
-            <br>E' sotto riportato il suo funzionamento.
-          </p>
-        </div>
-        <img src="./images/UDP.png" class="img-fluid flex-shrink-0" alt="modello OSI" style="width: 40%;">
+  <div class="card text-center mt-5 me-5 ms-5 shadow">
+    <div class="card-header">
+      Il protocollo TCP
+    </div>
+    <div class="d-flex align-items-center p-4" style="background-color: rgb(248, 248, 248)">
+      <img src="./images/tcp-handshake-diagram.png" class="img-fluid flex-shrink-0 me-4" alt="modello OSI"
+        style="width: 40%;">
+      <div>
+        <p class="mt-4" style="font-size: 1.1rem; line-height: 1.5;">
+          Il protocollo <strong>TCP (Transmission Control Protocol)</strong> è un protocollo del livello di trasporto
+          del modello OSI e del modello TCP/IP.
+          Il suo obiettivo principale è garantire una comunicazione affidabile, ordinata e priva di errori tra due
+          dispositivi in rete.
+          <br>Di sotto sono riportate le fasi del <strong>Three-Way Handshake</strong> necessarie per lo stabilimento
+          della connessione tra dispositivi.
+        </p>
       </div>
     </div>
-    
-    <div class="container mt-5 mb-5">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
-        <div class="col">
-          <div class="card border-dark mb-3 hover-effect"> 
-            <div class="card-body shadow">
-              <p class="card-text">Il mittente invia i datagrammi UDP direttamente al destinatario specificando l’indirizzo IP e la porta di destinazione.</p>
-            </div>
+  </div>
+  <div class="container mt-5 mb-5">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
+      <div class="col">
+        <div class="card border-dark mb-3 hover-effect">
+          <div class="card-body shadow">
+            <h5 class="card-title">SYN (Synchronize)</h5>
+            <p class="card-text">Il client invia un pacchetto SYN al server per iniziare la connessione. Questo
+              pacchetto contiene un numero di sequenza iniziale.</p>
           </div>
         </div>
-        <div class="col">
-          <div class="card border-dark mb-3 hover-effect"> 
-            <div class="card-body shadow">
-              <p class="card-text">Ogni datagramma è indipendente: non ci sono relazioni tra i pacchetti inviati.</p>
-            </div>
+      </div>
+      <div class="col">
+        <div class="card border-dark mb-3 hover-effect">
+          <div class="card-body shadow">
+            <h5 class="card-title">SYN-ACK (Synchronize-Acknowledge)</h5>
+            <p class="card-text">Il server risponde con un pacchetto SYN-ACK, che conferma di aver ricevuto il SYN del
+              client e invia un proprio numero di sequenza.</p>
           </div>
         </div>
-        <div class="col">
-          <div class="card border-dark mb-3 hover-effect"> 
-            <div class="card-body shadow">
-              <p class="card-text">Il destinatario riceve i datagrammi e li passa direttamente all’applicazione, senza alcun controllo sull’ordine o sulla completezza.
-              </p>
-            </div>
+      </div>
+      <div class="col">
+        <div class="card border-dark mb-3 hover-effect">
+          <div class="card-body shadow">
+            <h5 class="card-title">ACK (Acknowledge)</h5>
+            <p class="card-text">Il client risponde con un pacchetto ACK per confermare la ricezione del SYN-ACK del
+              server. La connessione è ora stabilita.</p>
           </div>
         </div>
       </div>
     </div>
-    
-    <footer>
-      <div class="bg-black p-4 text-center">
-          <p class="display-10 mb-2 text-white">Mizzon Alessandro 5E</p>
-          <small class="text-white-50">All rights reserved.</small>
-      </div>
-    </footer>
+  </div>
 
-  </body>
+  <div class="card text-center me-5 ms-5 shadow">
+    <div class="card-header">
+      Il protocollo UDP
+    </div>
+    <div class="d-flex align-items-center p-4" style="background-color: rgb(248, 248, 248)">
+      <div class="me-4">
+        <p class="mt-4" style="font-size: 1.1rem; line-height: 1.5;">
+          Il protocollo <strong>UDP (User Datagram Protocol)</strong> è un protocollo del livello di trasporto del
+          modello OSI e TCP/IP.
+          Contrariamente al TCP, è orientato alla trasmissione di dati veloce e non affidabile,
+          sacrificando caratteristiche come l’ordinamento e la verifica dell’integrità per ridurre la latenza.
+          <br>E' sotto riportato il suo funzionamento.
+        </p>
+      </div>
+      <img src="./images/UDP.png" class="img-fluid flex-shrink-0" alt="modello OSI" style="width: 40%;">
+    </div>
+  </div>
+
+  <div class="container mt-5 mb-5">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
+      <div class="col">
+        <div class="card border-dark mb-3 hover-effect">
+          <div class="card-body shadow">
+            <p class="card-text">Il mittente invia i datagrammi UDP direttamente al destinatario specificando
+              l’indirizzo IP e la porta di destinazione.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card border-dark mb-3 hover-effect">
+          <div class="card-body shadow">
+            <p class="card-text">Ogni datagramma è indipendente: non ci sono relazioni tra i pacchetti inviati.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card border-dark mb-3 hover-effect">
+          <div class="card-body shadow">
+            <p class="card-text">Il destinatario riceve i datagrammi e li passa direttamente all’applicazione, senza
+              alcun controllo sull’ordine o sulla completezza.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="bg-black p-4 text-center">
+      <p class="display-10 mb-2 text-white">Mizzon Alessandro 5E</p>
+    </div>
+  </footer>
+
+</body>
+
 </html>
