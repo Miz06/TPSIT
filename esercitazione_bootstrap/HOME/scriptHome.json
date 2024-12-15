@@ -1,0 +1,60 @@
+{
+    "navbar": {
+        "brand": "HOMEPAGE",
+        "links": [
+            {
+                "text": "Glossario",
+                "href": "../GLOSSARIO/glossario.html"
+            },
+            {
+                "text": "Home",
+                "href": "../HOME/home.html"
+            },
+            {
+                "text": "Socket",
+                "href": "../SOCKET/socket.html"
+            },
+            {
+                "text": "Informatica",
+                "href": "../INFORMATICA/informatica.html"
+            },
+            {
+                "text": "Sistemi e Reti",
+                "href": "../S&R/S&R.html"
+            }
+        ]
+    },
+    "card": {
+        "header": "Benvenuto!",
+        "body": "Un socket è un endpoint per la comunicazione tra due macchine in rete; i socket possono utilizzare vari protocolli di rete ma i più comuni sono TCP e UDP. In un contesto di programmazione, un socket è tipicamente creato da un'applicazione client per stabilire la connessione ad un server il quale offrirà un servizio specifico. Vedi l'argomento più nello specifico continuando la visita del sito!"
+    },
+    "sections": [
+        {
+            "title": "Sistemi e reti",
+            "description": "Approfondimenti su modello OSI e livello di traporto",
+            "image": "../images/Rete.jpg",
+            "link": "../S&R/S&R.html"
+        },
+        {
+            "title": "Informatica",
+            "description": "Funzionamento dei protocolli TCP e UDP.",
+            "image": "../images/DB.jpg",
+            "link": "../INFORMATICA/informatica.html"
+        },
+        {
+            "title": "Glossario",
+            "description": "Definizioni sui termini tecnici utilizzati nel sito.",
+            "image": "../images/Glossario.png",
+            "link": "../GLOSSARIO/glossario.html"
+        },
+        {
+            "title": "Socket",
+            "description": "Cos'è una socket? Come funziona il collegamento client-server?",
+            "image": "../images/ClientServerHome.jpg",
+            "link": "../SOCKET/socket.html"
+        }
+    ],
+    "footer": {
+        "text": "Mizzon Alessandro ~ 5E"
+    }
+}
