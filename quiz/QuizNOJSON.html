@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+
+    <title>Quiz</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: black;
+        }
+
+        nav a {
+            color: white;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            padding-left: 2%;
+            padding-right: 2%;
+            text-decoration: none;
+            text-align: center;
+            margin: 1%;
+            border: 2px solid white;
+            border-radius: 15px;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        nav a:hover {
+            background-color: lightgray;
+            color: black;
+        }
+
+        main {
+            flex: 1;
+            padding: 3%;
+            background-color: white;
+            height: calc(100vh - 100px);
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 2%;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            max-height: 700px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 1px solid black;
+        }
+
+        .card {
+            margin-top: 4%;
+            margin-right: 20%;
+            margin-left: 20%;
+        }
+
+        .card-header {
+            background-color: purple;
+            color: white;
+            text-align: center;
+            padding: 2%;
+        }
+
+        .card-body {
+            text-align: center;
+            padding: 2%;
+        }
+
+        .btn-primary {
+            background-color: green;
+            border: 1px solid black;
+            color: white;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: lightblue;
+            color: black;
+        }
+
+        .countdown {
+            font-size: 2rem;
+            margin-bottom: 2%;
+            padding: 2%;
+            background-color: purple;
+            color: white;
+            border-radius: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="./home.html">Home</a>
+        <a href="./Quiz.html">Quiz</a>
+    </nav>
+
+    <main>
+        <div id="countdown" class="text-center countdown"></div>
+
+        <div class="alert alert-danger text-center" role="alert">
+            Attenzione! Tornando alla Home il quiz verrà automaticamente resettato!
+        </div>
+
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./images/ISO-OSI.png" class="d-block w-100" alt="Domanda 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <div class="card text-center" style="border: 1px solid black">
+                            <div class="card-header">
+                                Domanda 1
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Cos'è la pila ISO/OSI?</p>
+                                <textarea class="ta form-control mt-2" rows="3"
+                                    placeholder="Inserisci la tua risposta qui...">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/RIoDelleAmazoni.jpg" class="d-block w-100" alt="Domanda 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <div class="card text-center" style="border: 1px solid black">
+                            <div class="card-header">
+                                Domanda 2
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Qual è il fiume più lungo del mondo? Spiegane le caratteristiche.
+                                </p>
+                                <textarea class="form-control mt-2" rows="3"
+                                    placeholder="Inserisci la tua risposta qui...">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/Dante&DivinaCommedia.jpeg" class="d-block w-100" alt="Domanda 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <div class="card text-center" style="border: 1px solid black">
+                            <div class="card-header">
+                                Domanda 3
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Chi ha scritto la Divina Commedia? In che anno?</p>
+                                <textarea class="form-control mt-2" rows="3"
+                                    placeholder="Inserisci la tua risposta qui...">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/Server-Client.jpg" class="d-block w-100" alt="Domanda 4">
+                    <div class="carousel-caption d-none d-md-block">
+                        <div class="card text-center" style="border: 1px solid black">
+                            <div class="card-header">
+                                Domanda 4
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Di cosa stiamo parlando quanto trattiamo di socket?</p>
+                                <textarea class="form-control mt-2" rows="3"
+                                    placeholder="Inserisci la tua risposta qui...">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/idealeOstricaVerga.jpg" class="d-block w-100" alt="Domanda 5">
+                    <div class="carousel-caption d-none d-md-block">
+                        <div class="card text-center" style="border: 1px solid black">
+                            <div class="card-header">
+                                Domanda 5
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Esprimi l'ideale dell'ostrica sostenuto da Verga.</p>
+                                <textarea class="form-control mt-2" rows="3"
+                                    placeholder="Inserisci la tua risposta qui...">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="card text-left" style="border: 1px solid black">
+            <div class="card-header">
+                Domanda 6
+            </div>
+            <div class="card-body">
+                <p class="card-text">Quale porta è dedicata al protocollo SSH?</p>
+                <div>
+                    <input type="radio" id="q1-port22" name="question1" value="22">
+                    <label for="q1-port22">22</label><br>
+                    <input type="radio" id="q1-port21" name="question1" value="21">
+                    <label for="q1-port21">21</label><br>
+                    <input type="radio" id="q1-port80" name="question1" value="80">
+                    <label for="q1-port80">80</label><br>
+                    <input type="radio" id="q1-port443" name="question1" value="443">
+                    <label for="q1-port443">443</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="card text-left mt-3" style="border: 1px solid black">
+            <div class="card-header">
+                Domanda 7
+            </div>
+            <div class="card-body">
+                <p class="card-text">Verga nacque...</p>
+                <div>
+                    <input type="radio" id="q2-milano" name="question2" value="a Milano">
+                    <label for="q2-milano">a Milano</label><br>
+                    <input type="radio" id="q2-catania" name="question2" value="a Catania">
+                    <label for="q2-catania">a Catania</label><br>
+                    <input type="radio" id="q2-lapponia" name="question2" value="in Lapponia">
+                    <label for="q2-lapponia">in Lapponia</label><br>
+                    <input type="radio" id="q2-boara" name="question2" value="a Boara Pisani">
+                    <label for="q2-boara">a Boara Pisani</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="card text-left mt-3" style="border: 1px solid black">
+            <div class="card-header">
+                Domanda 8
+            </div>
+            <div class="card-body">
+                <p class="card-text">Qual è la capitale della Francia?</p>
+                <div>
+                    <input type="radio" id="q3-parigi" name="question3" value="Parigi">
+                    <label for="q3-parigi">Parigi</label><br>
+                    <input type="radio" id="q3-londra" name="question3" value="Londra">
+                    <label for="q3-londra">Londra</label><br>
+                    <input type="radio" id="q3-roma" name="question3" value="Roma">
+                    <label for="q3-roma">Roma</label><br>
+                    <input type="radio" id="q3-berlino" name="question3" value="Berlino">
+                    <label for="q3-berlino">Berlino</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <button class="submit btn btn-primary mt-4" onclick="submitAnswers()">Termina quiz</button>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Mizzon Alessandro - 5E</p>
+        <p>All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="./script.js"></script>
+
+    <!-- Bootstrap Icons -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 10.907l-3.29-3.29a1 1 0 1 1 1.414-1.414l2.6 2.6 4.3-4.3a1 1 0 1 1 1.414 1.414l-5 5a1 1 0 0 1-1.414 0z" />
+        </symbol>
+    </svg>
+</body>
+
+
+</html>

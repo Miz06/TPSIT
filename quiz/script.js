@@ -1,73 +1,114 @@
 // Impostazione del countdown
 const countdownDuration = 5; // Durata in minuti
-const countdownDate = new Date().getTime() + countdownDuration * 60 * 1000; // Imposta la scadenza
+const countdownDate = new Date().getTime() + countdownDuration * 60 * 1000;
 
 // Aggiorna il countdown ogni secondo
-const countdownInterval = setInterval(function () {
+const countdownInterval = setInterval(() => {
     const now = new Date().getTime();
     const distance = countdownDate - now;
 
-    // Calcola minuti e secondi
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Mostra il risultato nell'elemento countdown
     document.getElementById("countdown").innerHTML = `${minutes}m ${seconds}s`;
 
-    // Se il countdown una volta terminato disabilita tutte le modalità di input e mostra un messaggio
     if (distance < 0) {
         document.getElementById("countdown").innerHTML = "Countdown terminato!";
         disableAllInputs();
-        clearInterval(countdownInterval); // Interrompe il countdown
+        clearInterval(countdownInterval);
     }
 }, 1000);
 
-// Funzione per disabilitare tutti i campi input
+// Disabilita tutti i campi input
 function disableAllInputs() {
-    // Disabilita tutte le radio buttons
-    document.querySelectorAll('input[type="radio"]').forEach(input => input.disabled = true);
+    document.querySelectorAll('input[type="radio"], textarea').forEach(input => input.disabled = true);
 
-    // Disabilita tutte le textarea
-    document.querySelectorAll('textarea').forEach(textarea => textarea.disabled = true);
-
-    // Disabilita il pulsante submit
     const submitButton = document.querySelector('.btn-primary');
     if (submitButton) submitButton.disabled = true;
 }
 
+// Genera e salva le risposte
 function submitAnswers() {
-    let answers = ""; // Variabile per raccogliere tutte le risposte
+    let answers = "~~~ RISPOSTE APERTE ~~~\n";
 
-    // Recupera le risposte alle domande aperte (textarea) solo dal carosello
-    const openQuestions = document.querySelectorAll('.carousel-item textarea');
-
-    answers += '~~~ RISPOSTE APERTE ~~~\n';
-    openQuestions.forEach((textarea, index) => {
-        const questionText = `Domanda ${index + 1}`;
-        const answer = textarea.value.trim();
-        answers += `${questionText}: ${answer || "Nessuna risposta inserita"}\n`;
+    document.querySelectorAll('.carousel-item textarea').forEach((textarea, index) => {
+        answers += `Domanda ${index + 1}: ${textarea.value.trim() || "Nessuna risposta inserita"}\n`;
     });
 
-    // Recupera le risposte alle domande a scelta multipla (radio buttons)
-    const allQuestions = document.querySelectorAll('.card:not(.carousel-caption .card)'); // Esclude le card del carosello
-
-    answers += '\n~~~ RISPOSTE CHIUSE ~~~';
-    allQuestions.forEach(question => {
-        const questionText = question.querySelector('.card-header').textContent.trim();
-        const selectedRadio = question.querySelector('input[type="radio"]:checked');
-        answers += `${questionText}: ${selectedRadio ? selectedRadio.value : "Nessuna risposta selezionata"}\n`;
+    answers += "\n~~~ RISPOSTE CHIUSE ~~~\n";
+    document.querySelectorAll('#multipleChoiceContainer .card').forEach(card => {
+        const questionText = card.querySelector('.card-header').textContent.trim();
+        const selectedOption = card.querySelector('input[type="radio"]:checked');
+        answers += `${questionText}: ${selectedOption ? selectedOption.nextElementSibling.textContent : "Nessuna risposta selezionata"}\n`;
     });
 
-    // Crea un file di testo con le risposte
     const blob = new Blob([answers], { type: "text/plain" });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = "risposte.txt"; // Nome del file
-    link.click(); // Simula il click per scaricare il file
-    // Nella pratica serve a far avviare automaticamente il download del file senza 
-    // che lo debba fare manualmente l'utente cliccando su un link
+    link.download = "risposte.txt";
+    link.click();
 
     disableAllInputs();
     document.getElementById("countdown").innerHTML = "Quiz terminato con successo!";
-    clearInterval(countdownInterval); // Interrompe il countdown
+    clearInterval(countdownInterval);
 }
+
+// Caricamento domande
+function caricaDomande() {
+    fetch('domande.json')
+        .then(response => response.json())
+        .then(data => {
+            const { domande } = data;
+            const carouselInner = document.getElementById('carouselInner');
+            const carouselIndicators = document.getElementById('carouselIndicators');
+            const multipleChoiceContainer = document.getElementById('multipleChoiceContainer');
+
+            domande.forEach((domanda, index) => {
+                if (domanda.tipo === 'testo') {
+                    // Carosello
+                    const item = document.createElement('div');
+                    item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+                    item.innerHTML = `
+                        ${domanda.immagine ? `<img src="${domanda.immagine}" class="d-block w-100" alt="Domanda ${index + 1}">` : ''}
+                        <div class="carousel-caption d-none d-md-block">
+                            <div class="card text-center" style="border: 1px solid black">
+                                <div class="card-header">Domanda ${index + 1}</div>
+                                <div class="card-body">
+                                    <p class="card-text">${domanda.testo}</p>
+                                    <textarea class="form-control mt-2" rows="3" placeholder="Inserisci la tua risposta qui..."></textarea>
+                                </div>
+                            </div>
+                        </div>`;
+                    carouselInner.appendChild(item);
+
+                    const indicator = document.createElement('button');
+                    indicator.type = 'button';
+                    indicator.className = `carousel-indicator ${index === 0 ? 'active' : ''}`;
+                    indicator.setAttribute('data-bs-target', '#carouselExampleCaptions');
+                    indicator.setAttribute('data-bs-slide-to', index);
+                    indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+                    carouselIndicators.appendChild(indicator);
+                } else if (domanda.tipo === 'scelta') {
+                    // Risposta multipla
+                    const card = document.createElement('div');
+                    card.className = 'card mt-4';
+                    card.style.border = '1px solid black';
+                    card.innerHTML = `
+                        <div class="card-header">Domanda ${index + 1}</div>
+                        <div class="card-body">
+                            <p class="card-text">${domanda.testo}</p>
+                            ${domanda.opzioni.map((opzione, idx) => `
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="domanda${domanda.id}" id="domanda${domanda.id}-opzione${idx}" value="${opzione.id}">
+                                    <label class="form-check-label" for="domanda${domanda.id}-opzione${idx}">${opzione.testo}</label>
+                                </div>
+                            `).join('')}
+                        </div>`;
+                    multipleChoiceContainer.appendChild(card);
+                }
+            });
+        })
+        .catch(error => console.error('Errore nel caricare il JSON:', error));
+}
+
+window.addEventListener('load', caricaDomande);

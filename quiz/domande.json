@@ -1,0 +1,67 @@
+{
+  "domande": [
+    {
+      "id": 1,
+      "testo": "Cos'è la pila ISO/OSI?",
+      "immagine": "./images/ISO-OSI.png",
+      "tipo": "testo"
+    },
+    {
+      "id": 2,
+      "testo": "Qual è il fiume più lungo del mondo? Spiegane le caratteristiche.",
+      "immagine": "./images/RIoDelleAmazoni.jpg",
+      "tipo": "testo"
+    },
+    {
+      "id": 3,
+      "testo": "Chi ha scritto la Divina Commedia? In che anno?",
+      "immagine": "./images/Dante&DivinaCommedia.jpeg",
+      "tipo": "testo"
+    },
+    {
+      "id": 4,
+      "testo": "Di cosa stiamo parlando quanto trattiamo di socket?",
+      "immagine": "./images/Server-Client.jpg",
+      "tipo": "testo"
+    },
+    {
+      "id": 5,
+      "testo": "Esprimi l'ideale dell'ostrica sostenuto da Verga.",
+      "immagine": "./images/idealeOstricaVerga.jpg",
+      "tipo": "testo"
+    },
+    {
+      "id": 6,
+      "testo": "Quale porta è dedicata al protocollo SSH?",
+      "immagine": "",
+      "tipo": "scelta",
+      "opzioni": [
+        { "id": 1, "testo": "22" },
+        { "id": 2, "testo": "80" },
+        { "id": 3, "testo": "443" }
+      ]
+    },
+    {
+      "id": 7,
+      "testo": "Verga nacque...",
+      "immagine": "",
+      "tipo": "scelta",
+      "opzioni": [
+        { "id": 1, "testo": "Nel 1840" },
+        { "id": 2, "testo": "Nel 1850" },
+        { "id": 3, "testo": "Nel 1830" }
+      ]
+    },
+    {
+      "id": 8,
+      "testo": "Qual è la capitale della Francia?",
+      "immagine": "",
+      "tipo": "scelta",
+      "opzioni": [
+        { "id": 1, "testo": "Londra" },
+        { "id": 2, "testo": "Parigi" },
+        { "id": 3, "testo": "Roma" }
+      ]
+    }
+  ]
+}
