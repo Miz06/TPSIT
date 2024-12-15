@@ -1,6 +1,6 @@
-// Imposta la durata del countdown in minuti
-const countdownDuration = 5; // Durata in minuti
-const countdownDate = new Date().getTime() + countdownDuration * 60 * 1000; // Data di scadenza
+//settaggio del countdown
+const countdownDuration = 0.1; // Durata in minuti
+const countdownDate = new Date().getTime() + countdownDuration * 60 * 1000; //Imposta la scadenza
 
 // Aggiorna il countdown ogni secondo
 const countdownInterval = setInterval(function () {
@@ -33,51 +33,18 @@ function disableAllInputs() {
     // Disabilita il pulsante submit
     const submitButton = document.querySelector('.btn-primary');
     if (submitButton) submitButton.disabled = true;
-
-    alert("Il tempo è scaduto, risposte bloccate!");
 }
 
-// Funzione per mostrare un alert di conferma risposta
-function showAlert(event) {
-    event.preventDefault(); // Evita il comportamento predefinito del bottone (se necessario)
-
-    // Crea il messaggio di successo
-    const alertContainer = document.createElement('div');
-    alertContainer.className = "alert alert-success d-flex align-items-center mt-3";
-    alertContainer.setAttribute('role', 'alert');
-
-    alertContainer.innerHTML = `
-        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:">
-            <use xlink:href="#check-circle-fill"></use>
-        </svg>
-        <div>
-            Grazie di aver risposto!
-        </div>
-    `;
-
-    // Aggiungi il messaggio di successo sotto la card
-    const parentCard = event.target.closest('.card');
-    parentCard.appendChild(alertContainer);
-
-    // Disabilita le risposte della card
-    const radios = parentCard.querySelectorAll('input[type="radio"]');
-    radios.forEach(radio => radio.disabled = true);
-
-    // Disabilita il bottone "Rispondi" (se presente)
-    const submitButton = parentCard.querySelector('button');
-    if (submitButton) submitButton.disabled = true;
-}
-
-// Funzione per salvare tutte le risposte
 function submitAnswers() {
     let answers = ""; // Variabile per raccogliere tutte le risposte
 
-    // Recupera tutte le domande con radio buttons
-    const allQuestions = document.querySelectorAll('.card');
+    // Recupera le risposte alle domande a scelta multipla (radio buttons)
+    // vengono selezionate solamente le card che non fanno parte del carosello
+    const allQuestions = document.querySelectorAll('.card:not(.carousel-caption .card)'); // Esclude le card del carosello
     allQuestions.forEach(question => {
         const questionText = question.querySelector('.card-header').textContent.trim();
         const selectedRadio = question.querySelector('input[type="radio"]:checked');
-        
+
         if (selectedRadio) {
             answers += `${questionText}: ${selectedRadio.value}\n`;
         } else {
@@ -85,16 +52,13 @@ function submitAnswers() {
         }
     });
 
-    // Recupera tutte le risposte aperte (textarea)
-    const openQuestions = document.querySelectorAll('.carousel-item');
-    openQuestions.forEach((question, index) => {
-        const questionText = question.querySelector('.card-header').textContent.trim();
-        const textarea = question.querySelector('textarea');
-        
-        if (textarea) {
-            const answer = textarea.value.trim();
-            answers += `Domanda ${index + 1}: ${answer || "Nessuna risposta inserita"}\n`;
-        }
+    // Recupera le risposte alle domande aperte (textarea) solo dal carosello
+    const openQuestions = document.querySelectorAll('.carousel-item textarea');
+    openQuestions.forEach((textarea, index) => {
+        const questionText = `Domanda ${index + 1}`;
+        const answer = textarea.value.trim();
+
+        answers += `${questionText}: ${answer || "Nessuna risposta inserita"}\n`;
     });
 
     // Crea un file di testo con le risposte
@@ -103,10 +67,8 @@ function submitAnswers() {
     link.href = URL.createObjectURL(blob);
     link.download = "risposte.txt"; // Nome del file
     link.click(); // Simula il click per scaricare il file
+    // Nella pratica serve a far avviare automaticamente il download del file senza 
+    // che lo debba fare manualmente l'utente cliccando su un link
 
-    // Mostra un messaggio di conferma
-    alert("Risposte salvate con successo!");
-
-    // Disabilita tutte le risposte
     disableAllInputs();
 }
