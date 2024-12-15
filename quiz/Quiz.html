@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
 
-    <title>Open questions</title>
+    <title>Quiz</title>
 
     <style>
         body {
@@ -117,6 +117,10 @@
 
     <main>
         <div id="countdown" class="text-center countdown"></div>
+
+        <div class="alert alert-danger text-center" role="alert">
+            Attenzione! Tornando alla Home il quiz verrà automaticamente resettato!
+        </div>
 
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">
@@ -229,7 +233,7 @@
 
         <div class="card text-left" style="border: 1px solid black">
             <div class="card-header">
-                Domanda 1
+                Domanda 6
             </div>
             <div class="card-body">
                 <p class="card-text">Quale porta è dedicata al protocollo SSH?</p>
@@ -248,29 +252,51 @@
 
         <div class="card text-left mt-3" style="border: 1px solid black">
             <div class="card-header">
-                Domanda 2
+                Domanda 7
             </div>
             <div class="card-body">
                 <p class="card-text">Verga nacque...</p>
                 <div>
-                    <input type="radio" id="q2-milano" name="question2" value="milano">
+                    <input type="radio" id="q2-milano" name="question2" value="a Milano">
                     <label for="q2-milano">a Milano</label><br>
-                    <input type="radio" id="q2-catania" name="question2" value="catania">
+                    <input type="radio" id="q2-catania" name="question2" value="a Catania">
                     <label for="q2-catania">a Catania</label><br>
-                    <input type="radio" id="q2-lapponia" name="question2" value="lapponia">
+                    <input type="radio" id="q2-lapponia" name="question2" value="in Lapponia">
                     <label for="q2-lapponia">in Lapponia</label><br>
-                    <input type="radio" id="q2-boara" name="question2" value="boara">
+                    <input type="radio" id="q2-boara" name="question2" value="a Boara Pisani">
                     <label for="q2-boara">a Boara Pisani</label><br>
                 </div>
             </div>
         </div>
 
-        <button class="submit btn btn-primary mt-4" onclick="submitAnswers()">Submit Answers</button>
+        <div class="card text-left mt-3" style="border: 1px solid black">
+            <div class="card-header">
+                Domanda 8
+            </div>
+            <div class="card-body">
+                <p class="card-text">Qual è la capitale della Francia?</p>
+                <div>
+                    <input type="radio" id="q3-parigi" name="question3" value="Parigi">
+                    <label for="q3-parigi">Parigi</label><br>
+                    <input type="radio" id="q3-londra" name="question3" value="Londra">
+                    <label for="q3-londra">Londra</label><br>
+                    <input type="radio" id="q3-roma" name="question3" value="Roma">
+                    <label for="q3-roma">Roma</label><br>
+                    <input type="radio" id="q3-berlino" name="question3" value="Berlino">
+                    <label for="q3-berlino">Berlino</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <button class="submit btn btn-primary mt-4" onclick="submitAnswers()">Termina quiz</button>
+        </div>
+
     </main>
 
     <footer>
-        <p>2023 Quizer. All rights reserved.</p>
         <p>Mizzon Alessandro - 5E</p>
+        <p>All rights reserved.</p>
     </footer>
 
     <script src="./script.js"></script>

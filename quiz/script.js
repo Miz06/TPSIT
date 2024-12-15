@@ -1,6 +1,6 @@
-//settaggio del countdown
-const countdownDuration = 0.1; // Durata in minuti
-const countdownDate = new Date().getTime() + countdownDuration * 60 * 1000; //Imposta la scadenza
+// Impostazione del countdown
+const countdownDuration = 5; // Durata in minuti
+const countdownDate = new Date().getTime() + countdownDuration * 60 * 1000; // Imposta la scadenza
 
 // Aggiorna il countdown ogni secondo
 const countdownInterval = setInterval(function () {
@@ -14,11 +14,11 @@ const countdownInterval = setInterval(function () {
     // Mostra il risultato nell'elemento countdown
     document.getElementById("countdown").innerHTML = `${minutes}m ${seconds}s`;
 
-    // Se il countdown è finito, disabilita tutto e mostra un messaggio
+    // Se il countdown una volta terminato disabilita tutte le modalità di input e mostra un messaggio
     if (distance < 0) {
-        clearInterval(countdownInterval);
         document.getElementById("countdown").innerHTML = "Countdown terminato!";
         disableAllInputs();
+        clearInterval(countdownInterval); // Interrompe il countdown
     }
 }, 1000);
 
@@ -38,27 +38,24 @@ function disableAllInputs() {
 function submitAnswers() {
     let answers = ""; // Variabile per raccogliere tutte le risposte
 
-    // Recupera le risposte alle domande a scelta multipla (radio buttons)
-    // vengono selezionate solamente le card che non fanno parte del carosello
-    const allQuestions = document.querySelectorAll('.card:not(.carousel-caption .card)'); // Esclude le card del carosello
-    allQuestions.forEach(question => {
-        const questionText = question.querySelector('.card-header').textContent.trim();
-        const selectedRadio = question.querySelector('input[type="radio"]:checked');
-
-        if (selectedRadio) {
-            answers += `${questionText}: ${selectedRadio.value}\n`;
-        } else {
-            answers += `${questionText}: Nessuna risposta selezionata\n`;
-        }
-    });
-
     // Recupera le risposte alle domande aperte (textarea) solo dal carosello
     const openQuestions = document.querySelectorAll('.carousel-item textarea');
+
+    answers += '~~~ RISPOSTE APERTE ~~~\n';
     openQuestions.forEach((textarea, index) => {
         const questionText = `Domanda ${index + 1}`;
         const answer = textarea.value.trim();
-
         answers += `${questionText}: ${answer || "Nessuna risposta inserita"}\n`;
+    });
+
+    // Recupera le risposte alle domande a scelta multipla (radio buttons)
+    const allQuestions = document.querySelectorAll('.card:not(.carousel-caption .card)'); // Esclude le card del carosello
+
+    answers += '\n~~~ RISPOSTE CHIUSE ~~~';
+    allQuestions.forEach(question => {
+        const questionText = question.querySelector('.card-header').textContent.trim();
+        const selectedRadio = question.querySelector('input[type="radio"]:checked');
+        answers += `${questionText}: ${selectedRadio ? selectedRadio.value : "Nessuna risposta selezionata"}\n`;
     });
 
     // Crea un file di testo con le risposte
@@ -71,4 +68,6 @@ function submitAnswers() {
     // che lo debba fare manualmente l'utente cliccando su un link
 
     disableAllInputs();
+    document.getElementById("countdown").innerHTML = "Quiz terminato con successo!";
+    clearInterval(countdownInterval); // Interrompe il countdown
 }
