@@ -1,4 +1,7 @@
 {
+  "countdown": {
+    "duration": 5
+  },
   "domande": [
     {
       "id": 1,
@@ -63,5 +66,19 @@
         { "id": 3, "testo": "Roma" }
       ]
     }
-  ]
+  ],
+  "navbar": [
+    { "label": "Home", "link": "./home.html" },
+    { "label": "Quiz", "link": "./Quiz.html" }
+  ],
+  "footer": {
+    "text": [
+      "Mizzon Alessandro ~ 5E",
+      "Tutti i diritti riservati"
+    ]
+  },
+  "alert": {
+    "message": "Attenzione! Tornando alla Home il quiz verrà automaticamente resettato!",
+    "type": "danger"
+  }
 }
