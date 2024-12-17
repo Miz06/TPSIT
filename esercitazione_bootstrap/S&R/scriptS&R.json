@@ -1,6 +1,6 @@
 {
     "navbar": {
-        "brand": "HOMEPAGE",
+        "brand": "SISTEMI E RETI",
         "links": [
             {
                 "text": "Glossario",
@@ -24,9 +24,70 @@
             }
         ]
     },
-    "card": {
-        "header": "Benvenuto!",
-        "body": "Un socket è un endpoint per la comunicazione tra due macchine in rete; i socket possono utilizzare vari protocolli di rete ma i più comuni sono TCP e UDP. In un contesto di programmazione, un socket è tipicamente creato da un'applicazione client per stabilire la connessione ad un server il quale offrirà un servizio specifico. Vedi l'argomento più nello specifico continuando la visita del sito!"
+    "modelOSI": {
+        "title": "Il modello OSI",
+        "imageSrc": "../images/OSI.png",
+        "imageAlt": "modello OSI",
+        "text": "Il modello OSI (Open Systems Interconnection) è uno schema standardizzato che descrive il funzionamento delle reti di comunicazione suddiviso in 7 livelli, ognuno con funzioni specifiche. È progettato per facilitare l'interoperabilità tra dispositivi e sistemi di produttori diversi."
+    },
+    "levels": [
+        {
+            "title": "Livello 7",
+            "name": "Application Layer (Livello Applicazione)",
+            "description": "Fornisce servizi di rete direttamente alle applicazioni utente."
+        },
+        {
+            "title": "Livello 6",
+            "name": "Presentation Layer (Livello Presentazione)",
+            "description": "Traduce i dati in formati comprensibili per l'applicazione."
+        },
+        {
+            "title": "Livello 5",
+            "name": "Session Layer (Livello Sessione)",
+            "description": "Gestisce l'apertura, il mantenimento e la chiusura delle sessioni tra applicazioni."
+        },
+        {
+            "title": "Livello 4",
+            "name": "Transport Layer (Livello Trasporto)",
+            "description": "Visto più nel dettaglio in seguito."
+        },
+        {
+            "title": "Livello 3",
+            "name": "Network Layer (Livello Rete)",
+            "description": "Si occupa dell'indirizzamento e del routing dei pacchetti di dati."
+        },
+        {
+            "title": "Livello 2",
+            "name": "Data Link Layer (Livello Collegamento Dati)",
+            "description": "Gestisce l'accesso al mezzo fisico e la correzione degli errori di trasmissione."
+        },
+        {
+            "title": "Livello 1",
+            "name": "Physical Layer (Livello Fisico)",
+            "description": "Riguarda la trasmissione fisica dei dati tramite cavi, onde radio, fibre ottiche, ecc."
+        }
+    ],
+    "transportLayer": {
+        "title": "Di cosa si occupa nello specifico il livello di trasporto?",
+        "text": "Il livello di trasporto è responsabile della gestione affidabile e ordinata dei dati tra due host in rete usufruendo dei protocolli TCP e UDP. Oltre a fornire una comunicazione end-to-end indipendente dal tipo di rete utilizzata, consegna i dati secondo le necessità dell'applicazione, adattandosi ai requisiti di velocità, precisione e continuità."
+    },
+    "features": [
+        {
+            "title": "Segmentazione e riassemblaggio",
+            "text": "Divide i dati in segmenti più piccoli e li ricompone al destinatario."
+        },
+        {
+            "title": "Affidabilità",
+            "text": "Garantisce che tutti i segmenti arrivino a destinazione senza errori, duplicati o perdite."
+        },
+        {
+            "title": "Controllo di flusso",
+            "text": "Regola la velocità di trasmissione dei dati per evitare il sovraccarico del destinatario."
+        },
+        {
+            "title": "Multiplexing",
+            "text": "Consente a più applicazioni di utilizzare la rete simultaneamente sfruttando i numeri di porta."
+        }
     ],
     "footer": {
         "text": "Mizzon Alessandro ~ 5E"
