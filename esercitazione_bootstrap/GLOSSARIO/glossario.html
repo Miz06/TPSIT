@@ -68,6 +68,8 @@
 </head>
 
 <body class="p-0 m-0 border-0 bd-example">
+
+  <!-- Navbar -->
   <nav class="navbar bg-black">
     <div class="container-fluid">
       <h1 class="navbar-brand">GLOSSARIO</h1>
@@ -81,117 +83,31 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link text-dark" aria-current="page" href="./glossario.html">Glossario</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" aria-current="page" href="./home.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" aria-current="page" href="./socket.html">Socket</a>
-            </li>
-            <li>
-              <a class="nav-link text-dark" aria-current="page" href="./informatica.html">Informatica</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" aria-current="page" href="./S&R.html">Sistemi e Reti</a>
-            </li>
-          </ul>
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3"></ul>
         </div>
       </div>
     </div>
   </nav>
+
+  <!-- Glossario-->
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-12">
-        <div class="glossary-definition" id="accept">
-          <span class="glossary-term">accept():</span>
-          <p>Una funzione utilizzata dal server per accettare una connessione in ingresso da un client.</p>
-        </div>
-        <div class="glossary-definition" id="bind">
-          <span class="glossary-term">bind():</span>
-          <p>Una funzione che associa un socket a un indirizzo IP e a una porta specifici, permettendo al server di
-            ascoltare le richieste.</p>
-        </div>
-        <div class="glossary-definition" id="client">
-          <span class="glossary-term">Client:</span>
-          <p>Un dispositivo o programma che invia richieste a un server per ottenere servizi o risorse.</p>
-        </div>
-        <div class="glossary-definition" id="close">
-          <span class="glossary-term">close():</span>
-          <p>Una funzione che chiude una connessione socket, terminando la comunicazione tra client e server.</p>
-        </div>
-        <div class="glossary-definition" id="connect">
-          <span class="glossary-term">connect():</span>
-          <p>Una funzione utilizzata dal client per stabilire una connessione con un server tramite un socket.</p>
-        </div>
-        <div class="glossary-definition" id="dns">
-          <span class="glossary-term">DNS (Domain Name System):</span>
-          <p>Un sistema di nomi di dominio che traduce i nomi di dominio (come www.example.com) in indirizzi IP
-            utilizzabili da computer e dispositivi.</p>
-        </div>
-        <div class="glossary-definition" id="endpoint">
-          <span class="glossary-term">Endpoint:</span>
-          <p>Un punto di comunicazione in una rete, rappresentato da un indirizzo IP e una porta, che consente l'invio e
-            la ricezione di dati.</p>
-        </div>
-        <div class="glossary-definition" id="listen">
-          <span class="glossary-term">listen():</span>
-          <p>Una funzione che mette il server in attesa di connessioni da parte dei client.</p>
-        </div>
-        <div class="glossary-definition" id="recv">
-          <span class="glossary-term">recv():</span>
-          <p>Una funzione simile a <code>read()</code>, utilizzata per ricevere dati attraverso un socket, ma con la
-            possibilità di specificare la dimensione del buffer di lettura.</p>
-        </div>
-        <div class="glossary-definition" id="read">
-          <span class="glossary-term">read():</span>
-          <p>Una funzione che consente di leggere i dati ricevuti attraverso un socket, dal server al client o
-            viceversa.</p>
-        </div>
-        <div class="glossary-definition" id="send">
-          <span class="glossary-term">send():</span>
-          <p>Una funzione che consente di inviare dati attraverso un socket, dal client al server o viceversa,
-            permettendo di specificare un buffer per i dati inviati.</p>
-        </div>
-        <div class="glossary-definition" id="server">
-          <span class="glossary-term">Server:</span>
-          <p>Un dispositivo o programma che fornisce servizi o risorse a un client attraverso una rete.</p>
-        </div>
-        <div class="glossary-definition" id="socket">
-          <span class="glossary-term">Socket:</span>
-          <p>Un socket è un endpoint per la comunicazione tra due macchine. Può essere utilizzato per inviare e ricevere
-            dati attraverso una rete.</p>
-        </div>
-        <div class="glossary-definition" id="threewayhandshake">
-          <span class="glossary-term">Three-way handshake:</span>
-          <p>Un processo di inizializzazione di una connessione TCP tra client e server che avviene in tre fasi: SYN,
-            SYN-ACK, ACK.</p>
-        </div>
-        <div class="glossary-definition" id="tcp">
-          <span class="glossary-term">TCP (Transmission Control Protocol):</span>
-          <p>Un protocollo di comunicazione che garantisce la consegna affidabile e ordinata dei dati tra due
-            dispositivi.</p>
-        </div>
-        <div class="glossary-definition" id="udp">
-          <span class="glossary-term">UDP (User Datagram Protocol):</span>
-          <p>Un protocollo di comunicazione che consente l'invio di messaggi senza stabilire una connessione, non
-            garantendo l'ordine o l'affidabilità.</p>
-        </div>
-        <div class="glossary-definition" id="write">
-          <span class="glossary-term">write():</span>
-          <p>Una funzione che consente di inviare dati attraverso un socket, dal client al server o viceversa.</p>
+        <div class="col-md-12">
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Footer -->
   <footer>
     <div class="bg-black p-4 text-center">
-      <p class="display-10 mb-2 text-white">Mizzon Alessandro 5E</p>
+      <p class="display-10 mb-2 text-white" id="footer-text">
+      </p>
     </div>
   </footer>
+
+  <script src="glossario.js"></script>
 </body>
 
 </html>

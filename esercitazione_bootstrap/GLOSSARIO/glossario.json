@@ -1,0 +1,101 @@
+{
+    "navbar": {
+      "brand": "GLOSSARIO",
+      "links": [
+        {
+          "text": "Glossario",
+          "href": "../GLOSSARIO/glossario.html"
+        },
+        {
+          "text": "Home",
+          "href": "../HOME/home.html"
+        },
+        {
+          "text": "Socket",
+          "href": "../SOCKET/socket.html"
+        },
+        {
+          "text": "Informatica",
+          "href": "../INFORMATICA/informatica.html"
+        },
+        {
+          "text": "Sistemi e Reti",
+          "href": "../S&R/S&R.html"
+        }
+      ]
+    },
+    "glossary": [
+      {
+        "term": "accept()",
+        "definition": "Una funzione utilizzata dal server per accettare una connessione in ingresso da un client."
+      },
+      {
+        "term": "bind()",
+        "definition": "Una funzione che associa un socket a un indirizzo IP e a una porta specifici, permettendo al server di ascoltare le richieste."
+      },
+      {
+        "term": "Client",
+        "definition": "Un dispositivo o programma che invia richieste a un server per ottenere servizi o risorse."
+      },
+      {
+        "term": "close()",
+        "definition": "Una funzione che chiude una connessione socket, terminando la comunicazione tra client e server."
+      },
+      {
+        "term": "connect()",
+        "definition": "Una funzione utilizzata dal client per stabilire una connessione con un server tramite un socket."
+      },
+      {
+        "term": "DNS (Domain Name System)",
+        "definition": "Un sistema di nomi di dominio che traduce i nomi di dominio (come www.example.com) in indirizzi IP utilizzabili da computer e dispositivi."
+      },
+      {
+        "term": "Endpoint",
+        "definition": "Un punto di comunicazione in una rete, rappresentato da un indirizzo IP e una porta, che consente l'invio e la ricezione di dati."
+      },
+      {
+        "term": "listen()",
+        "definition": "Una funzione che mette il server in attesa di connessioni da parte dei client."
+      },
+      {
+        "term": "recv()",
+        "definition": "Una funzione simile a read(), utilizzata per ricevere dati attraverso un socket, ma con la possibilità di specificare la dimensione del buffer di lettura."
+      },
+      {
+        "term": "read()",
+        "definition": "Una funzione che consente di leggere i dati ricevuti attraverso un socket, dal server al client o viceversa."
+      },
+      {
+        "term": "send()",
+        "definition": "Una funzione che consente di inviare dati attraverso un socket, dal client al server o viceversa, permettendo di specificare un buffer per i dati inviati."
+      },
+      {
+        "term": "Server",
+        "definition": "Un dispositivo o programma che fornisce servizi o risorse a un client attraverso una rete."
+      },
+      {
+        "term": "Socket",
+        "definition": "Un socket è un endpoint per la comunicazione tra due macchine. Può essere utilizzato per inviare e ricevere dati attraverso una rete."
+      },
+      {
+        "term": "Three-way handshake",
+        "definition": "Un processo di inizializzazione di una connessione TCP tra client e server che avviene in tre fasi: SYN, SYN-ACK, ACK."
+      },
+      {
+        "term": "TCP (Transmission Control Protocol)",
+        "definition": "Un protocollo di comunicazione che garantisce la consegna affidabile e ordinata dei dati tra due dispositivi."
+      },
+      {
+        "term": "UDP (User Datagram Protocol)",
+        "definition": "Un protocollo di comunicazione che consente l'invio di messaggi senza stabilire una connessione, non garantendo l'ordine o l'affidabilità."
+      },
+      {
+        "term": "write()",
+        "definition": "Una funzione che consente di inviare dati attraverso un socket, dal client al server o viceversa."
+      }
+    ],
+    "footer": {
+        "text": "Mizzon Alessandro ~ 5E"
+    }
+  }
+  
