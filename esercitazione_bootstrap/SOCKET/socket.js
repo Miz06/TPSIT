@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const introCardHeader = document.createElement("div");
             introCardHeader.className = "card-header";
+            introCardHeader.style.fontSize = "1.2rem";
+            introCardHeader.style.fontWeight = "bold";
             introCardHeader.textContent = data.introCard.header;
 
             const introCardBody = document.createElement("div");
@@ -48,6 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
             introCard.appendChild(introCardBody);
             container.appendChild(introCard);
 
+            // === AGGIUNTA <hr> ===
+            const hr1 = document.createElement("hr");
+            hr1.className = "my-hr";
+            hr1.style.margin = "2%";
+            container.appendChild(hr1);
+
             // === SEZIONE CARDS ===
             // Crea il primo contenitore per le card
             const row1 = document.createElement("div");
@@ -55,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             container.appendChild(row1);
 
-            // Dividi le card in due gruppi (le prime due card)
             const firstTwoCards = data.cards.slice(0, 2);
 
             // Aggiungi le prime due card al primo contenitore
@@ -92,6 +99,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 row1.appendChild(col);
             });
 
+            // === AGGIUNTA <hr> ===
+            const hr2 = document.createElement("hr");
+            hr2.className = "my-hr";
+            hr2.style.margin = "1%";
+            container.appendChild(hr2);
+
             // === SEZIONE CODICI CLIENT E SERVER ===
             const codeExamplesSection = document.createElement("div");
             codeExamplesSection.className = "mt-5";
@@ -120,12 +133,17 @@ document.addEventListener("DOMContentLoaded", () => {
             codeExamplesSection.appendChild(serverCodeSection);
             container.appendChild(codeExamplesSection);
 
+            // === AGGIUNTA <hr> ===
+            const hr3 = document.createElement("hr");
+            hr3.className = "my-hr";
+            hr3.style.margin = "2%";
+            container.appendChild(hr3);
+
             // === SECONDO CONTENITORE PER LE CARD ===
             const row2 = document.createElement("div");
             row2.className = "row justify-content-center";
             container.appendChild(row2);
 
-            // Dividi le card in due gruppi (le seconde due card)
             const secondTwoCards = data.cards.slice(2, 4);
 
             // Aggiungi le seconde due card al secondo contenitore

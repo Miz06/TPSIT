@@ -52,7 +52,7 @@
             "example": "l’invio di pacchetti durante una videochiamata utilizza socket UDP."
         },
         {
-            "title": "Creazione e gestione della connessione client-server",
+            "title": "Comportamento lato Client",
             "content": [
                 "Viene creata una socket TCP/IP con la funzione socket().",
                 "Il client si connette al server utilizzando connect().",
@@ -64,7 +64,7 @@
             ]
         },
         {
-            "title": "Creazione e gestione delle socket",
+            "title": "Comportamento lato Server",
             "content": [
                 "Il server crea una socket TCP/IP utilizzando la funzione socket().",
                 "Il server associa la socket a un indirizzo IP e una porta tramite bind().",
