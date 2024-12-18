@@ -1,0 +1,67 @@
+{
+    "navbar": {
+        "brand": "SOCKET",
+        "links": [
+            {
+                "text": "Glossario",
+                "href": "../GLOSSARIO/glossario.html"
+            },
+            {
+                "text": "Home",
+                "href": "../HOME/home.html"
+            },
+            {
+                "text": "Socket",
+                "href": "../SOCKET/socket.html"
+            },
+            {
+                "text": "Informatica",
+                "href": "../INFORMATICA/informatica.html"
+            },
+            {
+                "text": "Sistemi e Reti",
+                "href": "../S&R/S&R.html"
+            }
+        ]
+    },
+    "sections": [
+        {
+            "title": "Il protocollo TCP",
+            "description": "TCP è un protocollo del livello di trasporto dei modelli OSI e TCP/IP, che garantisce una comunicazione affidabile, ordinata e priva di errori.",
+            "steps": [
+                {
+                    "title": "SYN",
+                    "description": "Il client invia un pacchetto SYN al server per iniziare la connessione. Questo pacchetto contiene un numero di sequenza iniziale."
+                },
+                {
+                    "title": "SYN-ACK",
+                    "description": "Il server risponde con un pacchetto SYN-ACK, che conferma di aver ricevuto il SYN del client e invia un proprio numero di sequenza."
+                },
+                {
+                    "title": "ACK",
+                    "description": "Il client risponde con un pacchetto ACK per confermare la ricezione del SYN-ACK del server. La connessione è ora stabilita."
+                }
+            ],
+            "image": "../images/tcp-handshake-diagram.png"
+        },
+        {
+            "title": "Il protocollo UDP",
+            "description": "UDP è un protocollo del livello di trasporto dei modelli OSI e TCP/IP. È orientato alla trasmissione veloce e non affidabile, sacrificando caratteristiche come l’ordinamento per ridurre la latenza.",
+            "steps": [
+                {
+                    "description": "Il mittente invia i datagrammi UDP direttamente al destinatario specificando l’indirizzo IP e la porta di destinazione."
+                },
+                {
+                    "description": "Ogni datagramma è indipendente: non ci sono relazioni tra i pacchetti inviati."
+                },
+                {
+                    "description": "Il destinatario riceve i datagrammi e li passa direttamente all’applicazione, senza alcun controllo sull’ordine o sulla completezza."
+                }
+            ],
+            "image": "../images/UDP.png"
+        }
+    ],
+    "footer": {
+        "text": "Mizzon Alessandro 5E"
+    }
+}
