@@ -42,16 +42,6 @@
       color: black;
     }
 
-    .nav-link {
-      padding: 3%;
-    }
-
-    footer {
-      padding: 0;
-      width: 100%;
-      margin-top: auto;
-    }
-
     .card-header {
       color: white;
       background-color: green;
@@ -60,20 +50,6 @@
     .accordion-body,
     .card-body {
       background-color: rgb(248, 248, 248);
-    }
-
-    .accordion-button {
-      color: black;
-    }
-
-    .accordion-button:not(.collapsed) {
-      background-color: green;
-      color: white;
-    }
-
-    .accordion-button.collapsed {
-      background-color: rgb(248, 248, 248);
-      color: black;
     }
 
     .example {
@@ -88,11 +64,23 @@
       border-radius: 15px;
       overflow-x: auto;
     }
+
+    footer {
+      padding: 1rem;
+      background-color: black;
+      color: white;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .card {
+      margin-bottom: 20px;
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body class="p-0 m-0 border-0 bd-example">
+<body>
 
   <nav class="navbar bg-black">
     <div class="container-fluid">
@@ -107,325 +95,24 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link text-dark" aria-current="page" href="./glossario.html">Glossario</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" aria-current="page" href="./home.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" aria-current="page" href="./socket.html">Socket</a>
-            </li>
-            <li>
-              <a class="nav-link text-dark" aria-current="page" href="./informatica.html">Informatica</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" aria-current="page" href="./S&R.html">Sistemi e Reti</a>
-            </li>
-          </ul>
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3"></ul>
         </div>
       </div>
     </div>
   </nav>
 
-  <div class="card text-center mt-5 me-5 ms-5 shadow">
-    <div class="card-header">
-      Socket
-    </div>
-    <div class="d-flex align-items-center p-4" style="background-color: rgb(248, 248, 248)">
-      <img src="./images/ClientServerHome.jpg" class="img-fluid flex-shrink-0 me-4" alt="modello OSI"
-        style="width: 40%;">
-      <div>
-        <p class="mt-4" style="font-size: 1.1rem; line-height: 1.5;">
-          Una socket è un’interfaccia software che funge da <strong>endpoint</strong> per lo scambio di dati tra due
-          entità: client e server.
-          Le socket possono utilizzare diversi protocolli del livello di trasporto, i più comuni sono
-          <strong>TCP</strong> (affidabile e orientato alla connessione) e <strong>UDP</strong> (rapido ma non
-          affidabile)
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container mt-5 mb-5">
+  <main class="container">
     <div class="row justify-content-center">
-      <div class="col-12 mb-4">
-        <div class="card shadow">
-          <div class="card-header">
-            <h5 class="mb-0">Stream Socket</h5>
-          </div>
-          <div class="card-body">
-            <ol>
-              <li>Basata sul protocollo TCP.</li>
-              <li>Fornisce una comunicazione affidabile e orientata alla connessione.</li>
-              <li>Garantisce che i dati arrivino nell'ordine corretto e senza perdite.</li>
-              <li>Ideale per applicazioni come il trasferimento di file (FTP), email (SMTP), e navigazione web (HTTP).
-              </li>
-            </ol>
-            <span class="example">Esempio: </span>
-            <strong>la connessione tra un browser web (client) e un server web utilizza socket TCP.</strong>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 mb-4">
-        <div class="card shadow">
-          <div class="card-header">
-            <h5 class="mb-0">Datagram Stream</h5>
-          </div>
-          <div class="card-body">
-            <ol>
-              <li>Basata sul protocollo UDP.</li>
-              <li>Non orientata alla connessione, non garantisce l’ordine e l’affidabilità nella consegna dei dati.</li>
-              <li>È più leggera e veloce rispetto alle socket TCP.</li>
-              <li>Ideale per applicazioni in tempo reale come streaming video, giochi online o DNS.</li>
-            </ol>
-            <span class="example">Esempio: </span>
-            <strong>l’invio di pacchetti durante una videochiamata utilizza socket UDP.</strong>
-          </div>
-        </div>
-      </div>
+      <!-- Dynamically generated cards will appear here -->
     </div>
-  </div>
 
-  <div class="container mb-5">
-    <div class="row">
-      <div class="col-md-6">
-        <h3>Esempio di codice del Client (c)</h3>
-        <pre>
-<code>
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;sys/socket.h&gt;
-#include &lt;sys/types.h&gt;
-#include &lt;netinet/in.h&gt;
-#include &lt;netdb.h&gt;
-#include &lt;string.h&gt;
-#include &lt;ctype.h&gt;
-#include &lt;unistd.h&gt;
-
-#define SERVER_PORT 1313
-#define ARR1_LEN 4
-#define ARR2_LEN 5
-
-int main(int agrc, char *argv[]) {
-    struct sockaddr_in servizio; // Creazione di un elemento di tipo sockaddr
-
-    servizio.sin_family = AF_INET; // AF_INET consente di utilizzare la famiglia degli indirizzi IPv4
-    servizio.sin_addr.s_addr = htonl(INADDR_ANY); // Usa qualsiasi indirizzo disponibile
-    servizio.sin_port = htons(SERVER_PORT); // Porta del server
-
-    int socketfd;
-    int vett1[ARR1_LEN], vett2[ARR2_LEN], num, pos;
-
-    if ((socketfd = socket(AF_INET, SOCK_STREAM, 0)) &lt; 0) {
-        printf("Errore nella creazione della socket");
-        exit(EXIT_FAILURE);
-    }
-
-    if (connect(socketfd, (struct sockaddr*)&servizio, sizeof(servizio)) &lt; 0) {
-        printf("Errore nella connessione al server");
-        close(socketfd);
-        exit(EXIT_FAILURE);
-    }
-
-    for (int i = 0; i &lt; ARR1_LEN; i++) {
-        vett1[i] = atoi(argv[i + 1]);
-    }
-
-    num = atoi(argv[ARR1_LEN + 1]);
-    pos = atoi(argv[ARR1_LEN + 2]);
-
-    if (write(socketfd, vett1, sizeof(vett1)) &lt; 0) {
-        printf("Errore nell'invio del vettore al server");
-        close(socketfd);
-        exit(EXIT_FAILURE);
-    }
-
-    if (send(socketfd, &num, sizeof(int), 0) &lt; 0) {
-        printf("Errore nell'invio del numero al server");
-        close(socketfd);
-        exit(EXIT_FAILURE);
-    }
-
-    if (send(socketfd, &pos, sizeof(int), 0) &lt; 0) {
-        printf("Errore nell'invio della posizione al server");
-        close(socketfd);
-        exit(EXIT_FAILURE);
-    }
-
-    if (read(socketfd, vett2, sizeof(vett2)) &lt; 0) {
-        printf("Errore nella ricezione del nuovo vettore dal server");
-        close(socketfd);
-        exit(EXIT_FAILURE);
-    }
-
-    for (int i = 0; i &lt; ARR2_LEN; i++) {
-        printf("%d) %d\n", i, vett2[i]);
-    }
-
-    close(socketfd);
-    return 0;
-}
-</code>
-      </pre>
-        <ol>
-          <li><strong>Creazione della socket</strong>: Viene creata una socket TCP/IP con la funzione
-            <code>socket()</code>.
-          </li>
-          <li><strong>Connessione al server</strong>: Il client si connette al server utilizzando
-            <code>connect()</code>.
-          </li>
-          <li><strong>Invio del vettore al server</strong>: Il client invia un vettore di numeri interi al server
-            tramite <code>write()</code>.</li>
-          <li><strong>Invio di un numero e posizione</strong>: Viene inviato un numero (<code>num</code>) e una
-            posizione (<code>pos</code>) al server usando <code>send()</code>.</li>
-          <li><strong>Ricezione della risposta dal server</strong>: Il client riceve un nuovo vettore modificato dal
-            server tramite <code>read()</code>.</li>
-          <li><strong>Visualizzazione dei dati ricevuti</strong>: Il client stampa il vettore ricevuto dal server.</li>
-          <li><strong>Chiusura della connessione</strong>: La connessione viene chiusa con <code>close()</code>.</li>
-        </ol>
-      </div>
-
-      <div class="col-md-6">
-        <h3>Esempio di codice del Server (c)</h3>
-        <pre>
-<code>
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;sys/socket.h&gt;
-#include &lt;sys/types.h&gt;
-#include &lt;netinet/in.h&gt;
-#include &lt;netdb.h&gt;
-#include &lt;string.h&gt;
-#include &lt;ctype.h&gt;
-#include &lt;unistd.h&gt;
-
-#define SERVER_PORT 1313
-#define ARR1_LEN 4
-#define ARR2_LEN 5
-
-void popolaVettore(int vett1[], int vett2[], int num, int pos){    
-    for(int i = 0; i&lt;pos; i++){
-        vett2[i] = vett1[i];
-    }
-
-    vett2[pos] = num;
-    
-    for(int i = pos+1; i&lt;ARR2_LEN; i++){
-        vett2[i] = vett1[i-1];
-    }
-}
-
-int main(){
-    struct sockaddr_in servizio, addr_remoto; //Creazione elementi di tipo sockaddr
-
-    //inizializzazione dell'elemento servizio
-    servizio.sin_family = AF_INET; //AF_INET consente di utilizzare la famiglia degli indirizzi IPv4
-    servizio.sin_addr.s_addr = htonl(INADDR_ANY); //con INADDR_ANY viene utilizzato un qualsiasi indirizzo disponibile
-    servizio.sin_port = htons(SERVER_PORT); //viene espressa la porta del server
-
-    int socketfd, soa, len=sizeof(servizio);
-    int vett1[ARR1_LEN], vett2[ARR2_LEN], num, pos;
-
-    //Controllo sulla ceazione della socket TCP/IP
-    if((socketfd = socket(AF_INET, SOCK_STREAM, 0))&lt;0){
-        printf(&quot;Errore nella creazione della socket&quot;);
-        exit(EXIT_FAILURE);
-    }
-
-    //Controllo sull'impostazione del transport endpoint del server
-    if(bind(socketfd, (struct sockaddr*)&servizio, sizeof(servizio))&lt;0){
-        printf(&quot;Errore nella impostazione del transport endpoint&quot;);
-        close(socketfd);
-        exit(EXIT_FAILURE);
-    }
-
-    //Controllo sull'impostazione del server in grado di gestire fino a 10 utenti
-    if(listen(socketfd, 10)&lt;0){
-        printf(&quot;Errore nella listen&quot;);
-        close(socketfd);
-        exit(EXIT_FAILURE);
-    }
-
-    for(; ;)
-    {//Il server rimane in ascolto fino a quando non viene interrotto
-        printf(&quot;\nServer in ascolto...&quot;\n);
-        fflush(stdout);
-
-        //Controllo sul server che accetta la connessione con il client
-        if((soa = accept(socketfd, (struct sockaddr*)&addr_remoto, &len))&lt;0){
-            printf(&quot;Errore nella soa&quot;);
-            exit(EXIT_FAILURE);
-            close(soa);
-        }
-
-        if(read(soa, vett1, sizeof(vett1))&lt;0){
-            printf(&quot;Errore nella ricezione del vettore dal client&quot;);
-            exit(EXIT_FAILURE);
-            continue;
-        }
-
-        if(recv(soa, &num, sizeof(int), 0)&lt;0){
-            printf(&quot;Errore nella ricezione del numero (da inserire nel vettore) dal client&quot;);
-            exit(EXIT_FAILURE);
-            continue;
-        }
-
-        if(recv(soa, &pos, sizeof(int), 0)&lt;0){
-            printf(&quot;Errore nella ricezione del numero (posizione del numero) dal client&quot;);
-            exit(EXIT_FAILURE);
-            continue;
-        }
-
-        popolaVettore(vett1, vett2, num, pos);
-
-        if(write(soa, vett2, sizeof(vett2))&lt;0){
-            printf(&quot;Errore nell'invio del nuovo vettore dal client&quot;);
-            exit(EXIT_FAILURE);
-            continue;
-        }
-
-        close(soa);
-    }
-
-    close(socketfd);
-    return 0;
-}
-</code>
-      </pre>
-        <ol>
-          <li><strong>Creazione della socket</strong>: Il server crea una socket TCP/IP utilizzando la funzione
-            <code>socket()</code>.
-          </li>
-          <li><strong>Associazione della socket a un indirizzo e una porta</strong>: Il server associa la socket a un
-            indirizzo IP e una porta tramite <code>bind()</code>.</li>
-          <li><strong>Inizio dell'ascolto delle connessioni</strong>: Il server inizia ad ascoltare le richieste di
-            connessione in arrivo con <code>listen()</code>.</li>
-          <li><strong>Accettazione della connessione del client</strong>: Quando un client tenta di connettersi, il
-            server accetta la connessione con la funzione <code>accept()</code>.</li>
-          <li><strong>Ricezione dei dati dal client</strong>: Il server riceve un vettore, un numero e una posizione dal
-            client tramite le funzioni <code>read()</code> e <code>recv()</code>.</li>
-          <li><strong>Modifica del vettore</strong>: Il server modifica il vettore ricevuto inserendo il numero in base
-            alla posizione fornita dal client, utilizzando la funzione <code>popolaVettore()</code>.</li>
-          <li><strong>Invio della risposta al client</strong>: Il server invia il vettore modificato al client tramite
-            <code>write()</code>.
-          </li>
-          <li><strong>Chiusura della connessione</strong>: Dopo aver inviato i dati, il server chiude la connessione con
-            il client usando <code>close()</code>.</li>
-          <li><strong>Ripetizione del processo</strong>: Il server continua a rimanere in ascolto per altre connessioni
-            in un ciclo infinito, fino a che non viene interrotto.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+  </main>
 
   <footer>
-    <div class="bg-black p-4 text-center">
-      <p class="display-10 mb-2 text-white">Mizzon Alessandro 5E</p>
-    </div>
+    <p class="mb-0">Mizzon Alessandro 5E</p>
   </footer>
 
+  <script src="socket.js"></script>
 </body>
 
 </html>

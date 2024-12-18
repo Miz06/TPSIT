@@ -1,0 +1,88 @@
+{
+    "navbar": {
+        "brand": "SOCKET",
+        "links": [
+            {
+                "text": "Glossario",
+                "href": "../GLOSSARIO/glossario.html"
+            },
+            {
+                "text": "Home",
+                "href": "../HOME/home.html"
+            },
+            {
+                "text": "Socket",
+                "href": "../SOCKET/socket.html"
+            },
+            {
+                "text": "Informatica",
+                "href": "../INFORMATICA/informatica.html"
+            },
+            {
+                "text": "Sistemi e Reti",
+                "href": "../S&R/S&R.html"
+            }
+        ]
+    },
+    "introCard": {
+        "header": "Socket",
+        "image": "../images/ClientServerHome.jpg",
+        "alt": "socket",
+        "description": "Una socket è un’interfaccia software che funge da <strong>endpoint</strong> per lo scambio di dati tra due entità: client e server. Le socket possono utilizzare diversi protocolli del livello di trasporto, i più comuni sono <strong>TCP</strong> (affidabile e orientato alla connessione) e <strong>UDP</strong> (rapido ma non affidabile)."
+    },
+    "cards": [
+        {
+            "title": "Stream Socket",
+            "content": [
+                "Basata sul protocollo TCP.",
+                "Fornisce una comunicazione affidabile e orientata alla connessione.",
+                "Garantisce che i dati arrivino nell'ordine corretto e senza perdite.",
+                "Ideale per applicazioni come il trasferimento di file (FTP), email (SMTP), e navigazione web (HTTP)."
+            ],
+            "example": "la connessione tra un browser web (client) e un server web utilizza socket TCP."
+        },
+        {
+            "title": "Datagram Stream",
+            "content": [
+                "Basata sul protocollo UDP.",
+                "Non orientata alla connessione, non garantisce l’ordine e l’affidabilità nella consegna dei dati.",
+                "È più leggera e veloce rispetto alle socket TCP.",
+                "Ideale per applicazioni in tempo reale come streaming video, giochi online o DNS."
+            ],
+            "example": "l’invio di pacchetti durante una videochiamata utilizza socket UDP."
+        },
+        {
+            "title": "Creazione e gestione della connessione client-server",
+            "content": [
+                "Viene creata una socket TCP/IP con la funzione socket().",
+                "Il client si connette al server utilizzando connect().",
+                "Il client invia un vettore di numeri interi al server tramite write().",
+                "Viene inviato un numero (num) e una posizione (pos) al server usando send().",
+                "Il client riceve un nuovo vettore modificato dal server tramite read().",
+                "Il client stampa il vettore ricevuto dal server.",
+                "La connessione viene chiusa con close()."
+            ]
+        },
+        {
+            "title": "Creazione e gestione delle socket",
+            "content": [
+                "Il server crea una socket TCP/IP utilizzando la funzione socket().",
+                "Il server associa la socket a un indirizzo IP e una porta tramite bind().",
+                "Il server inizia ad ascoltare le richieste di connessione con listen().",
+                "Il server accetta la connessione con la funzione accept().",
+                "Il server riceve un vettore, un numero e una posizione dal client tramite read() e recv().",
+                "Il server modifica il vettore ricevuto inserendo il numero in base alla posizione.",
+                "Il server invia il vettore modificato al client tramite write().",
+                "Il server chiude la connessione usando close().",
+                "Il server continua a rimanere in ascolto per altre connessioni in un ciclo infinito."
+            ]
+        }
+    ],
+    "codeExamples": {
+        "client": "#include <stdio.h>\n#include <stdlib.h>\n#include <sys/socket.h>\n#include <sys/types.h>\n#include <netinet/in.h>\n#include <netdb.h>\n#include <string.h>\n#include <ctype.h>\n#include <unistd.h>\n\n#define SERVER_PORT 1313\n#define ARR1_LEN 4\n#define ARR2_LEN 5\n\nint main(int agrc, char *argv[]) {\n    struct sockaddr_in servizio; // Creazione di un elemento di tipo sockaddr\n\n    servizio.sin_family = AF_INET; // AF_INET consente di utilizzare la famiglia degli indirizzi IPv4\n    servizio.sin_addr.s_addr = htonl(INADDR_ANY); // Usa qualsiasi indirizzo disponibile\n    servizio.sin_port = htons(SERVER_PORT); // Porta del server\n\n    int socketfd;\n    int vett1[ARR1_LEN], vett2[ARR2_LEN], num, pos;\n\n    if ((socketfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {\n        printf(\"Errore nella creazione della socket\");\n        exit(EXIT_FAILURE);\n    }\n\n    if (connect(socketfd, (struct sockaddr*)&servizio, sizeof(servizio)) < 0) {\n        printf(\"Errore nella connessione al server\");\n        close(socketfd);\n        exit(EXIT_FAILURE);\n    }\n\n    for (int i = 0; i < ARR1_LEN; i++) {\n        vett1[i] = atoi(argv[i + 1]);\n    }\n\n    num = atoi(argv[ARR1_LEN + 1]);\n    pos = atoi(argv[ARR1_LEN + 2]);\n\n    if (write(socketfd, vett1, sizeof(vett1)) < 0) {\n        printf(\"Errore nell'invio del vettore al server\");\n        close(socketfd);\n        exit(EXIT_FAILURE);\n    }\n\n    if (send(socketfd, &num, sizeof(int), 0) < 0) {\n        printf(\"Errore nell'invio del numero al server\");\n        close(socketfd);\n        exit(EXIT_FAILURE);\n    }\n\n    if (send(socketfd, &pos, sizeof(int), 0) < 0) {\n        printf(\"Errore nell'invio della posizione al server\");\n        close(socketfd);\n        exit(EXIT_FAILURE);\n    }\n\n    if (read(socketfd, vett2, sizeof(vett2)) < 0) {\n        printf(\"Errore nella ricezione del nuovo vettore dal server\");\n        close(socketfd);\n        exit(EXIT_FAILURE);\n    }\n\n    for (int i = 0; i < ARR2_LEN; i++) {\n        printf(\"%d) %d\\n\", i, vett2[i]);\n    }\n\n    close(socketfd);\n    return 0;\n}",
+        "server": "#include <stdio.h>\n#include <stdlib.h>\n#include <sys/socket.h>\n#include <sys/types.h>\n#include <netinet/in.h>\n#include <netdb.h>\n#include <string.h>\n#include <ctype.h>\n#include <unistd.h>\n\n#define SERVER_PORT 1313\n#define ARR1_LEN 4\n#define ARR2_LEN 5\n\nvoid popolaVettore(int vett1[], int vett2[], int num, int pos) {    \n    for(int i = 0; i < pos; i++) {\n        vett2[i] = vett1[i];\n    }\n\n    vett2[pos] = num;\n    \n    for(int i = pos + 1; i < ARR2_LEN; i++) {\n        vett2[i] = vett1[i - 1];\n    }\n}\n\nint main() {\n    struct sockaddr_in servizio, addr_remoto; // Creazione elementi di tipo sockaddr\n\n    // Inizializzazione dell'elemento servizio\n    servizio.sin_family = AF_INET; // AF_INET consente di utilizzare la famiglia degli indirizzi IPv4\n    servizio.sin_addr.s_addr = htonl(INADDR_ANY); // Con INADDR_ANY viene utilizzato un qualsiasi indirizzo disponibile\n    servizio.sin_port = htons(SERVER_PORT); // Viene espressa la porta del server\n\n    int socketfd, soa, len = sizeof(servizio);\n    int vett1[ARR1_LEN], vett2[ARR2_LEN], num, pos;\n\n    // Controllo sulla creazione della socket TCP/IP\n    if ((socketfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {\n        printf(\"Errore nella creazione della socket\");\n        exit(EXIT_FAILURE);\n    }\n\n    // Controllo sull'impostazione del transport endpoint del server\n    if (bind(socketfd, (struct sockaddr*)&servizio, sizeof(servizio)) < 0) {\n        printf(\"Errore nella impostazione del transport endpoint\");\n        close(socketfd);\n        exit(EXIT_FAILURE);\n    }\n\n    // Controllo sull'impostazione del server in grado di gestire fino a 10 utenti\n    if (listen(socketfd, 10) < 0) {\n        printf(\"Errore nella listen\");\n        close(socketfd);\n        exit(EXIT_FAILURE);\n    }\n\n    for(;;) {\n        // Il server rimane in ascolto fino a quando non viene interrotto\n        printf(\"\\nServer in ascolto...\\n\");\n        fflush(stdout);\n\n        // Controllo sul server che accetta la connessione con il client\n        if ((soa = accept(socketfd, (struct sockaddr*)&addr_remoto, &len)) < 0) {\n            printf(\"Errore nella soa\");\n            exit(EXIT_FAILURE);\n            close(soa);\n        }\n\n        if (read(soa, vett1, sizeof(vett1)) < 0) {\n            printf(\"Errore nella ricezione del vettore dal client\");\n            exit(EXIT_FAILURE);\n            continue;\n        }\n\n        if (recv(soa, &num, sizeof(int), 0) < 0) {\n            printf(\"Errore nella ricezione del numero (da inserire nel vettore) dal client\");\n            exit(EXIT_FAILURE);\n            continue;\n        }\n\n        if (recv(soa, &pos, sizeof(int), 0) < 0) {\n            printf(\"Errore nella ricezione del numero (posizione del numero) dal client\");\n            exit(EXIT_FAILURE);\n            continue;\n        }\n\n        popolaVettore(vett1, vett2, num, pos);\n\n        if (write(soa, vett2, sizeof(vett2)) < 0) {\n            printf(\"Errore nell'invio del nuovo vettore dal client\");\n            exit(EXIT_FAILURE);\n            continue;\n        }\n\n        close(soa);\n    }\n\n    close(socketfd);\n    return 0;\n}"
+    },
+    "footer": {
+        "text": "Mizzon Alessandro 5E"
+    }
+}
