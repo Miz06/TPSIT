@@ -59,6 +59,12 @@
       width: 100%;
       margin-top: auto;
     }
+  
+    .card {
+    display: flex;
+    flex-direction: column; /* Assicura che il contenuto della card si disponga in colonna */
+    height: 100%; /* Imposta l'altezza della card al 100% del contenitore */
+    }
 </style>
 <body>
     
@@ -77,13 +83,19 @@
             <div class="offcanvas-body" style="text-align: center;">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                    <a class="nav-link text-black" aria-current="page" href="./archivio.html">Archivio</a>
+                    <a class="nav-link text-black" aria-current="page" href="../archivio/archivio.html">Archivio</a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </nav>
+
+
+    <div class="container">
+      <h2 class="mt-4">Prodotti nel carrello</h2>
+      <div id="cart-items" class="row"></div>
+    </div>
 
     <footer>
         <div class="bg-black p-4 text-center">
@@ -92,5 +104,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./carrello.js"></script>
 </body>
 </html>
