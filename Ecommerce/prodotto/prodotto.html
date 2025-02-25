@@ -38,17 +38,6 @@
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
   }
 
-  .btn{
-    transition: transform 0.6s ease, box-shadow 0.6s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .btn:hover{
-    transform: scale(1.05);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-  }
-
   .btn-close {
     background-color: white;
     border: 2px solid black;
@@ -67,6 +56,17 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
 
+  .btn {
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+
   footer {
     padding: 0;
     width: 100%;
@@ -81,13 +81,83 @@
     margin: 20px 0;
   }
 
-  .card-img-left {
+  .card-img {
     width: 100%;
-    /* Assicura che l'immagine occupi tutta la larghezza del contenitore */
-    height: 300px;
-    /* Imposta un'altezza fissa per tutte le immagini */
+    /* L'immagine occuperà tutta la larghezza disponibile */
     object-fit: cover;
-    /* Ritaglia l'immagine per riempire il contenitore senza distorcerla */
+    /* Mantiene il rapporto di aspetto senza distorcere l'immagine */
+    margin-bottom: 10px;
+    /* Aggiunge un margine inferiore per distanziare l'immagine dal testo */
+  }
+
+  /* Nascondi la freccia di incremento/decremento del campo number */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .input-group {
+    width: auto;
+    /* Permette al gruppo di input di adattarsi al contenuto */
+    border: 2px solid #007bff;
+    /* Colore del bordo */
+    border-radius: 10px;
+    /* Angoli arrotondati */
+    overflow: hidden;
+    /* Nascondi gli angoli */
+  }
+
+  .input-group .form-control {
+    width: 40px;
+    /* Riduci la larghezza del campo di input */
+    padding: 5px;
+    /* Riduci il padding per un aspetto più compatto */
+    font-size: 14px;
+    /* Dimensione del font più piccola */
+    text-align: center;
+    /* Centra il testo all'interno del campo */
+    border: none;
+    /* Rimuovi il bordo */
+  }
+
+  .input-group button {
+    width: 30px;
+    /* Riduci la larghezza dei pulsanti */
+    font-size: 14px;
+    /* Dimensione del font più piccola */
+    background-color: #007bff;
+    /* Colore di sfondo blu */
+    color: white;
+    /* Testo bianco */
+    border: none;
+    /* Rimuovi il bordo */
+  }
+
+  .input-group button:hover {
+    background-color: #0056b3;
+    /* Colore di sfondo blu scuro al passaggio del mouse */
+  }
+
+  /* Stile per il prezzo */
+  #game-price {
+    border: 2px solid green;
+    /* Contorno verde */
+    padding: 5px;
+    /* Padding interno */
+    border-radius: 10px;
+    /* Angoli arrotondati */
+    display: inline-block;
+    /* Limita la larghezza al contenuto */
+    white-space: nowrap;
+    /* Impedisce il wrapping del testo */
+  }
+
+  /* Allineamento del titolo e del tipo */
+  .card-title,
+  .card-subtitle {
+    text-align: center;
+    /* Allinea al centro */
   }
 </style>
 
@@ -122,20 +192,36 @@
   <div class="container">
     <div class="card">
       <div class="row g-0">
-        <div class="col-md-4">
-          <img id="game-image" class="card-img-left" alt="Game Image">
-        </div>
-        <div class="col-md-8">
+        <div class="col-12">
           <div class="card-body">
             <h1 id="game-title" class="card-title"></h1>
             <h3 id="game-type" class="card-subtitle mb-2 text-muted"></h3>
-            <p id="game-price" class="card-text"></p>
+            <hr>
+            <img id="game-image" class="card-img" alt="Game Image">
+            <hr>
             <p id="game-text" class="card-text"></p>
+            <hr>
+            <p class="card-text">
+              Prezzo: <span id="game-price"> <span id="price-value"></span></span>
+            </p>
+            <div class="mb-3 mt-3">
+              <div class="d-flex align-items-center">
+                <label for="quantity" class="form-label me-2">Quantità:</label>
+                <div class="input-group" id="quantity-group">
+                  <button class="btn btn-outline-secondary" type="button" id="decrement">-</button>
+                  <input type="number" id="quantity" class="form-control" value="1" min="1" aria-label="Quantità">
+                  <button class="btn btn-outline-secondary" type="button" id="increment">+</button>
+                </div>
+              </div>
+            </div>
+            <hr>
           </div>
         </div>
       </div>
     </div>
-    <button class="btn btn-dark w-100">Aggiungi al carrello</button>
+
+    <button style="margin-bottom: 4%;
+" class="btn btn-dark w-100">Aggiungi al carrello</button>
   </div>
 
   <footer>

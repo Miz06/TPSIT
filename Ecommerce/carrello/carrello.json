@@ -1,0 +1,14 @@
+{
+    "navbar": {
+        "title": "CARRELLO",
+        "links": [
+            {
+                "text": "Archivio",
+                "href": "../archivio/archivio.html"
+            }
+        ]
+    },
+    "footer": {
+        "text": "Mizzon Alessandro - 5E"
+    }
+}

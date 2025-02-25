@@ -1,0 +1,18 @@
+{
+    "navbar": {
+        "title": "PRODOTTO",
+        "links": [
+            {
+                "text": "Archivio",
+                "href": "../archivio/archivio.html"
+            },
+            {
+                "text": "Carrello",
+                "href": "../carrello/carrello.html"
+            }
+        ]
+    },
+    "footer": {
+        "text": "Mizzon Alessandro - 5E"
+    }
+}
