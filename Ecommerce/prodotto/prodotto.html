@@ -21,6 +21,10 @@
     background: lightgrey;
   }
 
+  .container {
+    flex: 1;
+  }
+  
   .navbar {
     margin: 0;
     padding: 1%;
@@ -83,11 +87,8 @@
 
   .card-img {
     width: 100%;
-    /* L'immagine occuperà tutta la larghezza disponibile */
     object-fit: cover;
-    /* Mantiene il rapporto di aspetto senza distorcere l'immagine */
     margin-bottom: 10px;
-    /* Aggiunge un margine inferiore per distanziare l'immagine dal testo */
   }
 
   /* Nascondi la freccia di incremento/decremento del campo number */
@@ -157,37 +158,12 @@
   .card-title,
   .card-subtitle {
     text-align: center;
-    /* Allinea al centro */
   }
 </style>
 
 <body>
 
-  <nav class="navbar bg-black">
-    <div class="container-fluid">
-      <h1 class="navbar-brand">PRODOTTO</h1>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-        aria-controls="offcanvasNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header" style="border-bottom: 1px solid black;">
-          <h5 class="offcanvas-title text-black" id="offcanvasNavbarLabel">PRODOTTO</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body" style="text-align: center;">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link text-black" aria-current="page" href="../archivio/archivio.html">Archivio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-black" aria-current="page" href="../carrello/carrello.html">Carrello</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
+  <div id="navbar-container"></div>
 
   <div class="container">
     <div class="card">
@@ -220,15 +196,10 @@
       </div>
     </div>
 
-    <button style="margin-bottom: 4%;
-" class="btn btn-dark w-100">Aggiungi al carrello</button>
+    <button style="margin-bottom: 4%;" class="btn btn-dark w-100">Aggiungi al carrello</button>
   </div>
 
-  <footer>
-    <div class="bg-black p-4 text-center">
-      <p class="mb-2 text-white">Mizzon Alessandro - 5E</p>
-    </div>
-  </footer>
+  <div id="footer-container"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./prodotto.js"></script>

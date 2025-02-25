@@ -113,7 +113,7 @@ function renderCart() {
         const totalContainer = `
             <div class="col-12 mt-4 text-end">
                 ${itemCount >= 3 ?
-                `<h4 class="text-decoration-line-through text-dark">Totale: €${(total + discount).toFixed(2)}</h4>` :
+                `<br><hr><h4 class="text-decoration-line-through text-dark">Totale: €${(total + discount).toFixed(2)}</h4>` :
                 `<h4>Totale: €${total.toFixed(2)}</h4>`}
                 ${itemCount >= 3 ? `<h5>Totale (15% di sconto su acquisti di 3 o più prodotti): €${total.toFixed(2)}</h5>` : ''}
             </div>
@@ -149,17 +149,6 @@ function addToCart(newItem) {
 // Event listener per il caricamento della pagina
 document.addEventListener('DOMContentLoaded', () => {
     loadData(); // Carica navbar e footer
-    renderCart(); // Rende il carrello all'avvio
-
-    // Esempio di aggiunta prodotto al carrello
-    document.getElementById('add-to-cart').addEventListener('click', () => {
-        const newItem = {
-            title: "Esempio di Prodotto",
-            image: "https://via.placeholder.com/200",
-            price: "€20,00",
-            quantity: 1
-        };
-        addToCart(newItem);
-    });
+    renderCart(); // Carica gli elementi del carrello
 });
 
