@@ -114,7 +114,7 @@ function renderCart() {
             <div class="col-12 mt-4 text-end">
                 ${itemCount >= 3 ?
                 `<br><hr><h4 class="text-decoration-line-through text-dark">Totale: €${(total + discount).toFixed(2)}</h4>` :
-                `<h4>Totale: €${total.toFixed(2)}</h4>`}
+                `<br><hr><h4>Totale: €${total.toFixed(2)}</h4>`}
                 ${itemCount >= 3 ? `<h5>Totale (15% di sconto su acquisti di 3 o più prodotti): €${total.toFixed(2)}</h5>` : ''}
             </div>
         `;
@@ -148,7 +148,7 @@ function addToCart(newItem) {
 
 // Event listener per il caricamento della pagina
 document.addEventListener('DOMContentLoaded', () => {
-    loadData(); // Carica navbar e footer
-    renderCart(); // Carica gli elementi del carrello
+    loadData(); 
+    renderCart();
 });
 

@@ -62,7 +62,7 @@ function loadFooter(footerData) {
 function loadCards(games) {
   const cardContainer = document.getElementById('card-container');
 
-  // Genera le card dinamicamente
+  // Genera le card
   games.forEach((game, index) => {
     const col = document.createElement('div');
     col.className = 'col-md-4';

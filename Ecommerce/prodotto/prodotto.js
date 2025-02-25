@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#game-text').textContent = cardData.text;
   }
 
-  // Increment/Decrement quantity logic
+  // logica incrementa/decrementa
   const quantityInput = document.querySelector('#quantity');
   const incrementButton = document.querySelector('#increment');
   const decrementButton = document.querySelector('#decrement');
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Add to cart button logic
+  // logica aggiungi al carrello
   const addToCartButton = document.querySelector('.btn-dark');
   addToCartButton.addEventListener('click', () => {
     const quantity = quantityInput.value;
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
     // Redirect alla pagina del carrello
-    window.location.href = '../carrello/carrello.html'; // Redirect to cart page
+    window.location.href = '../carrello/carrello.html';
   });
 });
 
@@ -120,6 +120,6 @@ function loadFooter(footerData) {
 
 // Event listener per il caricamento della pagina
 document.addEventListener('DOMContentLoaded', () => {
-  loadData(); // Carica navbar e footer
+  loadData();
 });
 
