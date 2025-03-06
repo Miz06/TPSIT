@@ -4,6 +4,7 @@ use db_Ecommerce;
 create table db_Ecommerce.user (
 	user_email varchar(30) primary key,
 	username varchar(30),
+	password varchar(30),
 	name varchar(30),
 	surname varchar(30)
 );
