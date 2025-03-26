@@ -1,0 +1,67 @@
+{
+    "games": [
+        {
+            "title": "Minecraft",
+            "text": "Minecraft è un gioco sandbox che offre ai giocatori la possibilità di costruire e esplorare mondi generati proceduralmente. La sua vera forza risiede nella libertà assoluta che offre, permettendo ai giocatori di costruire strutture, esplorare ambienti naturali e interagire con altri giocatori. Con modalità come la Creativa, dove puoi costruire senza limiti, e la Sopravvivenza, che sfida la tua capacità di gestire risorse e difenderti dai mostri, Minecraft è un'esperienza unica e coinvolgente, perfetta per la creatività e la collaborazione.",
+            "type": "Sandbox",
+            "image": "../../references/images/minecraft.jpg",
+            "price": "€24.99"
+        },
+        {
+            "title": "Call of Duty",
+            "text": "Call of Duty è uno dei più iconici giochi sparatutto in prima persona, celebre per la sua intensa azione, la narrazione coinvolgente e le modalità multiplayer adrenaliniche. Ogni nuovo capitolo della serie espande il mondo di guerra, portando i giocatori in ambientazioni diverse, dalle campagne storiche alle battaglie futuristiche. La serie è conosciuta per la sua fluidità nei combattimenti, l'uso innovativo delle armi e la possibilità di giocare in modalità cooperativa o competitiva contro altri giocatori online.",
+            "type": "Sparatutto",
+            "image": "../../references/images/cod.jpg",
+            "price": "€59.99"
+        },
+        {
+            "title": "The Legend of Zelda",
+            "text": "The Legend of Zelda è una delle saghe più celebri di avventura videoludica, caratterizzata da un mondo fantastico ricco di enigmi, dungeon misteriosi e nemici temibili. I giocatori vestono i panni di Link, un giovane eroe incaricato di salvare la principessa Zelda e il regno di Hyrule da forze oscure. Le meccaniche di gioco si concentrano su esplorazione, risoluzione di puzzle e combattimento, offrendo un mix perfetto tra avventura e narrativa. Ogni capitolo della saga arricchisce l'esperienza con nuove terre da esplorare e sfide da affrontare.",
+            "type": "Avventura",
+            "image": "../../references/images/Zelda.jpg",
+            "price": "€49.99"
+        },
+        {
+            "title": "Fortnite",
+            "text": "Fortnite è un gioco battle royale che ha rivoluzionato il genere grazie a un gameplay che combina costruzione, strategia e combattimento. In Fortnite, 100 giocatori si sfidano su un'isola, con l'obiettivo di essere l'ultimo sopravvissuto. Ciò che lo distingue è la possibilità di costruire edifici per difendersi o guadagnare un vantaggio strategico durante le battaglie. Con eventi in-game, skin personalizzabili e modalità di gioco in continua evoluzione, Fortnite è diventato un fenomeno culturale che ha attirato milioni di giocatori.",
+            "type": "Battle Royale",
+            "image": "../../references/images/fortnite.jpg",
+            "price": "Gratis (con acquisti in-game)"
+        },
+        {
+            "title": "Elden Ring",
+            "text": "Elden Ring è un RPG d'azione sviluppato da FromSoftware in collaborazione con lo scrittore George R.R. Martin, ed è noto per la sua difficoltà, la libertà di esplorazione e la profondità della narrativa. Ambientato in un mondo oscuro e affascinante, il gioco sfida i giocatori a sopravvivere in un paesaggio desolato e popolato da creature mostruose. La possibilità di esplorare liberamente, affrontare nemici impegnativi e personalizzare il proprio personaggio rende Elden Ring un'esperienza di gioco unica e soddisfacente per i fan degli action RPG.",
+            "type": "RPG d'azione",
+            "image": "../../references/images/elden_ring.jpg",
+            "price": "€69.99"
+        },
+        {
+            "title": "Super Mario Bros",
+            "text": "Super Mario Bros è il classico platform che ha lanciato Mario nell'olimpo dei videogiochi. In questo gioco, i giocatori controllano Mario, un idraulico che deve salvare la principessa Peach dalle grinfie del malvagio Bowser. Il gioco è caratterizzato da livelli colorati e pieni di ostacoli, nemici e segreti da scoprire. Super Mario Bros ha definito il genere platform con il suo gameplay innovativo, la musica iconica e il design dei livelli che sfidano il giocatore a migliorare sempre più. Un must per ogni appassionato di giochi.",
+            "type": "Platform",
+            "image": "../../references/images/super_mario_bros.jpg",
+            "price": "€39.99"
+        },
+        {
+            "title": "Grand Theft Auto V",
+            "text": "Grand Theft Auto V è un open world che mescola azione, avventura e narrazione. Ambientato nella fittizia città di Los Santos, ispirata a Los Angeles, i giocatori controllano tre protagonisti – Michael, Trevor e Franklin – mentre si impegnano in attività criminali, rapine e missioni di vario tipo. Il gioco offre una libertà senza precedenti: si può esplorare la città, intraprendere missioni, o semplicemente causare caos. La qualità della narrazione, dei personaggi e dell'ambiente di gioco lo rende uno dei giochi più amati della serie GTA.",
+            "type": "Open World",
+            "image": "../../references/images/gta_v.jpg",
+            "price": "€29.99"
+        },
+        {
+            "title": "Red Dead Redemption 2",
+            "text": "Red Dead Redemption 2 è un epico gioco d'azione ambientato nell'America del 1899, dove i giocatori seguono le avventure di Arthur Morgan, un fuorilegge che appartiene a una banda di criminali. Il gioco è caratterizzato da un mondo aperto ricco di dettagli, che varia tra paesaggi mozzafiato e città caotiche. Oltre alla trama avvincente, il gameplay di Red Dead Redemption 2 offre un'ampia varietà di attività, come caccia, pesca e duelli. La cura per i dettagli, la profondità dei personaggi e la qualità della narrazione lo rendono uno dei migliori giochi della sua generazione.",
+            "type": "Azione/Avventura",
+            "image": "../../references/images/red_dead_redemption_2.jpg",
+            "price": "€49.99"
+        },
+        {
+            "title": "FIFA 23",
+            "text": "FIFA 23 è l'ultimo capitolo della leggendaria serie di giochi di calcio. Con una grafica ultra-realistica e una simulazione avanzata del gioco del calcio, FIFA 23 offre un'esperienza di gioco incredibilmente autentica, sia nelle modalità single player che multiplayer. I giocatori possono prendere il controllo delle squadre preferite in tornei internazionali, partite amichevoli o modalità carriera, mentre le modalità online competitive offrono sfide contro giocatori di tutto il mondo. La serie continua a migliorare grazie alle nuove innovazioni e alla costante evoluzione del gameplay.",
+            "type": "Sport",
+            "image": "../../references/images/fifa_23.jpg",
+            "price": "€69.99"
+        }
+    ]
+}
