@@ -6,6 +6,7 @@ require '../references/navbar.php';
 $config = require '../references/connectionToDB/databaseConfig.php';;
 $db = DBconn::getDB($config);
 
+$querySelectItems =
 ob_end_flush();
 ?>
 <style>

@@ -3,3 +3,6 @@ SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'alessandr
 SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'alessandromizzon06@gmail.com' for key 'PRIMARY'---2025-03-26 14:45:05
 SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'alessandromizzon06@gmail.com' for key 'PRIMARY'---2025-03-26 14:45:10
 SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'alessandromizzon06@gmail.com' for key 'PRIMARY'---2025-03-26 14:45:38
+SMTP Error: Could not authenticate.---2025-03-26 15:20:24
+SMTP Error: Could not authenticate.---2025-03-26 15:20:40
+SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione---2025-03-26 18:08:16

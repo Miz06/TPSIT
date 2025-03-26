@@ -7,7 +7,7 @@ $db = DBconn::getDB($config);
 
 $queryNomeUtente = 'SELECT name FROM db_Ecommerce.users WHERE email = :email';
 
-function logError(PDOException $e): void
+function logError(Exception $e): void
 {
     error_log($e->getMessage() . '---' . date('Y-m-d H:i:s' . "\n"), 3, '../references/log/DB_Errors_log');
 }
@@ -224,6 +224,9 @@ if (isset($_SESSION['email'])) {
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
+                            <li class="nav-item m-2">
+                                <a class="nav-link active" aria-current="page" href="./home.php">Home</a>
+                            </li>
                             <li class="nav-item m-2">
                                 <a class="nav-link active" aria-current="page" href="./archivio.php">Archivio</a>
                             </li>
