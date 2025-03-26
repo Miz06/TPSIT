@@ -19,5 +19,3 @@ if (isset($_COOKIE['nav_color'])) {
 }
 
 header('Location: ../pages/archivio.php');
-exit;
-?>

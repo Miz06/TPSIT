@@ -9,4 +9,3 @@ if (isset($_SESSION['nome']) && isset($_SESSION['email']) && isset($_SESSION['na
 } else {
     echo "Valori di sessione mancanti";
 }
-?>
