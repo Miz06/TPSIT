@@ -8,6 +8,7 @@ $db = DBconn::getDB($config);
 
 $queryUpdatePassword = 'UPDATE db_Ecommerce.users SET password = :password WHERE email = :email';
 $querySelectUserData = 'SELECT * FROM db_Ecommerce.users WHERE email = :email';
+$queryCheckLogin = 'SELECT email, password FROM db_Ecommerce.users WHERE email = :email';
 
 if (isset($_SESSION['email'])) {
     try {
@@ -17,16 +18,16 @@ if (isset($_SESSION['email'])) {
 
         $userData = $stm->fetch(PDO::FETCH_ASSOC);
         $stm->closeCursor();
+
+        if (isset($_POST['password_attuale'])) {
+            if (password_verify($_POST['password_attuale'], $userData['password'])) {
+                header('location: ../pages/aggiorna_password.php');
+            } else {
+                $wrongCredentials = "Password errata! Riprovare";
+            }
+        }
     } catch (Exception $e) {
         logError($e);
-    }
-
-    if (isset($_POST['password_attuale'])) {
-        if (password_verify($_POST['password_attuale'], $userData['password'])) {
-            header('location: ../pages/aggiorna_password.php');
-        } else {
-            $wrongCredentials = "Password errata! Riprovare";
-        }
     }
 }
 
@@ -38,16 +39,16 @@ if (isset($_COOKIE['email'])) {
 
         $userData = $stm->fetch(PDO::FETCH_ASSOC);
         $stm->closeCursor();
+
+        if (isset($_POST['password_attuale'])) {
+            if (password_verify($_POST['password_attuale'], $userData['password'])) {
+                header('location: ../pages/aggiorna_password.php');
+            } else {
+                $wrongCredentials = "Password errata! Riprovare";
+            }
+        }
     } catch (Exception $e) {
         logError($e);
-    }
-
-    if (isset($_POST['password_attuale'])) {
-        if (password_verify($_POST['password_attuale'], $userData['password'])) {
-            header('location: ../pages/aggiorna_password.php');
-        } else {
-            $wrongCredentials = "Password errata! Riprovare";
-        }
     }
 }
 
@@ -56,7 +57,33 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
         $_SESSION['nav_color'] = $_POST['nav_color'];
         header("Location: ./account.php"); // Reindirizzamento
     }
+
+    if (isset($_POST['email']) && isset($_POST['password'])) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        try {
+            $stm = $db->prepare($queryCheckLogin);
+            $stm->bindValue(':email', $email);
+            $stm->execute();
+
+            // Recupera i dati dell'utente
+            $user = $stm->fetch(PDO::FETCH_ASSOC);
+            $stm->closeCursor();
+
+            if ($user && $email == $user['email'] && password_verify($password, $user['password'])) {
+                $_SESSION['email'] = $_POST['email'];
+                header('Location: ./archivio.php');
+            } else {
+                $wrongCredentials = 'Credenziali errate! Riprovare';
+            }
+
+        } catch (Exception $e) {
+            logError($e);
+        }
+    }
 }
+
 ob_end_flush();
 ?>
 
@@ -72,9 +99,9 @@ ob_end_flush();
 
         <h4>Desideri cambiare password?</h4>
         <hr>
-        <?php if(isset($_POST['password_attuale']) && $wrongCredentials) {?>
-            <p style="color: red"> <?php echo $wrongCredentials?></p>
-        <?php }?>
+        <?php if (isset($_POST['password_attuale']) && $wrongCredentials) { ?>
+            <p style="color: red"> <?php echo $wrongCredentials ?></p>
+        <?php } ?>
         <p>[È prima necessario inserire la password in uso]</p>
         <form method="post" action="account.php">
             <label for="password_attuale"><strong>Password attuale</strong></label>
@@ -124,10 +151,39 @@ ob_end_flush();
         <a href="../references/logout.php" class="btn-primary log-out">Logout</a>
     </div>
 <?php } else { ?>
+    <div class="element">
+        <p><strong>Nome: </strong>Ospite</p>
+        <p>[NB: Dall'ccount ospite è possibile la sola visualizazione dei prodotti ma non il loro salvataggio nel
+            carrello ed eventuale acquisto.]</p>
+    </div>
+
+    <form method="post" action="account.php">
         <div class="element">
-    <p><strong>Nome: </strong>Ospite</p>
-    <p>[NB: Dall'ccount ospite è possibile la sola visualizazione dei prodotti ma non il loro salvataggio nel carrello ed eventuale acquisto.]</p>
+            <h4>Accedi</h4>
+            <hr>
+
+            <?php if (isset($_POST['email']) && isset($_POST['password']) && $wrongCredentials) { ?>
+                <p style="color: red"> <?php echo $wrongCredentials ?></p>
+            <?php } ?>
+
+            <label for="email"><strong>Email</strong></label>
+            <input type="email" name="email" id="email" required>
+
+            <br><br>
+            <label for="password"><strong>Password</strong></label>
+            <input type="password" name="password" id="password" required>
+
+            <div class="submit-container">
+                <input type="submit" value="Accedi">
+            </div>
         </div>
+
+        <div class="element">
+            <h4>Non hai un account?</h4>
+            <hr>
+            <a href="./SignIn.php" class="btn btn-primary">Registrati</a>
+        </div>
+    </form>
 <?php } ?>
 
 <?php require '../references/footer.php'; ?>

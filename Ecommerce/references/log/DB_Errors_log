@@ -1,0 +1,5 @@
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'a@gmail.com' for key 'PRIMARY'---2025-03-26 14:41:41
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'alessandromizzon06@gmail.com' for key 'PRIMARY'---2025-03-26 14:44:38
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'alessandromizzon06@gmail.com' for key 'PRIMARY'---2025-03-26 14:45:05
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'alessandromizzon06@gmail.com' for key 'PRIMARY'---2025-03-26 14:45:10
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'alessandromizzon06@gmail.com' for key 'PRIMARY'---2025-03-26 14:45:38

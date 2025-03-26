@@ -14,6 +14,11 @@ $users = [
     'c@gmail.com' => ['name' => 'Carlo', 'password' => 'Password3!'],
 ];
 
+function logError(PDOException $e): void
+{
+    error_log($e->getMessage().'---'.date('Y-m-d H:i:s'."\n"), 3,'./log/DB_Errors_log');
+}
+
 foreach ($users as $email => $userData) {
     try {
         $hashedPassword = password_hash($userData['password'], PASSWORD_DEFAULT);

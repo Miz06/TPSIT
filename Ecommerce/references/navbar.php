@@ -1,12 +1,16 @@
 <?php
 session_start();
-require 'functions.php';
 require 'connectionToDB/DBconn.php';
 
 $config = require 'connectionToDB/databaseConfig.php';
 $db = DBconn::getDB($config);
 
 $queryNomeUtente = 'SELECT name FROM db_Ecommerce.users WHERE email = :email';
+
+function logError(PDOException $e): void
+{
+    error_log($e->getMessage() . '---' . date('Y-m-d H:i:s' . "\n"), 3, '../references/log/DB_Errors_log');
+}
 
 if (isset($_SESSION['email'])) {
     try {
@@ -24,7 +28,8 @@ if (isset($_SESSION['email'])) {
     $nomeUtente = $_COOKIE['nome'];
     $_SESSION['nome'] = $_COOKIE['nome'];
     $_SESSION['email'] = $_COOKIE['email'];
-    $_SESSION['nav_color'] = $_COOKIE['nav_color'];
+    if(isset($_SESSION['nav_color']))
+        $_SESSION['nav_color'] = $_COOKIE['nav_color'];
 } else {
     $nomeUtente = "Ospite";
 }
@@ -222,11 +227,6 @@ if (isset($_SESSION['email'])) {
                             <li class="nav-item m-2">
                                 <a class="nav-link active" aria-current="page" href="./archivio.php">Archivio</a>
                             </li>
-                            <?php if (!isset($_SESSION['email']) && !isset($_COOKIE['email'])) { ?>
-                                <li class="nav-item m-2">
-                                    <a class="nav-link active" aria-current="page" href="./login.php">Login</a>
-                                </li>
-                            <?php } ?>
                             <?php if (isset($_SESSION['email']) || isset($_COOKIE['email'])) { ?>
                                 <li class="nav-item m-2">
                                     <a class="nav-link active" aria-current="page" href="./carrello.php">Carrello</a>
