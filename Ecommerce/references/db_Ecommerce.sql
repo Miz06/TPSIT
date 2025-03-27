@@ -29,3 +29,15 @@ create table db_Ecommerce.buy(
                                  foreign key (customer_email) references db_Ecommerce.users(email),
                                  foreign key (game_title) references db_Ecommerce.games(title)
 );
+
+create table db_Ecommerce.editions(
+                                      year int primary key
+);
+
+create table db_Ecommerce.having(
+                                    year int,
+                                    title varchar(30),
+                                    foreign key (year) references db_Ecommerce.editions(year),
+                                    foreign key(title) references db_Ecommerce.games(title),
+                                    primary key(YEAR, title)
+);

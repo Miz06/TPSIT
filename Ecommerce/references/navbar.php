@@ -5,7 +5,7 @@ require 'connectionToDB/DBconn.php';
 $config = require 'connectionToDB/databaseConfig.php';
 $db = DBconn::getDB($config);
 
-$queryNomeUtente = 'SELECT name FROM db_Ecommerce.users WHERE email = :email';
+$queryNomeUtente = 'SELECT name FROM db_GameShop.users WHERE email = :email';
 
 function logError(Exception $e): void
 {
@@ -28,7 +28,7 @@ if (isset($_SESSION['email'])) {
     $nomeUtente = $_COOKIE['nome'];
     $_SESSION['nome'] = $_COOKIE['nome'];
     $_SESSION['email'] = $_COOKIE['email'];
-    if(isset($_SESSION['nav_color']))
+    if(isset($_COOKIE['nav_color']))
         $_SESSION['nav_color'] = $_COOKIE['nav_color'];
 } else {
     $nomeUtente = "Ospite";

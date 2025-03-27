@@ -5,7 +5,7 @@ require './connectionToDB/DBconn.php';
 $config = require './connectionToDB/databaseConfig.php';
 $db = DBconn::getDB($config);
 
-$queryInsertPersonale = 'INSERT INTO db_Ecommerce.users (email, name, password) VALUES (:email, :name, :password)';
+$queryInsertPersonale = 'INSERT INTO db_GameShop.users (email, name, password) VALUES (:email, :name, :password)';
 
 $users = [
     // Sede Milano

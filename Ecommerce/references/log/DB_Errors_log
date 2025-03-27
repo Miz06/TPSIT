@@ -6,3 +6,14 @@ SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'alessandr
 SMTP Error: Could not authenticate.---2025-03-26 15:20:24
 SMTP Error: Could not authenticate.---2025-03-26 15:20:40
 SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione---2025-03-26 18:08:16
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_ecommerce.users' doesn't exist---2025-03-27 09:06:35
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_ecommerce.users' doesn't exist---2025-03-27 09:06:59
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_ecommerce.users' doesn't exist---2025-03-27 09:07:40
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_ecommerce.users' doesn't exist---2025-03-27 09:07:47
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_gameshop.users' doesn't exist---2025-03-27 09:09:28
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_gameshop.users' doesn't exist---2025-03-27 09:09:37
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_gameshop.users' doesn't exist---2025-03-27 09:09:46
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_gameshop.users' doesn't exist---2025-03-27 09:15:30
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_ecommerce.users' doesn't exist---2025-03-27 09:17:54
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_ecommerce.users' doesn't exist---2025-03-27 09:17:56
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'alessandromizzon06@gmail.com' for key 'PRIMARY'---2025-03-27 09:19:35

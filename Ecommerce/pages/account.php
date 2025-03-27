@@ -6,9 +6,11 @@ require '../references/navbar.php';
 $config = require '../references/connectionToDB/databaseConfig.php';
 $db = DBconn::getDB($config);
 
-$queryUpdatePassword = 'UPDATE db_Ecommerce.users SET password = :password WHERE email = :email';
-$querySelectUserData = 'SELECT * FROM db_Ecommerce.users WHERE email = :email';
-$queryCheckLogin = 'SELECT email, password FROM db_Ecommerce.users WHERE email = :email';
+$queryUpdatePassword = 'UPDATE db_GameShop.users SET password = :password WHERE email = :email';
+$querySelectUserData = 'SELECT * FROM db_GameShop.users WHERE email = :email';
+$queryCheckLogin = 'SELECT email, password FROM db_GameShop.users WHERE email = :email';
+
+$wrongCredentials = "";
 
 if (isset($_SESSION['email'])) {
     try {

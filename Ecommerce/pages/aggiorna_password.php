@@ -6,7 +6,7 @@ require '../references/navbar.php';
 $config = require '../references/connectionToDB/databaseConfig.php';; //utilizzo una sessione per evitare di fare nuovamente il require rispetto a $config (vedi navbar)
 $db = DBconn::getDB($config);
 
-$queryUpdatePassword = 'UPDATE db_Ecommerce.users SET password = :password WHERE email = :email';
+$queryUpdatePassword = 'UPDATE db_GameShop.users SET password = :password WHERE email = :email';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['email'])) {
     if ($_POST['nuova_password'] == $_POST['conferma_nuova_password']) {

@@ -6,8 +6,8 @@ require '../references/navbar.php';
 $config = require '../references/connectionToDB/databaseConfig.php';
 $db = DBconn::getDB($config);
 
-$queryInsertUser = 'INSERT INTO db_Ecommerce.users (email, name , password) VALUES (:email, :name, :password)';
-$queryCheckLogin = 'SELECT email FROM db_Ecommerce.users WHERE email = :email';
+$queryInsertUser = 'INSERT INTO db_GameShop.users (email, name , password) VALUES (:email, :name, :password)';
+$queryCheckLogin = 'SELECT email FROM db_GameShop.users WHERE email = :email';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email']) && isset($_POST['name']) && isset($_POST['password'])) {
     $email = $_POST['email'];
