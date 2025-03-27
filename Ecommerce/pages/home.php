@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
         $mail->Host = 'smtp.gmail.com'; // Mail SMTP server
         $mail->SMTPAuth = true; // Autorizzazione
         $mail->Username = 'alessandro.mizzon@iisviolamarchesini.edu.it';
-        $mail->Password = 'tonx fxgh pguo erde';
+        $mail->Password = '...';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Sicurezza
         $mail->Port = 587;
         $mail->setFrom('alessandro.mizzon@iisviolamarchesini.edu.it');
