@@ -1,6 +1,6 @@
 async function loadData() {
   try {
-    const response = await fetch('./archivio.json');
+    const response = await fetch('../pages/archivio/archivio.json');
     const data = await response.json();
 
     // Carica le card

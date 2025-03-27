@@ -4,63 +4,63 @@
             "title": "Call of Duty",
             "text": "Call of Duty è uno dei più iconici sparatutto...",
             "type": "Sparatutto",
-            "image": "../../references/images/cod.jpg",
+            "image": "../references/images/cod.jpg",
             "price": "€59.99"
         },
         {
             "title": "Elden Ring",
             "text": "Elden Ring è un RPG d'azione sviluppato da FromSoftware...",
             "type": "RPG d'azione",
-            "image": "../../references/images/elden_ring.jpg",
+            "image": "../references/images/elden_ring.jpg",
             "price": "€69.99"
         },
         {
             "title": "FIFA 23",
             "text": "FIFA 23 è l'ultimo capitolo della leggendaria serie di simulazione calcistica...",
             "type": "Sport",
-            "image": "../../references/images/fifa_23.jpg",
+            "image": "../references/images/fifa_23.jpg",
             "price": "€69.99"
         },
         {
             "title": "Fortnite",
             "text": "Fortnite è un gioco battle royale molto popolare...",
             "type": "Battle Royale",
-            "image": "../../references/images/fortnite.jpg",
+            "image": "../references/images/fortnite.jpg",
             "price": "Gratis (con acquisti in-game)"
         },
         {
             "title": "Grand Theft Auto V",
             "text": "Grand Theft Auto V è un open world con una storia coinvolgente...",
             "type": "Open World",
-            "image": "../../references/images/gta_v.jpg",
+            "image": "../references/images/gta_v.jpg",
             "price": "€29.99"
         },
         {
             "title": "Minecraft",
             "text": "Minecraft è un gioco sandbox...",
             "type": "Sandbox",
-            "image": "../../references/images/minecraft.jpg",
+            "image": "../references/images/minecraft.jpg",
             "price": "€24.99"
         },
         {
             "title": "Red Dead Redemption 2",
             "text": "Red Dead Redemption 2 è un epico gioco d'azione ambientato nel Far West...",
             "type": "Azione/Avventura",
-            "image": "../../references/images/red_dead_redemption_2.jpg",
+            "image": "../references/images/red_dead_redemption_2.jpg",
             "price": "€49.99"
         },
         {
             "title": "Super Mario Bros",
             "text": "Super Mario Bros è il classico platform di Nintendo...",
             "type": "Platform",
-            "image": "../../references/images/super_mario_bros.jpg",
+            "image": "../references/images/super_mario_bros.jpg",
             "price": "€39.99"
         },
         {
             "title": "The Legend of Zelda",
             "text": "The Legend of Zelda è una delle saghe più celebri dei videogiochi...",
             "type": "Avventura",
-            "image": "../../references/images/Zelda.jpg",
+            "image": "../references/images/Zelda.jpg",
             "price": "€49.99"
         }
     ]

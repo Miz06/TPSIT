@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root"; // Cambia se necessario
 $password = ""; // Cambia se necessario
-$dbname = "GameShop";
+$dbname = "db_GameShop";
 
 // Connessione al database
 $conn = new mysqli($servername, $username, $password, $dbname);

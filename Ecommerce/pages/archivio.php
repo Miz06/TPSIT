@@ -40,7 +40,7 @@ ob_end_flush();
 </div>
 
 <?php require '../references/footer.php' ?>
-<script src="archivio/archivio.js"></script>
+<script src="./archivio/archivio.js"></script>
 
 </body>
 </html>
