@@ -1,7 +1,6 @@
 <?php
-
-require 'functions.php';
 require './connectionToDB/DBconn.php';
+
 $config = require './connectionToDB/databaseConfig.php';
 $db = DBconn::getDB($config);
 
