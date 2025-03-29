@@ -14,8 +14,8 @@ function renderCart() {
     if (cartItems.length === 0) {
         cartItemsContainer.innerHTML = '<p>Il carrello è vuoto.</p>';
     } else {
-        let total = 0;  // Variabile per sommare il totale senza sconto
-        let itemCount = 0; // Conta i prodotti nel carrello
+        let total = 0;
+        let itemCount = 0;
 
         cartItems.forEach((item, index) => {
             const price = parsePrice(item.price);
@@ -26,20 +26,21 @@ function renderCart() {
                         <img src="${item.image}" class="card-img-top" alt="${item.title}">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">${item.title}</h5>
+                            <p class="card-text">Edizione: ${item.edition || 'Standard'}</p>
                             <p class="card-text">${price.toFixed(2)} €</p>
                             <div class="d-flex align-items-center">
                                 <span class="fw-bold me-2">Quantità:</span>
                                 <span class="badge bg-secondary px-3 py-2">${item.quantity}</span>
                             </div>
-                            <button class="btn-r btn-danger remove-item mt-3" data-index="${index}">Rimuovi</button>
+                            <button class="btn btn-danger remove-item mt-3" data-index="${index}">Rimuovi</button>
                         </div>
                     </div>
                 </div>
             `;
             cartItemsContainer.innerHTML += itemCard;
 
-            total += price * item.quantity;  // Somma il totale
-            itemCount += item.quantity; // Conta gli articoli nel carrello
+            total += price * item.quantity;
+            itemCount += item.quantity;
         });
 
         let discount = 0;
@@ -51,21 +52,19 @@ function renderCart() {
         const totalContainer = `
             <div class="col-12 mt-5 text-end">
                 ${itemCount >= 3 ?
-                `<br><hr><h4 class="text-decoration-line-through text-dark">Totale: €${(total + discount).toFixed(2)}</h4>` :
-                `<br><hr><h4>Totale: €${total.toFixed(2)}</h4>`}
+            `<br><hr><h4 class="text-decoration-line-through text-dark">Totale: €${(total + discount).toFixed(2)}</h4>` :
+            `<br><hr><h4>Totale: €${total.toFixed(2)}</h4>`}
                 ${itemCount >= 3 ? `<h5>Totale (15% di sconto su acquisti di 3 o più prodotti): €${total.toFixed(2)}</h5>` : ''}
             </div>
         `;
         cartItemsContainer.innerHTML += totalContainer;
 
-        // Gestore di eventi per i pulsanti di rimozione
-        const removeButtons = document.querySelectorAll('.remove-item');
-        removeButtons.forEach(button => {
+        document.querySelectorAll('.remove-item').forEach(button => {
             button.addEventListener('click', (event) => {
                 const index = event.target.getAttribute('data-index');
                 cartItems.splice(index, 1);
                 localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                renderCart();  // Rende il carrello senza ricaricare la pagina
+                renderCart();
             });
         });
     }
@@ -74,18 +73,17 @@ function renderCart() {
 // Funzione per aggiungere un prodotto al carrello
 function addToCart(newItem) {
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    const existingItemIndex = cartItems.findIndex(item => item.title === newItem.title);
+    const existingItemIndex = cartItems.findIndex(item => item.title === newItem.title && item.edition === newItem.edition);
     if (existingItemIndex > -1) {
         cartItems[existingItemIndex].quantity += newItem.quantity;
     } else {
         cartItems.push(newItem);
     }
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    renderCart();  // Rende il carrello dopo aver aggiunto un nuovo prodotto
+    renderCart();
 }
 
 // Event listener per il caricamento della pagina
 document.addEventListener('DOMContentLoaded', () => {
     renderCart();
 });
-

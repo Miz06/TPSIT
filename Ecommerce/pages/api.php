@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root"; // Cambia se necessario
 $password = ""; // Cambia se necessario
-$dbname = "db_GameShop";
+$dbname = "DB_GameShop";
 
 // Connessione al database
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -12,8 +12,14 @@ if ($conn->connect_error) {
     die("Connessione fallita: " . $conn->connect_error);
 }
 
-// Query per selezionare i dati dalla tabella games
-$sql = "SELECT title, type, text, image, price FROM games";
+// Query per selezionare i dati dalla tabella games con le edizioni
+$sql = "SELECT g.title, g.type, g.text, g.image, g.price, 
+               GROUP_CONCAT(h.edition_year ORDER BY h.edition_year ASC) AS editions
+        FROM games g 
+        LEFT JOIN `having` h ON g.title = h.title
+        GROUP BY g.title";
+
+
 $result = $conn->query($sql);
 
 $games = [];
@@ -25,7 +31,8 @@ if ($result->num_rows > 0) {
             "text" => $row["text"],
             "type" => $row["type"],
             "image" => $row["image"],
-            "price" => ($row["price"] > 0) ? "€" . number_format($row["price"], 2) : "Gratis (con acquisti in-game)"
+            "price" => ($row["price"] > 0) ? "€" . number_format($row["price"], 2) : "Gratis (con acquisti in-game)",
+            "editions" => explode(",", $row["editions"]) // Converti in array
         ];
     }
 }

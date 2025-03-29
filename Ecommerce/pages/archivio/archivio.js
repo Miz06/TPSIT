@@ -19,6 +19,9 @@ function loadCards(games) {
     col.className = 'col-md-4';
     col.style.padding = '2%; margin: 0;';
 
+    // Creazione lista edizioni
+    const editionsList = game.editions.map(edition => `<li>${edition}</li>`).join('');
+
     col.innerHTML = `
       <div class="card" style="text-decoration: none; color: inherit;" data-index="${index}">
           <img src="${game.image}" class="card-img-top" alt="${game.title}">
@@ -26,6 +29,7 @@ function loadCards(games) {
               <h5 class="card-title">${game.title}</h5>
               <p class="card-text">${game.type}</p>
               <p class="card-text"><strong>${game.price}</strong></p>
+              <ul class="card-text">${editionsList}</ul>
           </div>
       </div>
     `;

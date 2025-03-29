@@ -17,3 +17,9 @@ SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_gameshop.users' do
 SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_ecommerce.users' doesn't exist---2025-03-27 09:17:54
 SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_ecommerce.users' doesn't exist---2025-03-27 09:17:56
 SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'alessandromizzon06@gmail.com' for key 'PRIMARY'---2025-03-27 09:19:35
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'a@gmail.com' for key 'PRIMARY'---2025-03-29 10:44:21
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'b@gmail.com' for key 'PRIMARY'---2025-03-29 10:44:21
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'c@gmail.com' for key 'PRIMARY'---2025-03-29 10:44:21
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'a@gmail.com' for key 'PRIMARY'---2025-03-29 16:04:38
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'b@gmail.com' for key 'PRIMARY'---2025-03-29 16:04:39
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'c@gmail.com' for key 'PRIMARY'---2025-03-29 16:04:39
