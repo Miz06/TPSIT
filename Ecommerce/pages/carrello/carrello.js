@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     loadCart();
 });
@@ -32,22 +33,24 @@ function renderCart(cartItems) {
     cartItems.forEach(item => {
         const price = parseFloat(item.price);
         const itemCard = `
-            <div class="col-md-4">
-                <div class="card mb-4 h-100">
-                    <img src="${item.image}" class="card-img-top" alt="${item.title}">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">${item.title}</h5>
-                        <p class="card-text">Edizione: ${item.edition_year}</p>
-                        <p class="card-text">${price.toFixed(2)} €</p>
-                        <div class="d-flex align-items-center">
-                            <span class="fw-bold me-2">Quantità:</span>
-                            <span class="badge bg-secondary px-3 py-2">${item.quantity}</span>
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="${item.image}" class="card-img-top" alt="${item.title}">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">${item.title}</h5>
+                                <p class="card-text">Edizione: ${item.edition_year}</p>
+                                <p class="card-text">${price.toFixed(2)} €</p>
+                                <div class="d-flex align-items-center">
+                                    <span class="fw-bold me-2">Quantità:</span>
+                                    <span class="badge bg-secondary px-3 py-2">${item.quantity}</span>
+                                </div>
+                            </div>
+                            <button class="btn-r btn-danger remove-item mt-3" data-title="${item.title}" data-edition="${item.edition_year}">Rimuovi</button>
+                            <button class="btn btn-success buy-item mt-3" data-title="${item.title}" data-edition="${item.edition_year}" data-quantity="${item.quantity}">Acquista</button>
                         </div>
-                        <button class="btn btn-danger remove-item mt-3" data-title="${item.title}" data-edition="${item.edition_year}">Rimuovi</button>
                     </div>
-                </div>
-            </div>
-        `;
+                `;
+
         cartItemsContainer.innerHTML += itemCard;
         total += price * item.quantity;
         itemCount += item.quantity;
@@ -59,18 +62,30 @@ function renderCart(cartItems) {
     }
 
     cartItemsContainer.innerHTML += `
-        <div class="col-12 mt-5 text-end">
-            <hr>
-            <h4>Totale: €${total.toFixed(2)}</h4>
-        </div>
-    `;
+                <div class="col-12 mt-5 text-end">
+                    <hr>
+                    <h4>Totale: €${total.toFixed(2)}</h4>
+                </div>
+            `;
 
-    // Attacca il listener per la rimozione dell'item
+    // Listener per rimozione degli item
     document.querySelectorAll('.remove-item').forEach(button => {
         button.addEventListener('click', event => {
+            event.stopPropagation(); // Impedisce la navigazione accidentale al clic
             const title = event.target.getAttribute('data-title');
             const edition = event.target.getAttribute('data-edition');
             removeFromCart(title, edition);
+        });
+    });
+
+    // Listener per il bottone "Acquista"
+    document.querySelectorAll('.buy-item').forEach(button => {
+        button.addEventListener('click', event => {
+            event.stopPropagation();
+            const title = event.target.getAttribute('data-title');
+            const edition = event.target.getAttribute('data-edition');
+            const quantity = event.target.getAttribute('data-quantity');
+            buyItem(title, edition, quantity);
         });
     });
 }
@@ -96,4 +111,39 @@ function removeFromCart(title, edition) {
             }
         })
         .catch(error => console.error('Errore:', error));
+}
+
+function buyItem(title, edition, quantity) {
+    fetch('./carrello/buyItem.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        body: JSON.stringify({ title, edition, quantity })
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Errore nell'acquisto: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                console.log('Acquisto completato con successo.');
+                loadCart();
+                showGreenAlert(); // Mostra l'alert verde
+            } else {
+                console.error('Errore nell\'acquisto:', data.error);
+            }
+        })
+        .catch(error => console.error('Errore:', error));
+}
+
+function showGreenAlert() {
+    const greenAlert = document.getElementById('green-alert');
+    greenAlert.style.display = 'block'; // Mostra l'alert
+
+    // Nascondi l'alert dopo 3 secondi
+    setTimeout(() => {
+        greenAlert.style.display = 'none';
+    }, 3000);
 }

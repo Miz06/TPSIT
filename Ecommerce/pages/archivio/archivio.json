@@ -12,6 +12,16 @@
             ]
         },
         {
+            "title": "EA Sports FC 24",
+            "text": "EA Sports FC 24 è il nuovo capitolo della famosa serie di simulazione calcistica...",
+            "type": "Sport",
+            "image": "../references/images/fc_24.jpg",
+            "price": "€69.99",
+            "editions": [
+                "2024"
+            ]
+        },
+        {
             "title": "Elden Ring",
             "text": "Elden Ring è un RPG d'azione sviluppato da FromSoftware...",
             "type": "RPG d'azione",
@@ -20,16 +30,6 @@
             "editions": [
                 "2021",
                 "2022"
-            ]
-        },
-        {
-            "title": "FIFA 23",
-            "text": "FIFA 23 è l'ultimo capitolo della leggendaria serie di simulazione calcistica...",
-            "type": "Sport",
-            "image": "../references/images/fifa_23.jpg",
-            "price": "€69.99",
-            "editions": [
-                "2023"
             ]
         },
         {

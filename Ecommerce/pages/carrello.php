@@ -33,6 +33,9 @@ $db = DBconn::getDB($config);
 </head>
 <body>
 <div class="container mt-4 mb-4">
+    <div id="green-alert" class="alert" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
+        Operazione avvenuta con successo!
+    </div>
     <div id="cart-items" class="row">
         <!-- Qui verrà inserito il contenuto del carrello -->
     </div>
@@ -40,7 +43,6 @@ $db = DBconn::getDB($config);
 
 <?php require '../references/footer.php'; ?>
 
-<!-- Se necessario, passa al JS alcuni dati di sessione (ma solo se non sono sensibili) -->
 <script>
     const sessionEmail = "<?php echo $_SESSION['email'] ?? ''; ?>";
 </script>

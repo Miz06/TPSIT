@@ -1,0 +1,518 @@
+2025-03-31 15:30:14 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:30:14 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:30:14 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:30:14 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:30:14 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:30:15 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:30:39 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:30:39 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:30:40 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:30:40 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:30:40 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:30:52 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:35:24 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:38:36 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:38:36 - Email utente: a@gmail.com
+2025-03-31 15:41:28 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:41:28 - Email utente: a@gmail.com
+2025-03-31 15:41:29 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:41:29 - Email utente: a@gmail.com
+2025-03-31 15:41:29 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:41:29 - Email utente: a@gmail.com
+2025-03-31 15:41:29 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-03-31 15:41:29 - Email utente: a@gmail.com
+2025-03-31 15:47:44 - Dati ricevuti: Array
+(
+    [title] => Call of Duty
+    [edition] => 2003
+    [quantity] => 1
+)
+
+2025-03-31 15:47:44 - Email utente: a@gmail.com
+2025-03-31 15:47:44 - Dati da inserire: Title: Call of Duty, Edition: 2003, Quantity: 1
+2025-03-31 15:50:45 - Dati ricevuti: Array
+(
+    [title] => Call of Duty
+    [edition] => 2003
+    [quantity] => 1
+)
+
+2025-03-31 15:50:45 - Email utente: a@gmail.com
+2025-03-31 15:50:45 - Dati da inserire: Title: Call of Duty, Edition: 2003, Quantity: 1
+2025-03-31 15:50:46 - Dati ricevuti: Array
+(
+    [title] => Call of Duty
+    [edition] => 2003
+    [quantity] => 1
+)
+
+2025-03-31 15:50:46 - Email utente: a@gmail.com
+2025-03-31 15:50:46 - Dati da inserire: Title: Call of Duty, Edition: 2003, Quantity: 1
+2025-03-31 15:50:49 - Dati ricevuti: Array
+(
+    [title] => Call of Duty
+    [edition] => 2003
+    [quantity] => 1
+)
+
+2025-03-31 15:50:49 - Email utente: a@gmail.com
+2025-03-31 15:50:49 - Dati da inserire: Title: Call of Duty, Edition: 2003, Quantity: 1
+2025-03-31 15:50:49 - Dati ricevuti: Array
+(
+    [title] => Call of Duty
+    [edition] => 2003
+    [quantity] => 1
+)
+
+2025-03-31 15:50:49 - Email utente: a@gmail.com
+2025-03-31 15:50:49 - Dati da inserire: Title: Call of Duty, Edition: 2003, Quantity: 1
+2025-03-31 15:50:49 - Dati ricevuti: Array
+(
+    [title] => Call of Duty
+    [edition] => 2003
+    [quantity] => 1
+)
+
+2025-03-31 15:50:49 - Email utente: a@gmail.com
+2025-03-31 15:50:49 - Dati da inserire: Title: Call of Duty, Edition: 2003, Quantity: 1
+2025-03-31 15:51:15 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 15:51:15 - Email utente: a@gmail.com
+2025-03-31 15:51:15 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 15:55:57 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 15:55:57 - Email utente: a@gmail.com
+2025-03-31 15:55:57 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 15:56:02 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 15:56:02 - Email utente: a@gmail.com
+2025-03-31 15:56:02 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 15:57:14 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 15:57:14 - Email utente: a@gmail.com
+2025-03-31 15:57:14 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 15:57:24 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 15:57:24 - Email utente: a@gmail.com
+2025-03-31 15:57:24 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 15:57:34 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 15:57:34 - Email utente: a@gmail.com
+2025-03-31 15:57:34 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 15:57:47 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 15:57:47 - Email utente: a@gmail.com
+2025-03-31 15:57:47 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 15:58:13 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 15:58:13 - Email utente: a@gmail.com
+2025-03-31 15:58:13 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 15:58:20 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 15:58:20 - Email utente: a@gmail.com
+2025-03-31 15:58:20 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 15:58:35 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 15:58:35 - Email utente: a@gmail.com
+2025-03-31 15:58:35 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 15:58:43 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 15:58:43 - Email utente: a@gmail.com
+2025-03-31 15:58:43 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 15:59:02 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 15:59:02 - Email utente: a@gmail.com
+2025-03-31 15:59:02 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:00:44 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:00:44 - Email utente: a@gmail.com
+2025-03-31 16:00:44 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:00:45 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:00:45 - Email utente: a@gmail.com
+2025-03-31 16:00:45 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:00:46 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:00:46 - Email utente: a@gmail.com
+2025-03-31 16:00:46 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:00:48 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:00:48 - Email utente: a@gmail.com
+2025-03-31 16:00:48 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:00:48 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:00:48 - Email utente: a@gmail.com
+2025-03-31 16:00:48 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:00:49 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:00:49 - Email utente: a@gmail.com
+2025-03-31 16:00:49 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:01:37 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:01:37 - Email utente: a@gmail.com
+2025-03-31 16:01:37 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:01:44 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:01:44 - Email utente: a@gmail.com
+2025-03-31 16:01:44 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:01:45 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:01:45 - Email utente: a@gmail.com
+2025-03-31 16:01:45 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:01:52 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:01:52 - Email utente: a@gmail.com
+2025-03-31 16:01:52 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:01:55 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:01:55 - Email utente: a@gmail.com
+2025-03-31 16:01:55 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:01:55 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:01:55 - Email utente: a@gmail.com
+2025-03-31 16:01:55 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:01:55 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:01:55 - Email utente: a@gmail.com
+2025-03-31 16:01:55 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:01:56 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:01:56 - Email utente: a@gmail.com
+2025-03-31 16:01:56 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:01:58 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:01:58 - Email utente: a@gmail.com
+2025-03-31 16:01:58 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:02:04 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:02:04 - Email utente: a@gmail.com
+2025-03-31 16:02:04 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:02:10 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:02:10 - Email utente: a@gmail.com
+2025-03-31 16:02:10 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:02:23 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:02:23 - Email utente: a@gmail.com
+2025-03-31 16:02:23 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:02:37 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:02:37 - Email utente: a@gmail.com
+2025-03-31 16:02:37 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:02:42 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:02:42 - Email utente: a@gmail.com
+2025-03-31 16:02:42 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:02:47 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:02:47 - Email utente: a@gmail.com
+2025-03-31 16:02:47 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:02:48 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:02:48 - Email utente: a@gmail.com
+2025-03-31 16:02:48 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:02:48 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:02:48 - Email utente: a@gmail.com
+2025-03-31 16:02:48 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:02:49 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:02:49 - Email utente: a@gmail.com
+2025-03-31 16:02:49 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-03-31 16:02:53 - Dati ricevuti: Array
+(
+    [title] => Fortnite
+    [edition] => 2017
+    [quantity] => 1
+)
+
+2025-03-31 16:02:53 - Email utente: a@gmail.com
+2025-03-31 16:02:53 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1

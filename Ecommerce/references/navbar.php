@@ -97,17 +97,18 @@ if (isset($_SESSION['email'])) {
         .btn, .btn-r {
             display: inline-block;
             padding: 10px 15px;
-            color: white;
             text-decoration: none;
             border-radius: 5px;
         }
 
         .btn {
             background-color: #007bff;
+            color: white;
         }
 
         .btn-r {
-            background-color: red;
+            background-color: lightgrey;
+            color: black;
         }
 
         .btn:hover {
@@ -115,7 +116,7 @@ if (isset($_SESSION['email'])) {
         }
 
         .btn-r:hover {
-            background-color: darkred;
+            background-color: grey;
         }
 
         hr {
@@ -203,6 +204,18 @@ if (isset($_SESSION['email'])) {
             margin-left: 1%;
             vertical-align: middle; /* Assicura l'allineamento */
             display: inline-block;
+        }
+
+        #green-alert {
+            background-color: seagreen; /* Verde */
+            color: white; /* Testo bianco */
+            border: 2px solid black;
+            padding: 2%; /* Maggiore padding */
+            border-radius: 10px; /* Angoli arrotondati */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Ombra più pronunciata */
+            font-size: 24px; /* Testo più grande */
+            text-align: center; /* Testo centrato */
+            transition: opacity 1s ease; /* Transizione per l'opacità */
         }
     </style>
 </head>
