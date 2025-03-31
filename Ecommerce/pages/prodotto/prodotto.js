@@ -59,16 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // Salva il carrello aggiornato nel localStorage
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-        // **Nuova richiesta AJAX per salvare nel database**
         fetch('./prodotto.php', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams({
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
                 title: cardData.title,
                 edition_year: selectedEdition,
-                quantity: quantity // Aggiungi la quantità selezionata
+                quantity: quantity // Aggiunge la quantità selezionata
             })
         })
+
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
