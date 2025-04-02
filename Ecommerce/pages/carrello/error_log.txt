@@ -550,3 +550,12 @@
 
 2025-04-02 20:33:05 - Email utente: a@gmail.com
 2025-04-02 20:33:05 - Dati da inserire: Title: Call of Duty, Edition: 2003, Quantity: 1
+2025-04-02 20:36:55 - Dati ricevuti: Array
+(
+    [title] => Elden Ring
+    [edition] => 2021
+    [quantity] => 1
+)
+
+2025-04-02 20:36:55 - Email utente: a@gmail.com
+2025-04-02 20:36:55 - Dati da inserire: Title: Elden Ring, Edition: 2021, Quantity: 1

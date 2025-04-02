@@ -15,9 +15,10 @@ $db = DBconn::getDB($config);
         .card {
             padding: 2%;
             margin: 8%;
-            transition: transform 0.6s ease, box-shadow 0.6s ease;
+            transition: transform 0.6s ease, box-shadow 0.6s ease, border 0.6s ease;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             width: 100%;
+            border: 2px solid transparent;
         }
         .card img {
             width: 100%;
@@ -29,6 +30,12 @@ $db = DBconn::getDB($config);
             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
             cursor: pointer;
         }
+        /* Evidenziazione delle card selezionate: bordo sfumato */
+        .card.selected {
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #1abc9c, #3498db) 1;
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.6);
+        }
     </style>
 </head>
 <body>
@@ -37,7 +44,7 @@ $db = DBconn::getDB($config);
         Operazione avvenuta con successo!
     </div>
     <div id="cart-items" class="row">
-        <!-- Qui verrà inserito il contenuto del carrello -->
+        <!-- Contenuto del carrello caricato via JS -->
     </div>
 </div>
 
@@ -46,7 +53,7 @@ $db = DBconn::getDB($config);
 <script>
     const sessionEmail = "<?php echo $_SESSION['email'] ?? ''; ?>";
 </script>
-<!-- Carica il file JS -->
+<!-- Carica il file JS aggiornato -->
 <script src="./carrello/carrello.js"></script>
 </body>
 </html>
