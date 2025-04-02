@@ -33,7 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email']) && isset($_PO
                 $stm->bindValue(':password', $password);
 
                 $stm->execute();
+                $stm->closeCursor();
                 $_SESSION['email'] = $_POST['email'];
+                $_SESSION['nome'] = $_POST['name'];
                 header('Location: ./archivio.php');
             }catch (Exception $e){
                 logError($e);

@@ -21,27 +21,7 @@ if (isset($_SESSION['email'])) {
         $userData = $stm->fetch(PDO::FETCH_ASSOC);
         $stm->closeCursor();
 
-        if (isset($_POST['password_attuale'])) {
-            if (password_verify($_POST['password_attuale'], $userData['password'])) {
-                header('location: ../pages/aggiorna_password.php');
-            } else {
-                $wrongCredentials = "Password errata! Riprovare";
-            }
-        }
-    } catch (Exception $e) {
-        logError($e);
-    }
-}
-
-if (isset($_COOKIE['email'])) {
-    try {
-        $stm = $db->prepare($querySelectUserData);
-        $stm->bindValue(':email', $_COOKIE['email']);
-        $stm->execute();
-
-        $userData = $stm->fetch(PDO::FETCH_ASSOC);
-        $stm->closeCursor();
-
+        $_SESSION['nome'] = $userData['name'];
         if (isset($_POST['password_attuale'])) {
             if (password_verify($_POST['password_attuale'], $userData['password'])) {
                 header('location: ../pages/aggiorna_password.php');
@@ -55,11 +35,13 @@ if (isset($_COOKIE['email'])) {
 }
 
 if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
+    //controllo navbar
     if (isset($_POST['nav_color'])) {
         $_SESSION['nav_color'] = $_POST['nav_color'];
-        header("Location: ./account.php"); // Reindirizzamento
+        header("Location: ./account.php");
     }
 
+    //controllo login
     if (isset($_POST['email']) && isset($_POST['password'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -89,12 +71,12 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
 ob_end_flush();
 ?>
 
-<?php if (isset($_SESSION['email']) || isset($_COOKIE['email'])) { ?>
+<?php if (isset($_SESSION['email']) || isset($_SESSION['nome'])) { ?>
     <div class="element">
         <h4>Info account</h4>
         <hr>
-        <p><strong>Nome: </strong> <?= $userData['name'] ?></p>
-        <p><strong>Email: </strong> <?= $userData['email'] ?></p>
+        <p><strong>Nome: </strong> <?= $_SESSION['nome'] ?></p>
+        <p><strong>Email: </strong> <?= $_SESSION['email'] ?></p>
     </div>
 
     <div class="element">

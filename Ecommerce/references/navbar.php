@@ -5,32 +5,20 @@ require 'connectionToDB/DBconn.php';
 $config = require 'connectionToDB/databaseConfig.php';
 $db = DBconn::getDB($config);
 
-$queryNomeUtente = 'SELECT name FROM db_GameShop.users WHERE email = :email';
-
 function logError(Exception $e): void
 {
     error_log($e->getMessage() . '---' . date('Y-m-d H:i:s' . "\n"), 3, '../references/log/DB_Errors_log');
 }
 
-if (isset($_SESSION['email'])) {
-    try {
-        $stm = $db->prepare($queryNomeUtente);
-        $stm->bindValue(':email', $_SESSION['email']);
-        $stm->execute();
-        $nomeUtente = $stm->fetchColumn();
-        $stm->closeCursor();
-        $_SESSION['nome'] = $nomeUtente;
-    } catch (Exception $e) {
-        logError($e);
-        $nomeUtente = "Ospite";
-    }
-} else if (isset($_COOKIE['email'])) {
+if(isset($_COOKIE['email']) && isset($_COOKIE['nome'])) {
     $nomeUtente = $_COOKIE['nome'];
     $_SESSION['nome'] = $_COOKIE['nome'];
     $_SESSION['email'] = $_COOKIE['email'];
     if(isset($_COOKIE['nav_color']))
         $_SESSION['nav_color'] = $_COOKIE['nav_color'];
-} else {
+} else if (isset($_SESSION['email']) && isset($_SESSION['nome'])){
+    $nomeUtente = $_SESSION['nome'];
+} else{
     $nomeUtente = "Ospite";
 }
 ?>
@@ -222,10 +210,8 @@ if (isset($_SESSION['email'])) {
 
 <body class="d-flex flex-column min-vh-100" style="background-color: whitesmoke">
 <div class="flex-grow-1">
-    <?php if (isset($_SESSION['nav_color']) && isset($_SESSION['email'])) { ?>
+    <?php if (isset($_SESSION['nav_color']) && isset($_SESSION['email']) && isset($_SESSION['nome'])) { ?>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: <?= $_SESSION['nav_color'] ?>">
-        <?php }else if (isset($_COOKIE['nav_color']) && isset($_COOKIE['email'])) { ?>
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: <?= $_COOKIE['nav_color'] ?>">
             <?php }else{ ?>
             <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black;">
                 <?php } ?>
@@ -243,7 +229,7 @@ if (isset($_SESSION['email'])) {
                             <li class="nav-item m-2">
                                 <a class="nav-link active" aria-current="page" href="./archivio.php">Archivio</a>
                             </li>
-                            <?php if (isset($_SESSION['email']) || isset($_COOKIE['email'])) { ?>
+                            <?php if (isset($_SESSION['email'])) { ?>
                                 <li class="nav-item m-2">
                                     <a class="nav-link active" aria-current="page" href="./carrello.php">Carrello</a>
                                 </li>

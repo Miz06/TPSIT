@@ -516,3 +516,37 @@
 
 2025-03-31 16:02:53 - Email utente: a@gmail.com
 2025-03-31 16:02:53 - Dati da inserire: Title: Fortnite, Edition: 2017, Quantity: 1
+2025-04-02 20:11:47 - Dati ricevuti: Array
+(
+    [title] => 
+    [edition] => 
+    [quantity] => 
+)
+
+2025-04-02 20:12:11 - Dati ricevuti: Array
+(
+    [title] => EA Sports FC 24
+    [edition] => 2024
+    [quantity] => 1
+)
+
+2025-04-02 20:12:11 - Email utente: am@gmail.com
+2025-04-02 20:12:11 - Dati da inserire: Title: EA Sports FC 24, Edition: 2024, Quantity: 1
+2025-04-02 20:12:14 - Dati ricevuti: Array
+(
+    [title] => EA Sports FC 24
+    [edition] => 2024
+    [quantity] => 1
+)
+
+2025-04-02 20:12:14 - Email utente: am@gmail.com
+2025-04-02 20:12:14 - Dati da inserire: Title: EA Sports FC 24, Edition: 2024, Quantity: 1
+2025-04-02 20:33:05 - Dati ricevuti: Array
+(
+    [title] => Call of Duty
+    [edition] => 2003
+    [quantity] => 1
+)
+
+2025-04-02 20:33:05 - Email utente: a@gmail.com
+2025-04-02 20:33:05 - Dati da inserire: Title: Call of Duty, Edition: 2003, Quantity: 1

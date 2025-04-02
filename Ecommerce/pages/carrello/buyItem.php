@@ -63,12 +63,25 @@ try {
     $stmt->bindParam(':edition', $edition);
 
     if ($stmt->execute()) {
-        echo json_encode(['success' => true]);
+        // Rimuove l'elemento dalla tabella save
+        $deleteStmt = $pdo->prepare("DELETE FROM save WHERE title = :title AND edition_year = :edition AND email = :customer_email");
+        $deleteStmt->bindParam(':title', $title);
+        $deleteStmt->bindParam(':edition', $edition);
+        $deleteStmt->bindParam(':customer_email', $user_email);
+
+        if ($deleteStmt->execute()) {
+            echo json_encode(['success' => true]);
+        } else {
+            logErrorToFile("Errore nella rimozione dal carrello: " . implode(", ", $deleteStmt->errorInfo()));
+            http_response_code(500);
+            echo json_encode(['success' => false, 'error' => 'Errore nella rimozione dal carrello']);
+        }
     } else {
         logErrorToFile("Errore nell'inserimento nel database: " . implode(", ", $stmt->errorInfo()));
         http_response_code(500);
         echo json_encode(['success' => false, 'error' => 'Errore nell\'inserimento nel database']);
     }
+
 } catch (PDOException $e) {
     http_response_code(500);
     echo json_encode(['success' => false, 'error' => $e->getMessage()]);
