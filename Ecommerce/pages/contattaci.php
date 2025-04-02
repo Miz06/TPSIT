@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
         $mail->Encoding = 'base64';
         $mail->send();
 
-        header('Location: ./home.php');
+        header('Location: ./contattaci.php');
     } catch (Exception $e) {
         logError($e);
     }
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
 }
 ?>
     <div class="element">
-        <form method="post" action="home.php">
+        <form method="post" action="contattaci.php">
             <h4>Contattaci</h4>
             <hr>
 
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
             <input type="text" name="content" id="content" required>
 
             <div class="submit-container">
-                <input type="submit" value="Invia email al team Fast Route">
+                <input type="submit" value="Invia email">
             </div>
         </form>
     </div>

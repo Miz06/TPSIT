@@ -224,7 +224,7 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['nome'])) {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item m-2">
-                                <a class="nav-link active" aria-current="page" href="./home.php">Home</a>
+                                <a class="nav-link active" aria-current="page" href="./contattaci.php">Contattaci</a>
                             </li>
                             <li class="nav-item m-2">
                                 <a class="nav-link active" aria-current="page" href="./archivio.php">Archivio</a>
