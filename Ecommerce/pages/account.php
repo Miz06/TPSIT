@@ -6,28 +6,23 @@ require '../references/navbar.php';
 $config = require '../references/connectionToDB/databaseConfig.php';
 $db = DBconn::getDB($config);
 
-$queryUpdatePassword = 'UPDATE db_GameShop.users SET password = :password WHERE email = :email';
-$querySelectUserData = 'SELECT * FROM db_GameShop.users WHERE email = :email';
-$queryCheckLogin = 'SELECT email, password FROM db_GameShop.users WHERE email = :email';
+$queryCheckLogin = 'SELECT email, password, name FROM db_GameShop.users WHERE email = :email';
 
 $wrongCredentials = "";
 
-if (isset($_SESSION['email'])) {
+if (isset($_SESSION['email']) && isset($_POST['password_attuale'])) {
     try {
-        $stm = $db->prepare($querySelectUserData);
+        $stm = $db->prepare($queryCheckLogin);
         $stm->bindValue(':email', $_SESSION['email']);
         $stm->execute();
 
         $userData = $stm->fetch(PDO::FETCH_ASSOC);
         $stm->closeCursor();
 
-        $_SESSION['nome'] = $userData['name'];
-        if (isset($_POST['password_attuale'])) {
-            if (password_verify($_POST['password_attuale'], $userData['password'])) {
-                header('location: ../pages/aggiorna_password.php');
-            } else {
-                $wrongCredentials = "Password errata! Riprovare";
-            }
+        if (password_verify($_POST['password_attuale'], $userData['password'])) {
+            header('location: ../pages/aggiorna_password.php');
+        } else {
+            $wrongCredentials = "Password errata! Riprovare";
         }
     } catch (Exception $e) {
         logError($e);
@@ -57,7 +52,8 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
 
             if ($user && $email == $user['email'] && password_verify($password, $user['password'])) {
                 $_SESSION['email'] = $_POST['email'];
-                header('Location: ./archivio.php');
+                $_SESSION['nome'] = $user['name'];
+                header("Location: ./account.php");
             } else {
                 $wrongCredentials = 'Credenziali errate! Riprovare';
             }

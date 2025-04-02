@@ -2,6 +2,7 @@
 ob_start();
 $title = 'archivio';
 require '../references/navbar.php';
+require '../references/api.php';
 
 $config = require '../references/connectionToDB/databaseConfig.php';;
 $db = DBconn::getDB($config);

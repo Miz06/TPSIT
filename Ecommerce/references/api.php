@@ -40,9 +40,7 @@ if ($result->num_rows > 0) {
 // Creazione del file JSON
 $data = ["games" => $games];
 $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-file_put_contents("./archivio/archivio.json", $json);
-
-echo "File JSON creato con successo.";
+file_put_contents("../pages/archivio/archivio.json", $json);
 
 // Chiudi connessione
 $conn->close();
