@@ -6,7 +6,7 @@ require '../references/navbar.php';
 $config = require '../references/connectionToDB/databaseConfig.php';
 $db = DBconn::getDB($config);
 
-$queryCheckLogin = 'SELECT email, password, name FROM db_GameShop.users WHERE email = :email';
+$queryCheckLogin = 'SELECT * FROM db_GameShop.users WHERE email = :email';
 
 $wrongCredentials = "";
 
